@@ -9,6 +9,9 @@ The Marqeta Core API adheres to the Open API (formerly Swagger) Specification ve
 |----------|----------|
 | <img src="http://online.swagger.io/validator?url=https://shared-sandbox-api.marqeta.com/v3/swagger.json"> | <img src="http://online.swagger.io/validator?url=https://raw.githubusercontent.com/CapitalOnTap/marqeta-swagger-json/master/swagger.json"> |
 
+## Usage
+To use the modified version of the JSON file simply reference the [raw content for the file](https://raw.githubusercontent.com/CapitalOnTap/marqeta-swagger-json/master/swagger.json).
+
 ## Documentation
 
 For complete reference documentation, see the [Marqeta Core API Reference](https://www.marqeta.com/api/docs/WYDH6igAAL8FnF21/api-introduction).
