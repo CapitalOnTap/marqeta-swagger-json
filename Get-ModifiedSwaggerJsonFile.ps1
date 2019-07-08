@@ -308,8 +308,7 @@ else {
 
     # card_product
     #   velocityProfiles
-    $jsonObject.definitions['card_product'].properties.velocityProfiles.type = 'string'
-    $jsonObject.definitions['card_product'].properties.velocityProfiles.Remove('additionalProperties') | Out-Null
+    $jsonObject.definitions['card_product'].properties.velocityProfiles.items.type = 'string'
 
     # Campaign
     #   dealDescriptors
@@ -325,28 +324,33 @@ else {
 
     # CompositeAccount
     #   children0
-    $jsonObject.definitions['CompositeAccount'].properties.children0.'$ref' = '#/definitations/CompositeAccount'
-    $jsonObject.definitions['CompositeAccount'].properties.children0.Remove('type') | Out-Null
+    $jsonObject.definitions['CompositeAccount'].properties.children0.items.'$ref' = '#/definitations/CompositeAccount'
+    $jsonObject.definitions['CompositeAccount'].properties.children0.items.Remove('type') | Out-Null
 
     # CryptoKey
     #   zoneKeys
-    $jsonObject.definitions['CryptoKey'].properties.zoneKeys.'$ref' = '#/definitations/CryptoKey'
-    $jsonObject.definitions['CryptoKey'].properties.zoneKeys.Remove('type') | Out-Null
+    $jsonObject.definitions['CryptoKey'].properties.zoneKeys.items.'$ref' = '#/definitations/CryptoKey'
+    $jsonObject.definitions['CryptoKey'].properties.zoneKeys.items.Remove('type') | Out-Null
     #   cryptoKeys
-    $jsonObject.definitions['CryptoKey'].properties.cryptoKeys.'$ref' = '#/definitations/CryptoKey'
-    $jsonObject.definitions['CryptoKey'].properties.cryptoKeys.Remove('type') | Out-Null
+    $jsonObject.definitions['CryptoKey'].properties.cryptoKeys.items.'$ref' = '#/definitations/CryptoKey'
+    $jsonObject.definitions['CryptoKey'].properties.cryptoKeys.items.Remove('type') | Out-Null
 
     # FinalAccount
     #   children0
-    $jsonObject.definitions['FinalAccount'].properties.children0.items.'$ref' = '#/definitations/CryptoKey'
+    $jsonObject.definitions['FinalAccount'].properties.children0.items.'$ref' = '#/definitations/CompositeAccount'
     $jsonObject.definitions['FinalAccount'].properties.children0.items.Remove('type') | Out-Null
+
+    # Gatewaylog
+    #   gatewayResponse
+    $jsonObject.definitions['Gatewaylog'].properties.gatewayResponse.'$ref' = '#/definitations/gateway_response'
+    $jsonObject.definitions['Gatewaylog'].properties.gatewayResponse.Remove('type') | Out-Null
 
     # GLTransaction
     #   entries
-    $jsonObject.definitions['GLTransaction'].properties.entries.items.'$ref' = '#/definitations/GL Entry'
+    $jsonObject.definitions['GLTransaction'].properties.entries.items.'$ref' = '#/definitations/GLEntry'
     $jsonObject.definitions['GLTransaction'].properties.entries.items.Remove('type') | Out-Null
     #   adjustmentEntries
-    $jsonObject.definitions['GLTransaction'].properties.adjustmentEntries.items.'$ref' = '#/definitations/GL Entry'
+    $jsonObject.definitions['GLTransaction'].properties.adjustmentEntries.items.'$ref' = '#/definitations/GLEntry'
     $jsonObject.definitions['GLTransaction'].properties.adjustmentEntries.items.Remove('type') | Out-Null
 
     # Journal
@@ -382,7 +386,7 @@ else {
 
     # TranLog
     #   followUps
-    $jsonObject.definitions['TranLog'].properties.followUps.type = 'string'
+    $jsonObject.definitions['TranLog'].properties.followUps.items.type = 'string'
 
     # UserCardHolder
     #   accounts
