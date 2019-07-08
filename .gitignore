@@ -1,0 +1,3 @@
+# Ignore custom swagger JSON files
+# This is useful for local comparisons when editing
+swagger.*.json
