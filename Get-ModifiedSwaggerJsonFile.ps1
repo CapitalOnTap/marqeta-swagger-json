@@ -292,6 +292,113 @@ else {
     # /Paginated responses
     #
 
+    #
+    # References to object type with no definitions
+    #
+
+    # advanced_simulation_response_model
+    #   raw_iso8583
+    $jsonObject.definitions['advanced_simulation_response_model'].properties.raw_iso8583.type = 'string'
+    $jsonObject.definitions['advanced_simulation_response_model'].properties.raw_iso8583.Remove('additionalProperties') | Out-Null
+
+    # Brand
+    #   campaigns
+    $jsonObject.definitions['Brand'].properties.campaigns.items.'$ref' = '#/definitions/campaign_model'
+    $jsonObject.definitions['Brand'].properties.campaigns.items.Remove('type') | Out-Null
+
+    # card_product
+    #   velocityProfiles
+    $jsonObject.definitions['card_product'].properties.velocityProfiles.items.type = 'string'
+
+    # Campaign
+    #   dealDescriptors
+    $jsonObject.definitions['Campaign'].properties.dealDescriptors.items.'$ref' = '#/definitions/DealDescriptor'
+    $jsonObject.definitions['Campaign'].properties.dealDescriptors.items.Remove('type') | Out-Null
+
+    # CardHolder
+    #   accounts
+    $jsonObject.definitions['CardHolder'].properties.accounts.type = 'array'
+    $jsonObject.definitions['CardHolder'].properties.accounts.uniqueItems = $true
+    $jsonObject.definitions['CardHolder'].properties.accounts.items = @{ '$ref' = '#/definitions/account_model' }
+    $jsonObject.definitions['CardHolder'].properties.accounts.Remove('additionalProperties') | Out-Null
+
+    # CompositeAccount
+    #   children0
+    $jsonObject.definitions['CompositeAccount'].properties.children0.items.'$ref' = '#/definitions/CompositeAccount'
+    $jsonObject.definitions['CompositeAccount'].properties.children0.items.Remove('type') | Out-Null
+
+    # CryptoKey
+    #   zoneKeys
+    $jsonObject.definitions['CryptoKey'].properties.zoneKeys.items.'$ref' = '#/definitions/CryptoKey'
+    $jsonObject.definitions['CryptoKey'].properties.zoneKeys.items.Remove('type') | Out-Null
+    #   cryptoKeys
+    $jsonObject.definitions['CryptoKey'].properties.cryptoKeys.items.'$ref' = '#/definitions/CryptoKey'
+    $jsonObject.definitions['CryptoKey'].properties.cryptoKeys.items.Remove('type') | Out-Null
+
+    # FinalAccount
+    #   children0
+    $jsonObject.definitions['FinalAccount'].properties.children0.items.'$ref' = '#/definitions/CompositeAccount'
+    $jsonObject.definitions['FinalAccount'].properties.children0.items.Remove('type') | Out-Null
+
+    # Gatewaylog
+    #   gatewayResponse
+    $jsonObject.definitions['Gatewaylog'].properties.gatewayResponse.'$ref' = '#/definitions/gateway_response'
+    $jsonObject.definitions['Gatewaylog'].properties.gatewayResponse.Remove('type') | Out-Null
+
+    # GLTransaction
+    #   entries
+    $jsonObject.definitions['GLTransaction'].properties.entries.items.'$ref' = '#/definitions/GLEntry'
+    $jsonObject.definitions['GLTransaction'].properties.entries.items.Remove('type') | Out-Null
+    #   adjustmentEntries
+    $jsonObject.definitions['GLTransaction'].properties.adjustmentEntries.items.'$ref' = '#/definitions/GLEntry'
+    $jsonObject.definitions['GLTransaction'].properties.adjustmentEntries.items.Remove('type') | Out-Null
+
+    # Journal
+    #   permissions
+    $jsonObject.definitions['Journal'].properties.permissions.items.type = 'string'
+    #   layers
+    $jsonObject.definitions['Journal'].properties.layers.items.type = 'string'
+
+    # mcc_group_model
+    #   mccs
+    $jsonObject.definitions['mcc_group_model'].properties.mccs.items.type = 'string'
+
+    # Merchant
+    #   externalInfo
+    $jsonObject.definitions['Merchant'].properties.externalInfo.type = 'string'
+    $jsonObject.definitions['Merchant'].properties.externalInfo.Remove('additionalProperties') | Out-Null
+    #   stores
+    $jsonObject.definitions['Merchant'].properties.stores.items.'$ref' = '#/definitions/store_model'
+    $jsonObject.definitions['Merchant'].properties.stores.items.Remove('type') | Out-Null
+    #   terminals
+    $jsonObject.definitions['Merchant'].properties.terminals.items.'$ref' = '#/definitions/terminal_model'
+    $jsonObject.definitions['Merchant'].properties.terminals.items.Remove('type') | Out-Null
+
+    # monitor_response
+    #   metadata
+    $jsonObject.definitions['monitor_response'].properties.metadata.type = 'string'
+    $jsonObject.definitions['monitor_response'].properties.metadata.Remove('additionalProperties') | Out-Null
+   
+    # simulation_response_model
+    #   raw_iso8583
+    $jsonObject.definitions['simulation_response_model'].properties.raw_iso8583.type = 'string'
+    $jsonObject.definitions['simulation_response_model'].properties.raw_iso8583.Remove('additionalProperties') | Out-Null
+
+    # TranLog
+    #   followUps
+    $jsonObject.definitions['TranLog'].properties.followUps.items.type = 'string'
+
+    # UserCardHolder
+    #   accounts
+    $jsonObject.definitions['UserCardHolder'].properties.accounts.type = 'array'
+    $jsonObject.definitions['UserCardHolder'].properties.accounts.uniqueItems = $true
+    $jsonObject.definitions['UserCardHolder'].properties.accounts.items = @{ '$ref' = '#/definitions/account_model' }
+    $jsonObject.definitions['UserCardHolder'].properties.accounts.Remove('additionalProperties') | Out-Null
+
+    #
+    # /References to object type with no definitions
+    #
+
     Write-Verbose "Writing file."
     $jsonObject | ConvertTo-Json -depth 100 | Out-File -Encoding utf8 $File
 }
