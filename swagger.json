@@ -14033,14 +14033,14 @@
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
-                        "$ref": "#/definitations/store_model"
+                        "$ref": "#/definitions/store_model"
                     }
                 },
                 "terminals": {
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
-                        "$ref": "#/definitations/terminal_model"
+                        "$ref": "#/definitions/terminal_model"
                     }
                 },
                 "acquirer": {
@@ -15562,7 +15562,7 @@
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
-                        "$ref": "#/definitations/campaign_model"
+                        "$ref": "#/definitions/campaign_model"
                     }
                 },
                 "token": {
@@ -18350,7 +18350,7 @@
                     "type": "string"
                 },
                 "gatewayResponse": {
-                    "$ref": "#/definitations/gateway_response"
+                    "$ref": "#/definitions/gateway_response"
                 },
                 "timedOut": {
                     "type": "boolean",
@@ -21991,7 +21991,7 @@
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
-                        "$ref": "#/definitations/CompositeAccount"
+                        "$ref": "#/definitions/CompositeAccount"
                     }
                 },
                 "finalAccount": {
@@ -24197,7 +24197,7 @@
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
-                        "$ref": "#/definitations/account_model"
+                        "$ref": "#/definitions/account_model"
                     }
                 },
                 "cards": {
@@ -25059,13 +25059,13 @@
                 "entries": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitations/GLEntry"
+                        "$ref": "#/definitions/GLEntry"
                     }
                 },
                 "adjustmentEntries": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitations/GLEntry"
+                        "$ref": "#/definitions/GLEntry"
                     }
                 },
                 "issuerFeesCreditAmount": {
@@ -25266,7 +25266,7 @@
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
-                        "$ref": "#/definitations/DealDescriptor"
+                        "$ref": "#/definitions/DealDescriptor"
                     }
                 },
                 "active": {
@@ -26826,14 +26826,14 @@
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
-                        "$ref": "#/definitations/CryptoKey"
+                        "$ref": "#/definitions/CryptoKey"
                     }
                 },
                 "cryptoKeys": {
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
-                        "$ref": "#/definitations/CryptoKey"
+                        "$ref": "#/definitions/CryptoKey"
                     }
                 }
             }
@@ -27386,7 +27386,7 @@
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
-                        "$ref": "#/definitations/CompositeAccount"
+                        "$ref": "#/definitions/CompositeAccount"
                     }
                 },
                 "debit": {
@@ -30365,7 +30365,7 @@
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
-                        "$ref": "#/definitations/account_model"
+                        "$ref": "#/definitions/account_model"
                     }
                 },
                 "cards": {
