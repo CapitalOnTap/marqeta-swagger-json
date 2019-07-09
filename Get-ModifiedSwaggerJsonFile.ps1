@@ -296,19 +296,54 @@ else {
     # References to object type with no definitions
     #
 
+    ## No existing definitions
+
     # advanced_simulation_response_model
     #   raw_iso8583
-    $jsonObject.definitions['advanced_simulation_response_model'].properties.raw_iso8583.type = 'string'
-    $jsonObject.definitions['advanced_simulation_response_model'].properties.raw_iso8583.Remove('additionalProperties') | Out-Null
+    # TODO: We should generate an ISO8583 type
+    # $jsonObject.definitions['advanced_simulation_response_model'].properties.raw_iso8583.type = 'string'
+    # $jsonObject.definitions['advanced_simulation_response_model'].properties.raw_iso8583.Remove('additionalProperties') | Out-Null
+
+    # card_product
+    #   velocityProfiles
+    # $jsonObject.definitions['card_product'].properties.velocityProfiles.items.type = 'string'
+
+    # Journal
+    #   permissions
+    # $jsonObject.definitions['Journal'].properties.permissions.items.type = 'string'
+    #   layers
+    # $jsonObject.definitions['Journal'].properties.layers.items.type = 'string'
+
+    # mcc_group_model
+    #   mccs
+    $jsonObject.definitions['mcc_group_model'].properties.mccs.items.type = 'string'
+
+    # Merchant
+    #   externalInfo
+    # $jsonObject.definitions['Merchant'].properties.externalInfo.type = 'string'
+    # $jsonObject.definitions['Merchant'].properties.externalInfo.Remove('additionalProperties') | Out-Null
+
+    # monitor_response
+    #   metadata
+    # $jsonObject.definitions['monitor_response'].properties.metadata.type = 'string'
+    # $jsonObject.definitions['monitor_response'].properties.metadata.Remove('additionalProperties') | Out-Null
+   
+    # simulation_response_model
+    #   raw_iso8583
+    # TODO: We should generate an ISO8583 type
+    # $jsonObject.definitions['simulation_response_model'].properties.raw_iso8583.type = 'string'
+    # $jsonObject.definitions['simulation_response_model'].properties.raw_iso8583.Remove('additionalProperties') | Out-Null
+
+    # TranLog
+    #   followUps
+    # $jsonObject.definitions['TranLog'].properties.followUps.items.type = 'string'
+
+    ## Existing definitions
 
     # Brand
     #   campaigns
     $jsonObject.definitions['Brand'].properties.campaigns.items.'$ref' = '#/definitions/campaign_model'
     $jsonObject.definitions['Brand'].properties.campaigns.items.Remove('type') | Out-Null
-
-    # card_product
-    #   velocityProfiles
-    $jsonObject.definitions['card_product'].properties.velocityProfiles.items.type = 'string'
 
     # Campaign
     #   dealDescriptors
@@ -353,40 +388,13 @@ else {
     $jsonObject.definitions['GLTransaction'].properties.adjustmentEntries.items.'$ref' = '#/definitions/GLEntry'
     $jsonObject.definitions['GLTransaction'].properties.adjustmentEntries.items.Remove('type') | Out-Null
 
-    # Journal
-    #   permissions
-    $jsonObject.definitions['Journal'].properties.permissions.items.type = 'string'
-    #   layers
-    $jsonObject.definitions['Journal'].properties.layers.items.type = 'string'
-
-    # mcc_group_model
-    #   mccs
-    $jsonObject.definitions['mcc_group_model'].properties.mccs.items.type = 'string'
-
     # Merchant
-    #   externalInfo
-    $jsonObject.definitions['Merchant'].properties.externalInfo.type = 'string'
-    $jsonObject.definitions['Merchant'].properties.externalInfo.Remove('additionalProperties') | Out-Null
     #   stores
     $jsonObject.definitions['Merchant'].properties.stores.items.'$ref' = '#/definitions/store_model'
     $jsonObject.definitions['Merchant'].properties.stores.items.Remove('type') | Out-Null
     #   terminals
     $jsonObject.definitions['Merchant'].properties.terminals.items.'$ref' = '#/definitions/terminal_model'
     $jsonObject.definitions['Merchant'].properties.terminals.items.Remove('type') | Out-Null
-
-    # monitor_response
-    #   metadata
-    $jsonObject.definitions['monitor_response'].properties.metadata.type = 'string'
-    $jsonObject.definitions['monitor_response'].properties.metadata.Remove('additionalProperties') | Out-Null
-   
-    # simulation_response_model
-    #   raw_iso8583
-    $jsonObject.definitions['simulation_response_model'].properties.raw_iso8583.type = 'string'
-    $jsonObject.definitions['simulation_response_model'].properties.raw_iso8583.Remove('additionalProperties') | Out-Null
-
-    # TranLog
-    #   followUps
-    $jsonObject.definitions['TranLog'].properties.followUps.items.type = 'string'
 
     # UserCardHolder
     #   accounts
