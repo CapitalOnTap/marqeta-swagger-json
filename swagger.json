@@ -11264,7 +11264,10 @@
                     "200": {
                         "description": "Success",
                         "schema": {
-                            "$ref": "#/definitions/card_holder_model_paginated_response"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/user_card_holder_response"
+                            }
                         }
                     },
                     "400": {
