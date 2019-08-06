@@ -196,8 +196,12 @@ else {
     #
     # Paginated responses
     #
-    Write-Verbose "Adding paginated responses."
+    Write-Verbose "Pre-paginated responses massaging."
+    
+    # /users/{parent_token}/children
+    $jsonObject.paths['/users/{parent_token}/children'].get.responses['200'].schema.items.'$ref' = '#/definitions/user_card_holder_response'
 
+    Write-Verbose "Adding paginated responses."
     $paths = @(
         '/acceptedcountries'
         '/accountholdergroups'
@@ -238,6 +242,7 @@ else {
         '/usertransitions/user/{user_token}'
         '/users'
         '/users/phonenumber/{phone_number}'
+        '/users/{parent_token}/children'
         '/users/{token}/notes'
         '/velocitycontrols'
         '/velocitycontrols/user/{user_token}/available'
@@ -295,9 +300,6 @@ else {
     # Incorrect responses
     #
     Write-Verbose "Fixing incorrect responses."
-
-    # /users/{parent_token}/children
-    $jsonObject.paths['/users/{parent_token}/children'].get.responses['200'].schema.items.'$ref' = '#/definitions/user_card_holder_response'
 
     #
     # /Incorrect responses
