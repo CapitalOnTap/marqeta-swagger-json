@@ -11264,10 +11264,7 @@
                     "200": {
                         "description": "Success",
                         "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/user_card_holder_response"
-                            }
+                            "$ref": "#/definitions/user_card_holder_response_paginated_response"
                         }
                     },
                     "400": {
@@ -11459,7 +11456,7 @@
                     "200": {
                         "description": "Success",
                         "schema": {
-                            "$ref": "#/definitions/card_holder_model_paginated_response"
+                            "$ref": "#/definitions/user_card_holder_response_paginated_response"
                         }
                     },
                     "400": {
@@ -31897,6 +31894,32 @@
                 "data": {
                     "items": {
                         "$ref": "#/definitions/card_holder_model"
+                    },
+                    "type": "array"
+                },
+                "count": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "start_index": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "type": "object"
+        },
+        "user_card_holder_response_paginated_response": {
+            "properties": {
+                "is_more": {
+                    "type": "boolean"
+                },
+                "end_index": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "data": {
+                    "items": {
+                        "$ref": "#/definitions/user_card_holder_response"
                     },
                     "type": "array"
                 },
