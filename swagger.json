@@ -25802,12 +25802,12 @@
                                                                                                                                  "type":  "string"
                                                                                                                              }
                                                                                                 },
-                                                                     "issuerReceivedTime":  {
-                                                                                                "type":  "string"
-                                                                                            },
-                                                                     "issuerPaymentNode":  {
-                                                                                               "type":  "string"
-                                                                                           }
+                                                                     "issuer_received_time":  {
+                                                                                                  "type":  "string"
+                                                                                              },
+                                                                     "issuer_payment_node":  {
+                                                                                                 "type":  "string"
+                                                                                             }
                                                                  }
                                               },
                         "provisioning_controls":  {

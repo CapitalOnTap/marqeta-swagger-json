@@ -420,6 +420,23 @@ else {
     # /References to object type with no definitions
     #
 
+    #
+    # Incorectly named properties
+    #
+
+    # transaction_model
+    #    issuer_received_time
+    $jsonObject.definitions['transaction_model'].properties.Remove('issuerReceivedTime')
+    $jsonObject.definitions['transaction_model'].properties.Add('issuer_received_time',@{ 'type' = 'string' })
+    #    issuer_payment_node
+    $jsonObject.definitions['transaction_model'].properties.Remove('issuerPaymentNode')
+    $jsonObject.definitions['transaction_model'].properties.Add('issuer_payment_node',@{ 'type' = 'string' })
+
+    
+    #
+    # /Incorectly named properties
+    #
+
     Write-Verbose "Writing file."
     $jsonObject | ConvertTo-Json -depth 100 | Out-File -Encoding utf8 $File
 }
