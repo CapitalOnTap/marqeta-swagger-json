@@ -283,7 +283,8 @@ else {
     # Output difference for reporting purposes
     $ttDelta = ($requiredTransactionEventTypes | Where-Object { $currentTransactionTypes -notcontains $_ })
     if ($ttDelta -and ($ttDelta.Count -ge 1)) {
-        Write-Verbose "Added the following transaction types: $($ttDelta)."
+        Write-Verbose "Added $($ttDelta.Count) transaction types:"
+        Write-Verbose "$($ttDelta)"
     }
     else {
         Write-Verbose "Transaction Types valid, not changes made."
