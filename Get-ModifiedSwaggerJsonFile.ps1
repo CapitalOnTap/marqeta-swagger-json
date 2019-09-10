@@ -157,6 +157,138 @@ else {
         $JsonObject[$PropertyName] = $newValue
     }
     Invoke-DelegateOnJsonNodeWithProperty -PropertyName "enum" -Delegate $delegate -JsonObject $JsonObject
+
+    # Transaction Event Types
+    # NB: Taken from https://www.marqeta.com/docs/core-api/event-types on 2019/09/10
+    Write-Verbose "Validating Transaction Event Types."
+    $requiredTransactionEventTypes = @(
+        'account.credit',
+        'account.debit',
+        'account.funding.auth_plus_capture',
+        'account.funding.auth_plus_capture.reversal',
+        'account.funding.authorization',
+        'account.funding.authorization.clearing',
+        'account.funding.authorization.reversal',
+        'authorization',
+        'authorization.advice',
+        'authorization.clearing',
+        'authorization.clearing.chargeback',
+        'authorization.clearing.chargeback.completed',
+        'authorization.clearing.chargeback.provisional.credit',
+        'authorization.clearing.chargeback.provisional.debit',
+        'authorization.clearing.chargeback.reversal',
+        'authorization.clearing.chargeback.writeoff',
+        'authorization.clearing.representment',
+        'authorization.incremental',
+        'authorization.reversal',
+        'authorization.reversal.issuerexpiration',
+        'authorization.standin',
+        'billpayment',
+        'billpayment.clearing',
+        'billpayment.reversal',
+        'creditline.credit',
+        'creditline.debit',
+        'creditline.fee',
+        'creditline.financecharge',
+        'directdeposit.credit',
+        'directdeposit.credit.pending',
+        'directdeposit.credit.pending.reversal',
+        'directdeposit.credit.reject',
+        'directdeposit.credit.reversal',
+        'directdeposit.debit',
+        'directdeposit.debit.pending',
+        'directdeposit.debit.pending.reversal',
+        'directdeposit.debit.reject',
+        'directdeposit.debit.reversal',
+        'fee.charge',
+        'fee.charge.pending',
+        'fee.charge.pending.refund',
+        'fee.charge.reversal',
+        'funds.expire',
+        'gpa.credit',
+        'gpa.credit.authorization',
+        'gpa.credit.authorization.billpayment',
+        'gpa.credit.authorization.billpayment.reversal',
+        'gpa.credit.authorization.reversal',
+        'gpa.credit.billpayment',
+        'gpa.credit.chargeback',
+        'gpa.credit.chargeback.reversal',
+        'gpa.credit.issueroperator',
+        'gpa.credit.networkload',
+        'gpa.credit.networkload.reversal',
+        'gpa.credit.pending',
+        'gpa.credit.pending.reversal',
+        'gpa.credit.reversal',
+        'gpa.debit',
+        'gpa.debit.issueroperator',
+        'gpa.debit.networkload',
+        'gpa.debit.pending',
+        'gpa.debit.pending.reversal',
+        'gpa.debit.reversal',
+        'gpa.grant',
+        'msa.credit',
+        'msa.credit.chargeback',
+        'msa.credit.chargeback.reversal',
+        'msa.credit.pending',
+        'msa.credit.pending.reversal',
+        'msa.credit.reversal',
+        'msa.debit',
+        'msa.debit.pending',
+        'msa.debit.pending.reversal',
+        'original.credit.auth_plus_capture',
+        'original.credit.auth_plus_capture.reversal',
+        'original.credit.authorization',
+        'original.credit.authorization.clearing',
+        'original.credit.authorization.reversal',
+        'pindebit',
+        'pindebit.atm.withdrawal',
+        'pindebit.authorization',
+        'pindebit.authorization.clearing',
+        'pindebit.authorization.reversal.issuerexpiration',
+        'pindebit.balanceinquiry',
+        'pindebit.cashback',
+        'pindebit.chargeback',
+        'pindebit.chargeback.completed',
+        'pindebit.chargeback.provisional.credit',
+        'pindebit.chargeback.provisional.debit',
+        'pindebit.chargeback.reversal',
+        'pindebit.chargeback.writeoff',
+        'pindebit.credit.adjustment',
+        'pindebit.refund',
+        'pindebit.refund.reversal',
+        'pindebit.reversal',
+        'pindebit.transfer',
+        'programreserve.credit',
+        'programreserve.debit',
+        'pushtocard.debit',
+        'pushtocard.reversal',
+        'refund',
+        'refund.authorization',
+        'refund.authorization.clearing',
+        'reward.earn',
+        'token.activation-request',
+        'token.advice',
+        'transaction.unknown',
+        'transfer.fee',
+        'transfer.peer',
+        'transfer.program',
+        'unknown'
+    )
+
+    # Update values
+    $currentTransactionTypes = $jsonObject.definitions['transaction_model'].properties.type.enum
+    $ttUnion = ($currentTransactionTypes + $requiredTransactionEventTypes | Select-Object -Unique) | Sort-Object
+    $jsonObject.definitions['transaction_model'].properties.type.enum = $ttUnion
+    
+    # Output difference for reporting purposes
+    $ttDelta = ($requiredTransactionEventTypes | Where-Object { $currentTransactionTypes -notcontains $_ })
+    if ($ttDelta -and ($ttDelta.Count -ge 1)) {
+        Write-Verbose "Added the following transaction types: $($ttDelta)."
+    }
+    else {
+        Write-Verbose "Transaction Types valid, not changes made."
+    }
+
     #
     # /Enum
     #
@@ -421,20 +553,20 @@ else {
     #
 
     #
-    # Incorectly named properties
+    # Incorrectly named properties
     #
 
     # transaction_model
     #    issuer_received_time
-    $jsonObject.definitions['transaction_model'].properties.Remove('issuerReceivedTime')
-    $jsonObject.definitions['transaction_model'].properties.Add('issuer_received_time',@{ 'type' = 'string' })
+    $jsonObject.definitions['transaction_model'].properties.Remove('issuerReceivedTime') | Out-Null
+    $jsonObject.definitions['transaction_model'].properties.Add('issuer_received_time', @{ 'type' = 'string' })
     #    issuer_payment_node
-    $jsonObject.definitions['transaction_model'].properties.Remove('issuerPaymentNode')
-    $jsonObject.definitions['transaction_model'].properties.Add('issuer_payment_node',@{ 'type' = 'string' })
+    $jsonObject.definitions['transaction_model'].properties.Remove('issuerPaymentNode') | Out-Null
+    $jsonObject.definitions['transaction_model'].properties.Add('issuer_payment_node', @{ 'type' = 'string' })
 
     
     #
-    # /Incorectly named properties
+    # /Incorrectly named properties
     #
 
     Write-Verbose "Writing file."
