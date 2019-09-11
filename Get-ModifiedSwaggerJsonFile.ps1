@@ -554,8 +554,25 @@ else {
     #
 
     #
-    # Incorrectly named properties
+    # Definitions: missing properties
     #
+
+    Write-Verbose "Adding missing properties to definitions."
+
+    if ($null -eq $jsonObject.definitions['transaction_model'].properties.card_acceptor) {
+        Write-Verbose "Adding 'card_acceptor' to 'transaction_model'."
+        $jsonObject.definitions['transaction_model'].properties.Add('card_acceptor', @{ '$ref' = '#/definitions/transaction_card_acceptor' })
+    }
+
+    #
+    # /Definitions: missing properties
+    #
+
+    #
+    # Definitions: incorrectly named properties
+    #
+
+    Write-Verbose "Fixing incorrectly named definition properties."
 
     # transaction_model
     #    issuer_received_time
@@ -567,7 +584,7 @@ else {
 
     
     #
-    # /Incorrectly named properties
+    # /Definitions: incorrectly named properties
     #
 
     Write-Verbose "Writing file."
