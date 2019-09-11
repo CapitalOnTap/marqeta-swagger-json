@@ -585,9 +585,16 @@ else {
 
     Write-Verbose "Adding missing properties to definitions."
 
-    if ($null -eq $jsonObject.definitions['transaction_model'].properties.card_acceptor) {
-        Write-Verbose "Adding 'card_acceptor' to 'transaction_model'."
-        $jsonObject.definitions['transaction_model'].properties.Add('card_acceptor', @{ '$ref' = '#/definitions/transaction_card_acceptor' })
+    $missingProperties = @(
+        # Please keep these values in a alphabetical order based on the following fields in order of precedence: Definition, PropertyName
+        @{ Definition = 'transaction_model'; PropertyName = 'card_acceptor'; PropertyValue = @{ '$ref' = '#/definitions/transaction_card_acceptor' }; }
+        , @{ Definition = 'transaction_model'; PropertyName = 'pos'; PropertyValue = @{ '$ref' = '#/definitions/pos' }; }
+    )
+    foreach ($missingProperty in $missingProperties) {
+        if ($null -eq $jsonObject.definitions[$missingProperty.Definition].properties."$($missingProperty.PropertyName)") {
+            Write-Verbose "Adding '$($missingProperty.PropertyName)' to '$($missingProperty.Definition)'."
+            $jsonObject.definitions[$missingProperty.Definition].properties.Add($missingProperty.PropertyName, $missingProperty.PropertyValue)
+        }
     }
 
     #
