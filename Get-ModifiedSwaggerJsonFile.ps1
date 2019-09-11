@@ -158,6 +158,32 @@ else {
     }
     Invoke-DelegateOnJsonNodeWithProperty -PropertyName "enum" -Delegate $delegate -JsonObject $JsonObject
 
+    # Add missing enum values
+    Write-Verbose "Adding missing enum values."
+
+    # /definitions/pos/properties/pin_entry_mode/enum
+    $pemEnum = $jsonObject.definitions['pos'].properties.pin_entry_mode.enum
+    if ($pemEnum.ToLower() -notcontains 'unknown') {
+        $pemEnum += 'UNKNOWN'
+        $jsonObject.definitions['pos'].properties.pin_entry_mode.enum = $pemEnum
+    }
+
+    # Update values
+    $currentTransactionTypes = $jsonObject.definitions['transaction_model'].properties.type.enum
+    $ttUnion = ($currentTransactionTypes + $requiredTransactionEventTypes | Select-Object -Unique) | Sort-Object
+    $jsonObject.definitions['transaction_model'].properties.type.enum = $ttUnion
+    
+    # Output difference for reporting purposes
+    $ttDelta = ($requiredTransactionEventTypes | Where-Object { $currentTransactionTypes -notcontains $_ })
+    if ($ttDelta -and ($ttDelta.Count -ge 1)) {
+        Write-Verbose "Added $($ttDelta.Count) transaction types:"
+        Write-Verbose "$($ttDelta)"
+    }
+    else {
+        Write-Verbose "Transaction Types valid, not changes made."
+    }
+
+
     # Transaction Event Types
     # NB: Taken from https://www.marqeta.com/docs/core-api/event-types on 2019/09/10
     Write-Verbose "Validating Transaction Event Types."

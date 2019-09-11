@@ -23481,7 +23481,8 @@
                     "enum": [
                         "TRUE",
                         "FALSE",
-                        "DEFECTIVE"
+                        "DEFECTIVE",
+                        "UNKNOWN"
                     ]
                 },
                 "terminal_id": {
