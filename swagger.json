@@ -26093,6 +26093,9 @@
                 },
                 "issuer_payment_node": {
                     "type": "string"
+                },
+                "card_acceptor": {
+                    "$ref": "#/definitions/transaction_card_acceptor"
                 }
             }
         },
