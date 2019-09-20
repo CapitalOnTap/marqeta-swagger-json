@@ -317,6 +317,40 @@ else {
     }
 
     #
+    # Add Unknown values
+    #
+
+    $unknownValue = 'UNKNOWN'
+
+    # # TODO - Figure out a way to do this by reference 
+    # $enumRefs = @(
+    #     [ref] $jsonObject.definitions['pos'].properties.pan_entry_mode.enum
+    #     , [ref] $jsonObject.definitions['pos'].properties.card_data_input_capability.enum
+    # )
+    # foreach ($enumRef in $enumRefs) {
+    #     if ($enumRef.Value -notcontains $unknownValue) {
+    #         $enumRef.Value += $unknownValue
+    #         Write-Verbose "Added '$($unknownValue)' to '$($enumRef.Value)'."
+    #     }
+    # }
+
+    # definitions/pos/pos_pan_entry_mode
+    $enum = $jsonObject.definitions['pos'].properties.pan_entry_mode.enum
+    if ($enum -notcontains $unknownValue) {
+        $enum += $unknownValue
+        $jsonObject.definitions['pos'].properties.pan_entry_mode.enum = $enum
+        Write-Verbose "Added '$($unknownValue)' to 'definitions/pos/pan_entry_mode'."
+    }
+
+    # definitions/pos/card_data_input_capability
+    $enum = $jsonObject.definitions['pos'].properties.card_data_input_capability.enum
+    if ($enum -notcontains $unknownValue) {
+        $jsonObject.definitions['pos'].properties.card_data_input_capability.enum += $unknownValue
+        $enum += $unknownValue
+        Write-Verbose "Added '$($unknownValue)' to 'definitions/pos/card_data_input_capability'."
+    }
+
+    #
     # /Enum
     #
 
