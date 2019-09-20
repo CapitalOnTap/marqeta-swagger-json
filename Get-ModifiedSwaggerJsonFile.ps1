@@ -542,6 +542,10 @@ else {
     $jsonObject.definitions['CryptoKey'].properties.cryptoKeys.items.'$ref' = '#/definitions/CryptoKey'
     $jsonObject.definitions['CryptoKey'].properties.cryptoKeys.items.Remove('type') | Out-Null
 
+    # currency_conversion
+    #   network
+    $jsonObject.definitions['currency_conversion'].properties.network.'$ref' = '#/definitions/currency_conversion_network'
+
     # FinalAccount
     #   children0
     $jsonObject.definitions['FinalAccount'].properties.children0.items.'$ref' = '#/definitions/CompositeAccount'
@@ -599,6 +603,32 @@ else {
 
     #
     # /Definitions: missing properties
+    #
+
+    #
+    # Definitions: missing definitions
+    #
+
+    # currency_conversion_network
+    $currencyConversionNetworkSchema = @{
+        'type'       = 'object';
+        'properties' = @{
+            'original_amount'        = @{
+                'type' = 'number';
+            };
+            'conversion_rate'        = @{
+                'type' = 'number';
+            };
+            'original_currency_code' = @{
+                'type' = 'string';
+            };
+        }
+    }
+    $jsonObject.definitions['currency_conversion_network'] = $currencyConversionNetworkSchema
+
+
+    #
+    # /Definitions: missing definitions
     #
 
     #
