@@ -7,64 +7,52 @@
     "basePath": "/v3",
     "tags": [
         {
-            "name": "pushtocard : Operations for push to card (OCT)"
+            "name": "velocitycontrols : Operations for velocity controls"
         },
         {
-            "name": "accepted countries : Operations for accepted countries"
-        },
-        {
-            "name": "kyc : Operations for Know Your Customer (KYC)"
-        },
-        {
-            "name": "msaorders : Operations for merchant-specific account orders"
-        },
-        {
-            "name": "cardholder balance : Operations for cardholder balances"
-        },
-        {
-            "name": "gpaorders : Operations for GPA funding"
-        },
-        {
-            "name": "chargebacks : Operations for chargebacks"
-        },
-        {
-            "name": "campaigns : Operations for campaigns"
-        },
-        {
-            "name": "authcontrols : Operations for auth controls"
-        },
-        {
-            "name": "fundingsources : Operations for funding sources"
-        },
-        {
-            "name": "directdeposits : Operations for direct deposits"
-        },
-        {
-            "name": "merchants : Operations for merchants"
-        },
-        {
-            "name": "cards : Operations for cards"
-        },
-        {
-            "name": "pins : Operations for PIN management"
-        },
-        {
-            "name": "user transitions : Operations for transitioning users\u0027 active state"
-        },
-        {
-            "name": "bulkissuances : Operations for bulk issuance of cards"
-        },
-        {
-            "name": "creditlinecharges : Posts finance charges or fees towards the credit line"
-        },
-        {
-            "name": "digital wallet token transitions : Operations for digital wallet token transitions"
+            "name": "fees : Operations for fees"
         },
         {
             "name": "business transitions : Operations for transitioning active state of businesses"
         },
         {
-            "name": "programtransfers : Operations for unloading funds to a program"
+            "name": "businesses : Operations for business cardholders"
+        },
+        {
+            "name": "simulate : Operations for simulated authorizations, reversals, clearings"
+        },
+        {
+            "name": "msaorders : Operations for merchant-specific account orders"
+        },
+        {
+            "name": "pushtocard : Operations for push to card (OCT)"
+        },
+        {
+            "name": "autoreloads : Operations for auto reloads"
+        },
+        {
+            "name": "webhook configurations : Operations for webhook configurations"
+        },
+        {
+            "name": "campaigns : Operations for campaigns"
+        },
+        {
+            "name": "gpaorders : Operations for GPA funding"
+        },
+        {
+            "name": "offerorders : Operations for offer orders"
+        },
+        {
+            "name": "merchants : Operations for merchants"
+        },
+        {
+            "name": "transactions : Operations for transactions"
+        },
+        {
+            "name": "digital wallet instant issuance : Operations for digital wallet instant issuance"
+        },
+        {
+            "name": "bulkissuances : Operations for bulk issuance of cards"
         },
         {
             "name": "offers : Operations for offers"
@@ -73,70 +61,82 @@
             "name": "stores : Operations for stores"
         },
         {
-            "name": "peertransfers : Operations for GPA peer fund transfers"
-        },
-        {
-            "name": "transactions : Operations for transactions"
-        },
-        {
-            "name": "businesses : Operations for business cardholders"
-        },
-        {
-            "name": "mccgroups : Operations for MCC groups"
-        },
-        {
-            "name": "cardtransitions : Operations for card transitions"
-        },
-        {
-            "name": "accountholdergroups : Operations for account holder groups"
-        },
-        {
-            "name": "offerorders : Operations for offer orders"
-        },
-        {
-            "name": "program reserve : Operations for program reserve accounts"
-        },
-        {
-            "name": "cardproducts : Operations for card products"
-        },
-        {
-            "name": "commandomodes : Operations for commando mode control sets"
-        },
-        {
-            "name": "fees : Operations for fees"
-        },
-        {
-            "name": "digital wallet instant issuance : Operations for digital wallet instant issuance"
-        },
-        {
-            "name": "creditlineorders : Operations for credit line funding"
-        },
-        {
-            "name": "velocitycontrols : Operations for velocity controls"
-        },
-        {
-            "name": "ping : Operations for system availability"
+            "name": "creditlinecharges : Posts finance charges or fees towards the credit line"
         },
         {
             "name": "digital wallet tokens : Operations for digital wallet tokens"
         },
         {
-            "name": "feetransfers : Operations for fee transfers"
+            "name": "cardtransitions : Operations for card transitions"
         },
         {
-            "name": "autoreloads : Operations for auto reloads"
+            "name": "programtransfers : Operations for unloading funds to a program"
         },
         {
-            "name": "users : Operations for cardholders"
+            "name": "kyc : Operations for Know Your Customer (KYC)"
+        },
+        {
+            "name": "peertransfers : Operations for GPA peer fund transfers"
+        },
+        {
+            "name": "chargebacks : Operations for chargebacks"
+        },
+        {
+            "name": "commandomodes : Operations for commando mode control sets"
+        },
+        {
+            "name": "authcontrols : Operations for auth controls"
         },
         {
             "name": "realtimefeegroups : Operations for real-time fee groups"
         },
         {
-            "name": "webhook configurations : Operations for webhook configurations"
+            "name": "mccgroups : Operations for MCC groups"
         },
         {
-            "name": "simulate : Operations for simulated authorizations, reversals, clearings"
+            "name": "fundingsources : Operations for funding sources"
+        },
+        {
+            "name": "accountholdergroups : Operations for account holder groups"
+        },
+        {
+            "name": "ping : Operations for system availability"
+        },
+        {
+            "name": "accepted countries : Operations for accepted countries"
+        },
+        {
+            "name": "users : Operations for cardholders"
+        },
+        {
+            "name": "cardproducts : Operations for card products"
+        },
+        {
+            "name": "cardholder balance : Operations for cardholder balances"
+        },
+        {
+            "name": "cards : Operations for cards"
+        },
+        {
+            "name": "feetransfers : Operations for fee transfers"
+        },
+        {
+            "name": "pins : Operations for PIN management"
+        },
+        {
+            "name": "directdeposits : Operations for direct deposits"
+        },
+        {
+            "name": "digital wallet token transitions : Operations for digital wallet token transitions"
+        },
+        {
+            "name": "program reserve : Operations for program reserve accounts"
+        },
+        {
+            "name": "creditlineorders : Operations for credit line funding"
+        },
+        {
+            "name": "user transitions : Operations for transitioning users\u0027 active state"
         }
     ],
     "schemes": [
@@ -12695,49 +12695,6 @@
                 "name": "ach_response_model"
             }
         },
-        "CreditLineResponseModel": {
-            "type": "object",
-            "required": [
-                "created_time",
-                "last_modified_time"
-            ],
-            "properties": {
-                "created_time": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "yyyy-MM-ddTHH:mm:ssZ"
-                },
-                "last_modified_time": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "yyyy-MM-ddTHH:mm:ssZ"
-                },
-                "token": {
-                    "type": "string"
-                },
-                "amount": {
-                    "type": "number"
-                },
-                "user_token": {
-                    "type": "string"
-                },
-                "currency_code": {
-                    "type": "string"
-                },
-                "credit_line": {
-                    "$ref": "#/definitions/CreditLine"
-                },
-                "tags": {
-                    "type": "string"
-                },
-                "memo": {
-                    "type": "string"
-                },
-                "transaction": {
-                    "$ref": "#/definitions/CreditLine"
-                }
-            }
-        },
         "velocity_control_balance_response": {
             "type": "object",
             "required": [
@@ -12820,6 +12777,208 @@
             },
             "xml": {
                 "name": "velocity_control_balance_response"
+            }
+        },
+        "CreditLineResponseModel": {
+            "type": "object",
+            "required": [
+                "created_time",
+                "last_modified_time"
+            ],
+            "properties": {
+                "created_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "yyyy-MM-ddTHH:mm:ssZ"
+                },
+                "last_modified_time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "yyyy-MM-ddTHH:mm:ssZ"
+                },
+                "token": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "user_token": {
+                    "type": "string"
+                },
+                "currency_code": {
+                    "type": "string"
+                },
+                "credit_line": {
+                    "$ref": "#/definitions/CreditLine"
+                },
+                "tags": {
+                    "type": "string"
+                },
+                "memo": {
+                    "type": "string"
+                },
+                "transaction": {
+                    "$ref": "#/definitions/CreditLine"
+                }
+            }
+        },
+        "velocity_control_response": {
+            "type": "object",
+            "required": [
+                "amount_limit",
+                "currency_code",
+                "velocity_window"
+            ],
+            "properties": {
+                "token": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 36
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
+                },
+                "association": {
+                    "$ref": "#/definitions/spend_control_association"
+                },
+                "merchant_scope": {
+                    "$ref": "#/definitions/merchant_scope"
+                },
+                "usage_limit": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": -1.0
+                },
+                "approvals_only": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "include_purchases": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "include_withdrawals": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "include_transfers": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "include_cashback": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "include_credits": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "currency_code": {
+                    "type": "string"
+                },
+                "amount_limit": {
+                    "type": "number",
+                    "minimum": 0.0
+                },
+                "velocity_window": {
+                    "type": "string",
+                    "enum": [
+                        "DAY",
+                        "WEEK",
+                        "MONTH",
+                        "LIFETIME",
+                        "TRANSACTION"
+                    ]
+                },
+                "active": {
+                    "type": "boolean",
+                    "default": false
+                }
+            },
+            "xml": {
+                "name": "velocity_control_response"
+            }
+        },
+        "digital_wallet_token_transition_request": {
+            "type": "object",
+            "required": [
+                "digital_wallet_token",
+                "state"
+            ],
+            "properties": {
+                "token": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 36
+                },
+                "reason_code": {
+                    "type": "string",
+                    "enum": [
+                        "00",
+                        "01",
+                        "02",
+                        "03",
+                        "04",
+                        "05",
+                        "06",
+                        "07",
+                        "08",
+                        "09",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "14",
+                        "15",
+                        "16",
+                        "17",
+                        "18",
+                        "19",
+                        "20",
+                        "21"
+                    ]
+                },
+                "token_reference_id": {
+                    "type": "string"
+                },
+                "channel": {
+                    "type": "string",
+                    "enum": [
+                        "TOKEN_SERVICE_PROVIDER",
+                        "TOKEN_SERVICE_PROVIDER_API",
+                        "DIGITAL_WALLET",
+                        "API",
+                        "IVR",
+                        "FRAUD",
+                        "ADMIN",
+                        "SYSTEM"
+                    ]
+                },
+                "digital_wallet_token": {
+                    "$ref": "#/definitions/digital_wallet_token_hash"
+                },
+                "state": {
+                    "type": "string",
+                    "enum": [
+                        "ACTIVE",
+                        "SUSPENDED",
+                        "TERMINATED"
+                    ]
+                },
+                "reason": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
+                },
+                "override_tsp_error": {
+                    "type": "boolean",
+                    "default": false
+                }
+            },
+            "xml": {
+                "name": "digital_wallet_token_transition_request"
             }
         },
         "DealLog": {
@@ -12906,163 +13065,18 @@
                 }
             }
         },
-        "digital_wallet_token_transition_request": {
+        "cardholder_metadata": {
             "type": "object",
-            "required": [
-                "digital_wallet_token",
-                "state"
-            ],
             "properties": {
-                "token": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 36
-                },
-                "reason_code": {
-                    "type": "string",
-                    "enum": [
-                        "00",
-                        "01",
-                        "02",
-                        "03",
-                        "04",
-                        "05",
-                        "06",
-                        "07",
-                        "08",
-                        "09",
-                        "10",
-                        "11",
-                        "12",
-                        "13",
-                        "14",
-                        "15",
-                        "16",
-                        "17",
-                        "18",
-                        "19",
-                        "20",
-                        "21"
-                    ]
-                },
-                "token_reference_id": {
-                    "type": "string"
-                },
-                "channel": {
-                    "type": "string",
-                    "enum": [
-                        "TOKEN_SERVICE_PROVIDER",
-                        "TOKEN_SERVICE_PROVIDER_API",
-                        "DIGITAL_WALLET",
-                        "API",
-                        "IVR",
-                        "FRAUD",
-                        "ADMIN",
-                        "SYSTEM"
-                    ]
-                },
-                "digital_wallet_token": {
-                    "$ref": "#/definitions/digital_wallet_token_hash"
-                },
-                "state": {
-                    "type": "string",
-                    "enum": [
-                        "ACTIVE",
-                        "SUSPENDED",
-                        "TERMINATED"
-                    ]
-                },
-                "reason": {
-                    "type": "string",
-                    "minLength": 0,
-                    "maxLength": 255
-                },
-                "override_tsp_error": {
-                    "type": "boolean",
-                    "default": false
+                "metadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 }
             },
             "xml": {
-                "name": "digital_wallet_token_transition_request"
-            }
-        },
-        "velocity_control_response": {
-            "type": "object",
-            "required": [
-                "amount_limit",
-                "currency_code",
-                "velocity_window"
-            ],
-            "properties": {
-                "token": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 36
-                },
-                "name": {
-                    "type": "string",
-                    "minLength": 0,
-                    "maxLength": 255
-                },
-                "association": {
-                    "$ref": "#/definitions/spend_control_association"
-                },
-                "merchant_scope": {
-                    "$ref": "#/definitions/merchant_scope"
-                },
-                "usage_limit": {
-                    "type": "integer",
-                    "format": "int32",
-                    "minimum": -1.0
-                },
-                "approvals_only": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "include_purchases": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "include_withdrawals": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "include_transfers": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "include_cashback": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "include_credits": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "currency_code": {
-                    "type": "string"
-                },
-                "amount_limit": {
-                    "type": "number",
-                    "minimum": 0.0
-                },
-                "velocity_window": {
-                    "type": "string",
-                    "enum": [
-                        "DAY",
-                        "WEEK",
-                        "MONTH",
-                        "LIFETIME",
-                        "TRANSACTION"
-                    ]
-                },
-                "active": {
-                    "type": "boolean",
-                    "default": false
-                }
-            },
-            "xml": {
-                "name": "velocity_control_response"
+                "name": "cardholder_metadata"
             }
         },
         "BulkCardOrder": {
@@ -13173,20 +13187,6 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            }
-        },
-        "cardholder_metadata": {
-            "type": "object",
-            "properties": {
-                "metadata": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                }
-            },
-            "xml": {
-                "name": "cardholder_metadata"
             }
         },
         "CardAttribute": {
@@ -13423,27 +13423,6 @@
                 "name": "calculation_schedule"
             }
         },
-        "commando_mode_request": {
-            "type": "object",
-            "required": [
-                "commando_mode_enables",
-                "program_gateway_funding_source_token"
-            ],
-            "properties": {
-                "program_gateway_funding_source_token": {
-                    "type": "string"
-                },
-                "real_time_standin_criteria": {
-                    "$ref": "#/definitions/real_time_standin_criteria"
-                },
-                "commando_mode_enables": {
-                    "$ref": "#/definitions/commando_mode_enables"
-                },
-                "token": {
-                    "type": "string"
-                }
-            }
-        },
         "digital_wallet_android_pay_provision_request": {
             "type": "object",
             "required": [
@@ -13485,6 +13464,27 @@
             },
             "xml": {
                 "name": "digital_wallet_android_pay_provision_request"
+            }
+        },
+        "commando_mode_request": {
+            "type": "object",
+            "required": [
+                "commando_mode_enables",
+                "program_gateway_funding_source_token"
+            ],
+            "properties": {
+                "program_gateway_funding_source_token": {
+                    "type": "string"
+                },
+                "real_time_standin_criteria": {
+                    "$ref": "#/definitions/real_time_standin_criteria"
+                },
+                "commando_mode_enables": {
+                    "$ref": "#/definitions/commando_mode_enables"
+                },
+                "token": {
+                    "type": "string"
+                }
             }
         },
         "BusinessCardHolderModel": {
@@ -13963,6 +13963,40 @@
                 "name": "card_product_request"
             }
         },
+        "ReversalModel": {
+            "type": "object",
+            "required": [
+                "amount",
+                "original_transaction_token"
+            ],
+            "properties": {
+                "network_fees": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/network_fee_model"
+                    }
+                },
+                "webhook": {
+                    "$ref": "#/definitions/webhook"
+                },
+                "original_transaction_token": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 36
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "find_original_window_days": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "is_advice": {
+                    "type": "boolean",
+                    "default": false
+                }
+            }
+        },
         "kyc_response": {
             "type": "object",
             "required": [
@@ -14032,40 +14066,6 @@
             },
             "xml": {
                 "name": "result"
-            }
-        },
-        "ReversalModel": {
-            "type": "object",
-            "required": [
-                "amount",
-                "original_transaction_token"
-            ],
-            "properties": {
-                "network_fees": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/network_fee_model"
-                    }
-                },
-                "webhook": {
-                    "$ref": "#/definitions/webhook"
-                },
-                "original_transaction_token": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 36
-                },
-                "amount": {
-                    "type": "number"
-                },
-                "find_original_window_days": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "is_advice": {
-                    "type": "boolean",
-                    "default": false
-                }
             }
         },
         "ShippingInformationResponse": {
@@ -14636,16 +14636,6 @@
                     "type": "boolean",
                     "default": false
                 },
-                "amountIncrease": {
-                    "type": "number"
-                },
-                "amountPlusAcquirerFee": {
-                    "type": "number"
-                },
-                "nonLoad": {
-                    "type": "boolean",
-                    "default": false
-                },
                 "purchase": {
                     "type": "boolean",
                     "default": false
@@ -14684,6 +14674,16 @@
                 },
                 "cardHolderObligation": {
                     "type": "number"
+                },
+                "amountIncrease": {
+                    "type": "number"
+                },
+                "amountPlusAcquirerFee": {
+                    "type": "number"
+                },
+                "nonLoad": {
+                    "type": "boolean",
+                    "default": false
                 },
                 "token": {
                     "type": "string"
@@ -14907,18 +14907,6 @@
                 }
             }
         },
-        "card_reorder_request": {
-            "type": "object",
-            "properties": {
-                "card_batch_label": {
-                    "type": "string",
-                    "description": "may only contain alphanumeric, hyphens, and underscore characters",
-                    "minLength": 1,
-                    "maxLength": 50,
-                    "pattern": "^[\\w-]*$"
-                }
-            }
-        },
         "auto_reload_response_model": {
             "type": "object",
             "required": [
@@ -14971,6 +14959,18 @@
             },
             "xml": {
                 "name": "auto_reload_response_model"
+            }
+        },
+        "card_reorder_request": {
+            "type": "object",
+            "properties": {
+                "card_batch_label": {
+                    "type": "string",
+                    "description": "may only contain alphanumeric, hyphens, and underscore characters",
+                    "minLength": 1,
+                    "maxLength": 50,
+                    "pattern": "^[\\w-]*$"
+                }
             }
         },
         "config": {
@@ -15410,26 +15410,6 @@
                 "name": "shipping"
             }
         },
-        "pin_request": {
-            "type": "object",
-            "required": [
-                "control_token",
-                "pin"
-            ],
-            "properties": {
-                "control_token": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 36
-                },
-                "pin": {
-                    "type": "string"
-                }
-            },
-            "xml": {
-                "name": "pin_request"
-            }
-        },
         "UserValidationRequest": {
             "type": "object",
             "properties": {
@@ -15456,6 +15436,26 @@
                     "minLength": 6,
                     "maxLength": 6
                 }
+            }
+        },
+        "pin_request": {
+            "type": "object",
+            "required": [
+                "control_token",
+                "pin"
+            ],
+            "properties": {
+                "control_token": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 36
+                },
+                "pin": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "pin_request"
             }
         },
         "gpa": {
@@ -15683,6 +15683,9 @@
                 "create_completion_file": {
                     "type": "boolean",
                     "default": false
+                },
+                "settlement_date": {
+                    "type": "string"
                 }
             },
             "xml": {
@@ -17389,6 +17392,20 @@
                 }
             }
         },
+        "business_metadata": {
+            "type": "object",
+            "properties": {
+                "metadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            },
+            "xml": {
+                "name": "business_metadata"
+            }
+        },
         "peer_transfer_request": {
             "type": "object",
             "required": [
@@ -17444,20 +17461,6 @@
             },
             "xml": {
                 "name": "peer_transfer_request"
-            }
-        },
-        "business_metadata": {
-            "type": "object",
-            "properties": {
-                "metadata": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "string"
-                    }
-                }
-            },
-            "xml": {
-                "name": "business_metadata"
             }
         },
         "commando_mode_transition_response": {
@@ -18023,6 +18026,23 @@
                 }
             }
         },
+        "BillingAddress": {
+            "type": "object",
+            "properties": {
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "zip": {
+                    "type": "string"
+                }
+            }
+        },
         "store_model": {
             "type": "object",
             "required": [
@@ -18141,21 +18161,42 @@
                 "name": "store_model"
             }
         },
-        "BillingAddress": {
+        "load_velocity_model": {
             "type": "object",
             "properties": {
-                "first_name": {
-                    "type": "string"
+                "token": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 36
                 },
-                "last_name": {
-                    "type": "string"
+                "description": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
                 },
-                "address": {
-                    "type": "string"
+                "type": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
                 },
-                "zip": {
-                    "type": "string"
+                "layers": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "days": {
+                    "type": "number"
+                },
+                "active": {
+                    "type": "boolean",
+                    "default": false
                 }
+            },
+            "xml": {
+                "name": "load_velocity_model"
             }
         },
         "accepted_countries_model": {
@@ -18195,44 +18236,6 @@
             },
             "xml": {
                 "name": "accepted_countries_model"
-            }
-        },
-        "load_velocity_model": {
-            "type": "object",
-            "properties": {
-                "token": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 36
-                },
-                "description": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 255
-                },
-                "type": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 255
-                },
-                "layers": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 255
-                },
-                "amount": {
-                    "type": "number"
-                },
-                "days": {
-                    "type": "number"
-                },
-                "active": {
-                    "type": "boolean",
-                    "default": false
-                }
-            },
-            "xml": {
-                "name": "load_velocity_model"
             }
         },
         "program_transfer_response": {
@@ -18558,6 +18561,31 @@
                 "name": "program_transfer"
             }
         },
+        "HealthCheckResult": {
+            "type": "object",
+            "properties": {
+                "component": {
+                    "type": "string"
+                },
+                "healthy": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "fatal": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "status": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object"
+                    }
+                }
+            }
+        },
         "Gatewaylog": {
             "type": "object",
             "properties": {
@@ -18660,31 +18688,6 @@
                 "modified": {
                     "type": "string",
                     "format": "date-time"
-                }
-            }
-        },
-        "HealthCheckResult": {
-            "type": "object",
-            "properties": {
-                "component": {
-                    "type": "string"
-                },
-                "healthy": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "fatal": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "status": {
-                    "type": "string"
-                },
-                "data": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "object"
-                    }
                 }
             }
         },
@@ -19473,6 +19476,39 @@
                 "name": "card_options"
             }
         },
+        "GL_Entry": {
+            "type": "object",
+            "required": [
+                "account",
+                "amount",
+                "layer",
+                "type"
+            ],
+            "properties": {
+                "detail": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "layer": {
+                    "type": "string"
+                },
+                "account": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "CREDIT",
+                        "DEBIT"
+                    ]
+                }
+            }
+        },
         "funding_source_model": {
             "type": "object",
             "required": [
@@ -19514,39 +19550,6 @@
                 "name": "funding_source_model"
             }
         },
-        "GL_Entry": {
-            "type": "object",
-            "required": [
-                "account",
-                "amount",
-                "layer",
-                "type"
-            ],
-            "properties": {
-                "detail": {
-                    "type": "string"
-                },
-                "tag": {
-                    "type": "string"
-                },
-                "amount": {
-                    "type": "number"
-                },
-                "layer": {
-                    "type": "string"
-                },
-                "account": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string",
-                    "enum": [
-                        "CREDIT",
-                        "DEBIT"
-                    ]
-                }
-            }
-        },
         "commando_mode_transition_request": {
             "type": "object",
             "required": [
@@ -19563,44 +19566,6 @@
                 "transition": {
                     "$ref": "#/definitions/commando_mode_nested_transition"
                 }
-            }
-        },
-        "mcc_group_model": {
-            "type": "object",
-            "required": [
-                "mccs",
-                "name"
-            ],
-            "properties": {
-                "token": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 36
-                },
-                "name": {
-                    "type": "string",
-                    "minLength": 0,
-                    "maxLength": 255
-                },
-                "mccs": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "items": {
-                        "type": "string"
-                    },
-                    "maxItems": 500,
-                    "minItems": 0
-                },
-                "active": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "config": {
-                    "$ref": "#/definitions/config"
-                }
-            },
-            "xml": {
-                "name": "mcc_group_model"
             }
         },
         "financial_request_model": {
@@ -19649,6 +19614,44 @@
             },
             "xml": {
                 "name": "financial_request_model"
+            }
+        },
+        "mcc_group_model": {
+            "type": "object",
+            "required": [
+                "mccs",
+                "name"
+            ],
+            "properties": {
+                "token": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 36
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
+                },
+                "mccs": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    },
+                    "maxItems": 500,
+                    "minItems": 0
+                },
+                "active": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "config": {
+                    "$ref": "#/definitions/config"
+                }
+            },
+            "xml": {
+                "name": "mcc_group_model"
             }
         },
         "chargeback_response": {
@@ -19855,21 +19858,6 @@
                 }
             }
         },
-        "TranlogToken": {
-            "type": "object",
-            "properties": {
-                "tranlogId": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "token": {
-                    "type": "string"
-                },
-                "tranLog": {
-                    "$ref": "#/definitions/TranLog"
-                }
-            }
-        },
         "webhook_request_model": {
             "type": "object",
             "required": [
@@ -19905,6 +19893,21 @@
             },
             "xml": {
                 "name": "webhook_request_model"
+            }
+        },
+        "TranlogToken": {
+            "type": "object",
+            "properties": {
+                "tranlogId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "token": {
+                    "type": "string"
+                },
+                "tranLog": {
+                    "$ref": "#/definitions/TranLog"
+                }
             }
         },
         "business_card_holder_response": {
@@ -20102,6 +20105,23 @@
                 "name": "real_time_fee_group_create_request"
             }
         },
+        "advanced_simulation_response_model": {
+            "type": "object",
+            "properties": {
+                "transaction": {
+                    "$ref": "#/definitions/transaction_model"
+                },
+                "raw_iso8583": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object"
+                    }
+                }
+            },
+            "xml": {
+                "name": "advanced_simulation_response_model"
+            }
+        },
         "card_transition_response": {
             "type": "object",
             "required": [
@@ -20265,23 +20285,6 @@
             },
             "xml": {
                 "name": "card_transition_response"
-            }
-        },
-        "advanced_simulation_response_model": {
-            "type": "object",
-            "properties": {
-                "transaction": {
-                    "$ref": "#/definitions/transaction_model"
-                },
-                "raw_iso8583": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "type": "object"
-                    }
-                }
-            },
-            "xml": {
-                "name": "advanced_simulation_response_model"
             }
         },
         "push_to_card_response": {
@@ -20640,6 +20643,38 @@
                 "name": "payment_card_response_model"
             }
         },
+        "authorization_advice_model": {
+            "type": "object",
+            "required": [
+                "amount",
+                "original_transaction_token"
+            ],
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "network_fees": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/network_fee_model"
+                    }
+                },
+                "webhook": {
+                    "$ref": "#/definitions/webhook"
+                },
+                "original_transaction_token": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 36
+                },
+                "transaction_options": {
+                    "$ref": "#/definitions/transaction_options"
+                }
+            },
+            "xml": {
+                "name": "authorization_advice_model"
+            }
+        },
         "card_request": {
             "type": "object",
             "required": [
@@ -20697,38 +20732,6 @@
                 "bulk_issuance_token": {
                     "type": "string"
                 }
-            }
-        },
-        "authorization_advice_model": {
-            "type": "object",
-            "required": [
-                "amount",
-                "original_transaction_token"
-            ],
-            "properties": {
-                "amount": {
-                    "type": "number"
-                },
-                "network_fees": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/network_fee_model"
-                    }
-                },
-                "webhook": {
-                    "$ref": "#/definitions/webhook"
-                },
-                "original_transaction_token": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 36
-                },
-                "transaction_options": {
-                    "$ref": "#/definitions/transaction_options"
-                }
-            },
-            "xml": {
-                "name": "authorization_advice_model"
             }
         },
         "cardholder_msa_balance": {
@@ -20906,53 +20909,6 @@
                 "name": "cardholder_note_response_model"
             }
         },
-        "NetworkTranType": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "network": {
-                    "type": "string",
-                    "enum": [
-                        "MARQETA",
-                        "GATEWAY_JIT",
-                        "MANAGED_JIT",
-                        "DISCOVER",
-                        "MASTERCARD",
-                        "MASTERCARDDEBIT",
-                        "MAESTRO",
-                        "CIRRUS",
-                        "PULSE",
-                        "VISA",
-                        "VISAINTERLINK",
-                        "VISAPLUS",
-                        "VISANET",
-                        "VISANETDEBIT"
-                    ]
-                },
-                "active": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "sourceAcct": {
-                    "type": "string"
-                },
-                "destAcct": {
-                    "type": "string"
-                },
-                "networkTranGroup": {
-                    "$ref": "#/definitions/NetworkTranGroup"
-                },
-                "notes": {
-                    "type": "string"
-                },
-                "param": {
-                    "type": "string"
-                }
-            }
-        },
         "offer_model": {
             "type": "object",
             "required": [
@@ -21005,6 +20961,53 @@
             },
             "xml": {
                 "name": "offer_model"
+            }
+        },
+        "NetworkTranType": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "network": {
+                    "type": "string",
+                    "enum": [
+                        "MARQETA",
+                        "GATEWAY_JIT",
+                        "MANAGED_JIT",
+                        "DISCOVER",
+                        "MASTERCARD",
+                        "MASTERCARDDEBIT",
+                        "MAESTRO",
+                        "CIRRUS",
+                        "PULSE",
+                        "VISA",
+                        "VISAINTERLINK",
+                        "VISAPLUS",
+                        "VISANET",
+                        "VISANETDEBIT"
+                    ]
+                },
+                "active": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "sourceAcct": {
+                    "type": "string"
+                },
+                "destAcct": {
+                    "type": "string"
+                },
+                "networkTranGroup": {
+                    "$ref": "#/definitions/NetworkTranGroup"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "param": {
+                    "type": "string"
+                }
             }
         },
         "password_update_model": {
@@ -21069,6 +21072,52 @@
                         "$ref": "#/definitions/IdentificationResponseModel"
                     }
                 }
+            }
+        },
+        "digital_wallet_apple_pay_provision_request": {
+            "type": "object",
+            "required": [
+                "card_token",
+                "certificates",
+                "device_type",
+                "nonce",
+                "nonce_signature",
+                "provisioning_app_version"
+            ],
+            "properties": {
+                "card_token": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 36
+                },
+                "device_type": {
+                    "type": "string",
+                    "enum": [
+                        "MOBILE_PHONE",
+                        "WATCH",
+                        "TABLET"
+                    ]
+                },
+                "provisioning_app_version": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 50
+                },
+                "certificates": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "nonce": {
+                    "type": "string"
+                },
+                "nonce_signature": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "digital_wallet_apple_pay_provision_request"
             }
         },
         "bulk_issuance_response": {
@@ -21146,52 +21195,6 @@
                 "provider_tracking_number": {
                     "type": "string"
                 }
-            }
-        },
-        "digital_wallet_apple_pay_provision_request": {
-            "type": "object",
-            "required": [
-                "card_token",
-                "certificates",
-                "device_type",
-                "nonce",
-                "nonce_signature",
-                "provisioning_app_version"
-            ],
-            "properties": {
-                "card_token": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 36
-                },
-                "device_type": {
-                    "type": "string",
-                    "enum": [
-                        "MOBILE_PHONE",
-                        "WATCH",
-                        "TABLET"
-                    ]
-                },
-                "provisioning_app_version": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 50
-                },
-                "certificates": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "nonce": {
-                    "type": "string"
-                },
-                "nonce_signature": {
-                    "type": "string"
-                }
-            },
-            "xml": {
-                "name": "digital_wallet_apple_pay_provision_request"
             }
         },
         "user_card_holder_search_model": {
@@ -21291,6 +21294,17 @@
                 "name": "ach_model"
             }
         },
+        "DDARequest": {
+            "type": "object",
+            "required": [
+                "dda"
+            ],
+            "properties": {
+                "dda": {
+                    "type": "string"
+                }
+            }
+        },
         "merchant_card_request": {
             "type": "object",
             "required": [
@@ -21321,17 +21335,6 @@
             },
             "xml": {
                 "name": "merchant_card_request"
-            }
-        },
-        "DDARequest": {
-            "type": "object",
-            "required": [
-                "dda"
-            ],
-            "properties": {
-                "dda": {
-                    "type": "string"
-                }
             }
         },
         "digital_wallet_token_request_address": {
@@ -22056,6 +22059,17 @@
                 }
             }
         },
+        "digital_wallet_tokenization": {
+            "type": "object",
+            "properties": {
+                "provisioning_controls": {
+                    "$ref": "#/definitions/provisioning_controls"
+                }
+            },
+            "xml": {
+                "name": "digital_wallet_tokenization"
+            }
+        },
         "DirectDepositTransitionRequest": {
             "type": "object",
             "required": [
@@ -22110,17 +22124,6 @@
                         "R29"
                     ]
                 }
-            }
-        },
-        "digital_wallet_tokenization": {
-            "type": "object",
-            "properties": {
-                "provisioning_controls": {
-                    "$ref": "#/definitions/provisioning_controls"
-                }
-            },
-            "xml": {
-                "name": "digital_wallet_tokenization"
             }
         },
         "gpa_request": {
@@ -22260,6 +22263,27 @@
                 }
             }
         },
+        "program_funding_source_model": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/funding_source_model"
+                },
+                {
+                    "type": "object",
+                    "required": [
+                        "name"
+                    ],
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        }
+                    },
+                    "xml": {
+                        "name": "program_funding_source_model"
+                    }
+                }
+            ]
+        },
         "FinalAccount": {
             "type": "object",
             "properties": {
@@ -22341,27 +22365,6 @@
                 }
             }
         },
-        "program_funding_source_model": {
-            "allOf": [
-                {
-                    "$ref": "#/definitions/funding_source_model"
-                },
-                {
-                    "type": "object",
-                    "required": [
-                        "name"
-                    ],
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        }
-                    },
-                    "xml": {
-                        "name": "program_funding_source_model"
-                    }
-                }
-            ]
-        },
         "transaction_options": {
             "type": "object",
             "properties": {
@@ -22437,6 +22440,53 @@
             },
             "xml": {
                 "name": "fee_request"
+            }
+        },
+        "original_data_elements": {
+            "type": "object",
+            "properties": {
+                "mti": {
+                    "type": "string",
+                    "enum": [
+                        "0100",
+                        "0120",
+                        "0200"
+                    ]
+                },
+                "stan": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 12
+                },
+                "transmission_time": {
+                    "type": "string",
+                    "description": "yyyyMMddHHmmss",
+                    "minLength": 0,
+                    "maxLength": 14
+                },
+                "acquiring_institution_id": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 11
+                },
+                "network_reference_id": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 12
+                },
+                "forwarding_institution_id": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 11
+                },
+                "transaction_token": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 36
+                }
+            },
+            "xml": {
+                "name": "original_data_elements"
             }
         },
         "bank_transfer_response_model": {
@@ -22526,53 +22576,6 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            }
-        },
-        "original_data_elements": {
-            "type": "object",
-            "properties": {
-                "mti": {
-                    "type": "string",
-                    "enum": [
-                        "0100",
-                        "0120",
-                        "0200"
-                    ]
-                },
-                "stan": {
-                    "type": "string",
-                    "minLength": 0,
-                    "maxLength": 12
-                },
-                "transmission_time": {
-                    "type": "string",
-                    "description": "yyyyMMddHHmmss",
-                    "minLength": 0,
-                    "maxLength": 14
-                },
-                "acquiring_institution_id": {
-                    "type": "string",
-                    "minLength": 0,
-                    "maxLength": 11
-                },
-                "network_reference_id": {
-                    "type": "string",
-                    "minLength": 0,
-                    "maxLength": 12
-                },
-                "forwarding_institution_id": {
-                    "type": "string",
-                    "minLength": 0,
-                    "maxLength": 11
-                },
-                "transaction_token": {
-                    "type": "string",
-                    "minLength": 0,
-                    "maxLength": 36
-                }
-            },
-            "xml": {
-                "name": "original_data_elements"
             }
         },
         "msa_returns": {
@@ -23139,6 +23142,25 @@
                 "name": "hold_increase"
             }
         },
+        "TranLogAttributeRequest": {
+            "type": "object",
+            "required": [
+                "attribute_name",
+                "attribute_value",
+                "transaction_token"
+            ],
+            "properties": {
+                "transaction_token": {
+                    "type": "string"
+                },
+                "attribute_name": {
+                    "type": "string"
+                },
+                "attribute_value": {
+                    "type": "string"
+                }
+            }
+        },
         "campaign_update_model": {
             "type": "object",
             "properties": {
@@ -23188,25 +23210,6 @@
             },
             "xml": {
                 "name": "control_token_request"
-            }
-        },
-        "TranLogAttributeRequest": {
-            "type": "object",
-            "required": [
-                "attribute_name",
-                "attribute_value",
-                "transaction_token"
-            ],
-            "properties": {
-                "transaction_token": {
-                    "type": "string"
-                },
-                "attribute_name": {
-                    "type": "string"
-                },
-                "attribute_value": {
-                    "type": "string"
-                }
             }
         },
         "monitor_response": {
@@ -23568,44 +23571,6 @@
                 "name": "pos"
             }
         },
-        "push_to_card_disburse_request": {
-            "type": "object",
-            "required": [
-                "amount",
-                "currency_code",
-                "payment_instrument_token"
-            ],
-            "properties": {
-                "tags": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 255
-                },
-                "memo": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 99
-                },
-                "token": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 36
-                },
-                "currency_code": {
-                    "type": "string"
-                },
-                "amount": {
-                    "type": "number",
-                    "minimum": 0.01,
-                    "maximum": 50000.0
-                },
-                "payment_instrument_token": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 36
-                }
-            }
-        },
         "FulfillmentAddressResponse": {
             "type": "object",
             "properties": {
@@ -23666,47 +23631,41 @@
                 }
             }
         },
-        "CalculationSchedule": {
+        "push_to_card_disburse_request": {
             "type": "object",
+            "required": [
+                "amount",
+                "currency_code",
+                "payment_instrument_token"
+            ],
             "properties": {
+                "tags": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "memo": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 99
+                },
                 "token": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "valueType": {
                     "type": "string",
-                    "enum": [
-                        "AMOUNT",
-                        "PERCENT"
-                    ]
+                    "minLength": 1,
+                    "maxLength": 36
                 },
-                "steps": {
+                "currency_code": {
                     "type": "string"
                 },
-                "stepValues": {
-                    "type": "string"
+                "amount": {
+                    "type": "number",
+                    "minimum": 0.01,
+                    "maximum": 50000.0
                 },
-                "stepAmounts": {
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                    }
-                },
-                "stepValueAmounts": {
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                    }
-                },
-                "created_time": {
+                "payment_instrument_token": {
                     "type": "string",
-                    "format": "date-time"
-                },
-                "last_modified_time": {
-                    "type": "string",
-                    "format": "date-time"
+                    "minLength": 1,
+                    "maxLength": 36
                 }
             }
         },
@@ -23771,6 +23730,50 @@
             },
             "xml": {
                 "name": "fulfillment_address_request"
+            }
+        },
+        "CalculationSchedule": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "valueType": {
+                    "type": "string",
+                    "enum": [
+                        "AMOUNT",
+                        "PERCENT"
+                    ]
+                },
+                "steps": {
+                    "type": "string"
+                },
+                "stepValues": {
+                    "type": "string"
+                },
+                "stepAmounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "stepValueAmounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "created_time": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "last_modified_time": {
+                    "type": "string",
+                    "format": "date-time"
+                }
             }
         },
         "deposit_account": {
@@ -23947,6 +23950,24 @@
                 "name": "create_caches_request"
             }
         },
+        "commando_mode_update_request": {
+            "type": "object",
+            "required": [
+                "commando_mode_enables",
+                "program_gateway_funding_source_token"
+            ],
+            "properties": {
+                "program_gateway_funding_source_token": {
+                    "type": "string"
+                },
+                "real_time_standin_criteria": {
+                    "$ref": "#/definitions/real_time_standin_criteria"
+                },
+                "commando_mode_enables": {
+                    "$ref": "#/definitions/commando_mode_enables"
+                }
+            }
+        },
         "cardholder_balances": {
             "type": "object",
             "required": [
@@ -23971,24 +23992,6 @@
             },
             "xml": {
                 "name": "cardholder_balances"
-            }
-        },
-        "commando_mode_update_request": {
-            "type": "object",
-            "required": [
-                "commando_mode_enables",
-                "program_gateway_funding_source_token"
-            ],
-            "properties": {
-                "program_gateway_funding_source_token": {
-                    "type": "string"
-                },
-                "real_time_standin_criteria": {
-                    "$ref": "#/definitions/real_time_standin_criteria"
-                },
-                "commando_mode_enables": {
-                    "$ref": "#/definitions/commando_mode_enables"
-                }
             }
         },
         "reset_user_password_model": {
@@ -24624,9 +24627,6 @@
                         "CLOSED"
                     ]
                 },
-                "zip": {
-                    "type": "string"
-                },
                 "firstName": {
                     "type": "string"
                 },
@@ -24645,11 +24645,14 @@
                 "city": {
                     "type": "string"
                 },
-                "defaultFundingAddress": {
-                    "$ref": "#/definitions/CardholderAddress"
+                "zip": {
+                    "type": "string"
                 },
                 "email": {
                     "type": "string"
+                },
+                "defaultFundingAddress": {
+                    "$ref": "#/definitions/CardholderAddress"
                 },
                 "state": {
                     "type": "string"
@@ -24981,6 +24984,29 @@
                 "name": "auto_reload_update_model"
             }
         },
+        "acquirer": {
+            "type": "object",
+            "properties": {
+                "institution_country": {
+                    "type": "string"
+                },
+                "network_international_id": {
+                    "type": "string"
+                },
+                "institution_id_code": {
+                    "type": "string"
+                },
+                "retrieval_reference_number": {
+                    "type": "string"
+                },
+                "system_trace_audit_number": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "acquirer"
+            }
+        },
         "digital_wallet_token_wallet_provider": {
             "type": "object",
             "properties": {
@@ -25037,26 +25063,6 @@
                 "name": "digital_wallet_token_wallet_provider"
             }
         },
-        "acquirer": {
-            "type": "object",
-            "properties": {
-                "institution_country": {
-                    "type": "string"
-                },
-                "institution_id_code": {
-                    "type": "string"
-                },
-                "network_international_id": {
-                    "type": "string"
-                },
-                "retrieval_reference_number": {
-                    "type": "string"
-                },
-                "system_trace_audit_number": {
-                    "type": "string"
-                }
-            }
-        },
         "gateway_program_version_update_request": {
             "type": "object",
             "required": [
@@ -25075,6 +25081,46 @@
             },
             "xml": {
                 "name": "gateway_program_version_update_request"
+            }
+        },
+        "BusinessIncorporationRequestModel": {
+            "type": "object",
+            "properties": {
+                "is_public": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "stock_symbol": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
+                },
+                "state_of_incorporation": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
+                },
+                "name_registered_under": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255
+                },
+                "address_registered_under": {
+                    "$ref": "#/definitions/AddressRequestModel"
+                },
+                "incorporation_type": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 255,
+                    "enum": [
+                        "LLC",
+                        "CORPORATION",
+                        "SOLE_PROPRIETORSHIP",
+                        "PARTNERSHIP",
+                        "COOPERATIVE",
+                        "OTHER"
+                    ]
+                }
             }
         },
         "DirectDepositTransitionResponse": {
@@ -25123,46 +25169,6 @@
                 "created_time": {
                     "type": "string",
                     "format": "date-time"
-                }
-            }
-        },
-        "BusinessIncorporationRequestModel": {
-            "type": "object",
-            "properties": {
-                "is_public": {
-                    "type": "boolean",
-                    "default": false
-                },
-                "stock_symbol": {
-                    "type": "string",
-                    "minLength": 0,
-                    "maxLength": 255
-                },
-                "state_of_incorporation": {
-                    "type": "string",
-                    "minLength": 0,
-                    "maxLength": 255
-                },
-                "name_registered_under": {
-                    "type": "string",
-                    "minLength": 0,
-                    "maxLength": 255
-                },
-                "address_registered_under": {
-                    "$ref": "#/definitions/AddressRequestModel"
-                },
-                "incorporation_type": {
-                    "type": "string",
-                    "minLength": 0,
-                    "maxLength": 255,
-                    "enum": [
-                        "LLC",
-                        "CORPORATION",
-                        "SOLE_PROPRIETORSHIP",
-                        "PARTNERSHIP",
-                        "COOPERATIVE",
-                        "OTHER"
-                    ]
                 }
             }
         },
@@ -25232,24 +25238,6 @@
                 "name": "offer_response_model"
             }
         },
-        "DigitalWalletTokenWalletProviderRecommendationReasons": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "digitalWalletTokenWalletProviderInfo": {
-                    "$ref": "#/definitions/DigitalWalletTokenWalletProviderInfo"
-                },
-                "reasonCode": {
-                    "type": "string"
-                },
-                "recommendationReasons": {
-                    "type": "string"
-                }
-            }
-        },
         "clearing_file": {
             "type": "object",
             "properties": {
@@ -25269,6 +25257,24 @@
             },
             "xml": {
                 "name": "clearing_file"
+            }
+        },
+        "DigitalWalletTokenWalletProviderRecommendationReasons": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "digitalWalletTokenWalletProviderInfo": {
+                    "$ref": "#/definitions/DigitalWalletTokenWalletProviderInfo"
+                },
+                "reasonCode": {
+                    "type": "string"
+                },
+                "recommendationReasons": {
+                    "type": "string"
+                }
             }
         },
         "jit_funding_programgateway_funding_source": {
@@ -25747,6 +25753,7 @@
             "required": [
                 "acting_user_token",
                 "amount",
+                "identifier",
                 "state",
                 "token",
                 "type"
@@ -25908,24 +25915,6 @@
                     "minLength": 0,
                     "maxLength": 36
                 },
-                "original_credit": {
-                    "$ref": "#/definitions/original_credit"
-                },
-                "preceding_related_transaction_token": {
-                    "type": "string"
-                },
-                "gpa": {
-                    "$ref": "#/definitions/cardholder_balance"
-                },
-                "charge": {
-                    "$ref": "#/definitions/Charge"
-                },
-                "credit_line": {
-                    "$ref": "#/definitions/CreditLine"
-                },
-                "gpa_order": {
-                    "$ref": "#/definitions/gpa_response"
-                },
                 "duration": {
                     "type": "integer",
                     "format": "int32"
@@ -25945,16 +25934,16 @@
                 "request_amount": {
                     "type": "number"
                 },
-                "cash_back_amount": {
+                "amount": {
                     "type": "number"
                 },
-                "amount": {
+                "cash_back_amount": {
                     "type": "number"
                 },
                 "currency_conversion": {
                     "$ref": "#/definitions/currency_conversion"
                 },
-                "issuerInterchangeAmount": {
+                "issuer_interchange_amount": {
                     "type": "number"
                 },
                 "currency_code": {
@@ -25965,6 +25954,9 @@
                 },
                 "response": {
                     "$ref": "#/definitions/response"
+                },
+                "preceding_related_transaction_token": {
+                    "type": "string"
                 },
                 "incremental_authorization_transaction_tokens": {
                     "type": "array",
@@ -25978,8 +25970,26 @@
                 "store": {
                     "$ref": "#/definitions/store_response_model"
                 },
+                "card_acceptor": {
+                    "$ref": "#/definitions/transaction_card_acceptor"
+                },
+                "gpa": {
+                    "$ref": "#/definitions/cardholder_balance"
+                },
+                "charge": {
+                    "$ref": "#/definitions/Charge"
+                },
+                "credit_line": {
+                    "$ref": "#/definitions/CreditLine"
+                },
+                "card": {
+                    "$ref": "#/definitions/card_response"
+                },
                 "gpa_order_unload": {
                     "$ref": "#/definitions/gpa_returns"
+                },
+                "gpa_order": {
+                    "$ref": "#/definitions/gpa_response"
                 },
                 "program_transfer": {
                     "$ref": "#/definitions/program_transfer_response"
@@ -26044,9 +26054,6 @@
                 "acquirer_fee_amount": {
                     "type": "number"
                 },
-                "acquirer": {
-                    "$ref": "#/definitions/acquirer"
-                },
                 "fees": {
                     "type": "array",
                     "items": {
@@ -26059,11 +26066,17 @@
                 "user": {
                     "$ref": "#/definitions/cardholder_metadata"
                 },
-                "card": {
-                    "$ref": "#/definitions/card_response"
-                },
                 "business": {
                     "$ref": "#/definitions/business_metadata"
+                },
+                "acquirer": {
+                    "$ref": "#/definitions/acquirer"
+                },
+                "fraud": {
+                    "$ref": "#/definitions/fraud"
+                },
+                "pos": {
+                    "$ref": "#/definitions/pos"
                 },
                 "address_verification": {
                     "$ref": "#/definitions/address_verification_model"
@@ -26071,8 +26084,14 @@
                 "card_security_code_verification": {
                     "$ref": "#/definitions/card_security_code_verification"
                 },
-                "fraud": {
-                    "$ref": "#/definitions/fraud"
+                "transaction_metadata": {
+                    "$ref": "#/definitions/transaction_metadata"
+                },
+                "original_credit": {
+                    "$ref": "#/definitions/original_credit"
+                },
+                "card_holder_model": {
+                    "$ref": "#/definitions/user_card_holder_response"
                 },
                 "standin_approved_by": {
                     "type": "string"
@@ -26080,23 +26099,29 @@
                 "standin_by": {
                     "type": "string"
                 },
+                "standin_reason": {
+                    "type": "string"
+                },
+                "network_reference_id": {
+                    "type": "string"
+                },
+                "acquirer_reference_id": {
+                    "type": "string"
+                },
                 "cardholder_authentication_data": {
                     "$ref": "#/definitions/cardholder_authentication_data"
+                },
+                "transaction_attributes": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
                 },
                 "issuer_received_time": {
                     "type": "string"
                 },
                 "issuer_payment_node": {
                     "type": "string"
-                },
-                "card_acceptor": {
-                    "$ref": "#/definitions/transaction_card_acceptor"
-                },
-                "pos": {
-                    "$ref": "#/definitions/pos"
-                },
-                "transaction_metadata": {
-                    "$ref": "#/definitions/transaction_metadata"
                 }
             }
         },
@@ -26137,20 +26162,6 @@
                     }
                 }
             ]
-        },
-        "KYCSubmitAnswersRequestModel": {
-            "type": "object",
-            "required": [
-                "answers"
-            ],
-            "properties": {
-                "answers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/kyc_answer"
-                    }
-                }
-            }
         },
         "campaign_response_model": {
             "type": "object",
@@ -26206,6 +26217,20 @@
             },
             "xml": {
                 "name": "campaign_response_model"
+            }
+        },
+        "KYCSubmitAnswersRequestModel": {
+            "type": "object",
+            "required": [
+                "answers"
+            ],
+            "properties": {
+                "answers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/kyc_answer"
+                    }
+                }
             }
         },
         "kyc_answer": {
@@ -26315,10 +26340,10 @@
                 "mfdfeeCalculationSchedule": {
                     "$ref": "#/definitions/CalculationSchedule"
                 },
-                "mfdaccount": {
+                "mfdfeeAccount": {
                     "$ref": "#/definitions/FinalAccount"
                 },
-                "mfdfeeAccount": {
+                "mfdaccount": {
                     "$ref": "#/definitions/FinalAccount"
                 }
             }
@@ -27008,15 +27033,15 @@
                         "$ref": "#/definitions/Account"
                     }
                 },
-                "finalAccount": {
-                    "type": "boolean",
-                    "default": false
-                },
                 "credit": {
                     "type": "boolean",
                     "default": false
                 },
                 "chart": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "finalAccount": {
                     "type": "boolean",
                     "default": false
                 },
@@ -27191,6 +27216,9 @@
                 "networkTranType": {
                     "$ref": "#/definitions/NetworkTranType"
                 },
+                "impact": {
+                    "type": "number"
+                },
                 "debit": {
                     "type": "boolean",
                     "default": false
@@ -27202,58 +27230,6 @@
                 "decrease": {
                     "type": "boolean",
                     "default": false
-                },
-                "impact": {
-                    "type": "number"
-                }
-            }
-        },
-        "CryptoKey": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "cryptoKey": {
-                    "$ref": "#/definitions/CryptoKey"
-                },
-                "network": {
-                    "type": "string"
-                },
-                "keyType": {
-                    "type": "string"
-                },
-                "keyValue": {
-                    "type": "string"
-                },
-                "keyIndicator": {
-                    "type": "string"
-                },
-                "parent": {
-                    "$ref": "#/definitions/CryptoKey"
-                },
-                "createdTime": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "modifiedTime": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "zoneKeys": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "items": {
-                        "$ref": "#/definitions/CryptoKey"
-                    }
-                },
-                "cryptoKeys": {
-                    "type": "array",
-                    "uniqueItems": true,
-                    "items": {
-                        "$ref": "#/definitions/CryptoKey"
-                    }
                 }
             }
         },
@@ -27332,6 +27308,55 @@
                 }
             }
         },
+        "CryptoKey": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "cryptoKey": {
+                    "$ref": "#/definitions/CryptoKey"
+                },
+                "network": {
+                    "type": "string"
+                },
+                "keyType": {
+                    "type": "string"
+                },
+                "keyValue": {
+                    "type": "string"
+                },
+                "keyIndicator": {
+                    "type": "string"
+                },
+                "parent": {
+                    "$ref": "#/definitions/CryptoKey"
+                },
+                "createdTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "modifiedTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "zoneKeys": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "$ref": "#/definitions/CryptoKey"
+                    }
+                },
+                "cryptoKeys": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                        "$ref": "#/definitions/CryptoKey"
+                    }
+                }
+            }
+        },
         "DigitalWalletTokenAddressVerification": {
             "type": "object",
             "properties": {
@@ -27358,6 +27383,37 @@
                     "type": "string",
                     "format": "date-time"
                 }
+            }
+        },
+        "fee_update_request": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 50
+                },
+                "amount": {
+                    "type": "number"
+                },
+                "tags": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "currency_code": {
+                    "type": "string"
+                },
+                "active": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "real_time_assessment": {
+                    "$ref": "#/definitions/RealTimeFeeAssessmentRequest"
+                }
+            },
+            "xml": {
+                "name": "fee_update_request"
             }
         },
         "BankTransferTransition": {
@@ -27410,45 +27466,18 @@
                 }
             }
         },
-        "fee_update_request": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 50
-                },
-                "amount": {
-                    "type": "number"
-                },
-                "tags": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 255
-                },
-                "currency_code": {
-                    "type": "string"
-                },
-                "active": {
-                    "type": "boolean",
-                    "default": true
-                },
-                "real_time_assessment": {
-                    "$ref": "#/definitions/RealTimeFeeAssessmentRequest"
-                }
-            },
-            "xml": {
-                "name": "fee_update_request"
-            }
-        },
         "issuer": {
             "type": "object",
             "properties": {
-                "score": {
+                "success": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "fraud_score": {
                     "type": "integer",
                     "format": "int32"
                 },
-                "risk_level": {
+                "fraud_rating": {
                     "type": "string"
                 },
                 "rule_violations": {
@@ -27457,7 +27486,19 @@
                         "type": "string"
                     }
                 },
+                "fraud_score_reasons": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "recommended_action": {
+                    "type": "string"
+                },
+                "model": {
+                    "type": "string"
+                },
+                "message": {
                     "type": "string"
                 }
             }
@@ -27663,10 +27704,44 @@
             "type": "object",
             "properties": {
                 "transaction_type": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                        "ACCOUNT_TO_ACCOUNT",
+                        "PERSON_TO_PERSON",
+                        "WALLET_TRANSFER",
+                        "MONEY_TRANSFER_BY_BANK",
+                        "BUSINESS_TO_BUSINESS",
+                        "DISBURSEMENT",
+                        "GOVERNMENT_DISBURSEMENT",
+                        "GAMBLING_PAYOUT",
+                        "LOYALTY",
+                        "MERCHANT_DISBURSEMENT",
+                        "ONLINE_GAMBLING_PAYOUT",
+                        "PENSION_DISBURSEMENT",
+                        "PREPAID_LOADS",
+                        "CARD_BILL_PAYMENT",
+                        "BILL_PAYMENT",
+                        "CASH_CLAIM",
+                        "CASH_IN",
+                        "CASH_OUT",
+                        "MOBILE_AIR_TIME_PAYMENT",
+                        "MONEY_TRANSFER_BY_MERCHANT",
+                        "FACE_TO_FACE_MERCHANT_PAYMENT",
+                        "GOVERNMENT_PAYMENT",
+                        "PAYMENTS_GOODS_SERVICES"
+                    ]
                 },
                 "funding_source": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                        "CREDIT",
+                        "DEBIT",
+                        "PREPAID",
+                        "DEPOSIT_ACCOUNT",
+                        "CASH",
+                        "MOBILE_MONEY_ACCOUNT",
+                        "NON_VISA_CREDIT"
+                    ]
                 },
                 "sender_name": {
                     "type": "string"
@@ -27780,15 +27855,15 @@
                         "M_DETERMINED_BY_CODE"
                     ]
                 },
-                "finalAccount": {
-                    "type": "boolean",
-                    "default": false
-                },
                 "credit": {
                     "type": "boolean",
                     "default": false
                 },
                 "chart": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "finalAccount": {
                     "type": "boolean",
                     "default": false
                 },
@@ -27926,6 +28001,23 @@
                 }
             }
         },
+        "webhook_ping_model": {
+            "type": "object",
+            "required": [
+                "pings"
+            ],
+            "properties": {
+                "pings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/echo_ping_request"
+                    }
+                }
+            },
+            "xml": {
+                "name": "webhook_ping_model"
+            }
+        },
         "AndroidPushTokenRequestAddress": {
             "type": "object",
             "properties": {
@@ -27956,23 +28048,6 @@
                 "phone": {
                     "type": "string"
                 }
-            }
-        },
-        "webhook_ping_model": {
-            "type": "object",
-            "required": [
-                "pings"
-            ],
-            "properties": {
-                "pings": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/echo_ping_request"
-                    }
-                }
-            },
-            "xml": {
-                "name": "webhook_ping_model"
             }
         },
         "digital_wallet_token": {
@@ -28400,6 +28475,30 @@
                 "name": "result_code"
             }
         },
+        "offer_update_model": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "type": "boolean",
+                    "default": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "255 char max"
+                },
+                "start_date": {
+                    "type": "string",
+                    "description": "yyyy-MM-ddThh:mm:ssZ"
+                },
+                "end_date": {
+                    "type": "string",
+                    "description": "yyyy-MM-ddThh:mm:ssZ"
+                }
+            },
+            "xml": {
+                "name": "offer_update_model"
+            }
+        },
         "FundingSource": {
             "type": "object",
             "properties": {
@@ -28448,30 +28547,6 @@
                     "type": "string",
                     "format": "date-time"
                 }
-            }
-        },
-        "offer_update_model": {
-            "type": "object",
-            "properties": {
-                "active": {
-                    "type": "boolean",
-                    "default": true
-                },
-                "name": {
-                    "type": "string",
-                    "description": "255 char max"
-                },
-                "start_date": {
-                    "type": "string",
-                    "description": "yyyy-MM-ddThh:mm:ssZ"
-                },
-                "end_date": {
-                    "type": "string",
-                    "description": "yyyy-MM-ddThh:mm:ssZ"
-                }
-            },
-            "xml": {
-                "name": "offer_update_model"
             }
         },
         "client_access_token_response": {
@@ -28567,35 +28642,6 @@
                 }
             ]
         },
-        "program_reserve_account_balance": {
-            "type": "object",
-            "properties": {
-                "currency_code": {
-                    "type": "string"
-                },
-                "ledger_balance": {
-                    "type": "number"
-                },
-                "available_balance": {
-                    "type": "number"
-                },
-                "credit_balance": {
-                    "type": "number"
-                },
-                "pending_credits": {
-                    "type": "number"
-                },
-                "balances": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "$ref": "#/definitions/program_reserve_account_balance"
-                    }
-                }
-            },
-            "xml": {
-                "name": "program_reserve_account_balance"
-            }
-        },
         "auth_user_update_request": {
             "type": "object",
             "properties": {
@@ -28624,6 +28670,35 @@
             },
             "xml": {
                 "name": "auth_user_update_request"
+            }
+        },
+        "program_reserve_account_balance": {
+            "type": "object",
+            "properties": {
+                "currency_code": {
+                    "type": "string"
+                },
+                "ledger_balance": {
+                    "type": "number"
+                },
+                "available_balance": {
+                    "type": "number"
+                },
+                "credit_balance": {
+                    "type": "number"
+                },
+                "pending_credits": {
+                    "type": "number"
+                },
+                "balances": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/program_reserve_account_balance"
+                    }
+                }
+            },
+            "xml": {
+                "name": "program_reserve_account_balance"
             }
         },
         "webhook_config_model": {
@@ -28707,6 +28782,17 @@
                 "name": "token_service_provider"
             }
         },
+        "currency_conversion": {
+            "type": "object",
+            "properties": {
+                "network": {
+                    "$ref": "#/definitions/currency_conversion_network"
+                }
+            },
+            "xml": {
+                "name": "currency_conversion"
+            }
+        },
         "KYCQuestion": {
             "type": "object",
             "properties": {
@@ -28721,29 +28807,6 @@
                     "items": {
                         "type": "string"
                     }
-                }
-            }
-        },
-        "currency_conversion": {
-            "type": "object",
-            "properties": {
-                "network": {
-                    "$ref": "#/definitions/currency_conversion_network"
-                }
-            },
-            "xml": {
-                "name": "currency_conversion"
-            }
-        },
-        "update_system_health": {
-            "type": "object",
-            "required": [
-                "force_unavailable"
-            ],
-            "properties": {
-                "force_unavailable": {
-                    "type": "boolean",
-                    "default": false
                 }
             }
         },
@@ -28768,6 +28831,18 @@
             },
             "xml": {
                 "name": "auto_reload_association"
+            }
+        },
+        "update_system_health": {
+            "type": "object",
+            "required": [
+                "force_unavailable"
+            ],
+            "properties": {
+                "force_unavailable": {
+                    "type": "boolean",
+                    "default": false
+                }
             }
         },
         "ValidationsResponse": {
@@ -29056,40 +29131,6 @@
                 }
             }
         },
-        "images_card": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "thermal_color": {
-                    "type": "string"
-                }
-            }
-        },
-        "funding": {
-            "type": "object",
-            "required": [
-                "source"
-            ],
-            "properties": {
-                "amount": {
-                    "type": "number"
-                },
-                "source": {
-                    "$ref": "#/definitions/funding_source_model"
-                },
-                "source_address": {
-                    "$ref": "#/definitions/CardholderAddressResponse"
-                },
-                "gateway_log": {
-                    "$ref": "#/definitions/gateway_log_model"
-                }
-            },
-            "xml": {
-                "name": "funding"
-            }
-        },
         "AddressResponseModel": {
             "type": "object",
             "properties": {
@@ -29127,6 +29168,40 @@
                     "type": "string",
                     "minLength": 0,
                     "maxLength": 40
+                }
+            }
+        },
+        "funding": {
+            "type": "object",
+            "required": [
+                "source"
+            ],
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "source": {
+                    "$ref": "#/definitions/funding_source_model"
+                },
+                "source_address": {
+                    "$ref": "#/definitions/CardholderAddressResponse"
+                },
+                "gateway_log": {
+                    "$ref": "#/definitions/gateway_log_model"
+                }
+            },
+            "xml": {
+                "name": "funding"
+            }
+        },
+        "images_card": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "thermal_color": {
+                    "type": "string"
                 }
             }
         },
@@ -29611,6 +29686,30 @@
                 }
             }
         },
+        "msa": {
+            "type": "object",
+            "required": [
+                "campaign_token",
+                "reload_amount",
+                "trigger_amount"
+            ],
+            "properties": {
+                "campaign_token": {
+                    "type": "string"
+                },
+                "trigger_amount": {
+                    "type": "number",
+                    "minimum": 0.01
+                },
+                "reload_amount": {
+                    "type": "number",
+                    "minimum": 0.01
+                }
+            },
+            "xml": {
+                "name": "msa"
+            }
+        },
         "bank_transfer_request_model": {
             "type": "object",
             "required": [
@@ -29672,30 +29771,6 @@
                 }
             }
         },
-        "msa": {
-            "type": "object",
-            "required": [
-                "campaign_token",
-                "reload_amount",
-                "trigger_amount"
-            ],
-            "properties": {
-                "campaign_token": {
-                    "type": "string"
-                },
-                "trigger_amount": {
-                    "type": "number",
-                    "minimum": 0.01
-                },
-                "reload_amount": {
-                    "type": "number",
-                    "minimum": 0.01
-                }
-            },
-            "xml": {
-                "name": "msa"
-            }
-        },
         "advanced_auth_card_acceptor_model": {
             "type": "object",
             "required": [
@@ -29729,46 +29804,6 @@
             },
             "xml": {
                 "name": "advanced_auth_card_acceptor_model"
-            }
-        },
-        "msa_aggregated_balances": {
-            "type": "object",
-            "required": [
-                "available_balance",
-                "balances",
-                "credit_balance",
-                "currency_code",
-                "ledger_balance",
-                "pending_credits"
-            ],
-            "properties": {
-                "currency_code": {
-                    "type": "string"
-                },
-                "ledger_balance": {
-                    "type": "number"
-                },
-                "available_balance": {
-                    "type": "number"
-                },
-                "credit_balance": {
-                    "type": "number"
-                },
-                "pending_credits": {
-                    "type": "number"
-                },
-                "impacted_amount": {
-                    "type": "number"
-                },
-                "balances": {
-                    "type": "object",
-                    "additionalProperties": {
-                        "$ref": "#/definitions/msa_aggregated_balances"
-                    }
-                }
-            },
-            "xml": {
-                "name": "msa_aggregated_balances"
             }
         },
         "BusinessCardHolderUpdateModel": {
@@ -29885,6 +29920,46 @@
                 "proprietor_or_officer": {
                     "$ref": "#/definitions/BusinessProprietorRequestModel"
                 }
+            }
+        },
+        "msa_aggregated_balances": {
+            "type": "object",
+            "required": [
+                "available_balance",
+                "balances",
+                "credit_balance",
+                "currency_code",
+                "ledger_balance",
+                "pending_credits"
+            ],
+            "properties": {
+                "currency_code": {
+                    "type": "string"
+                },
+                "ledger_balance": {
+                    "type": "number"
+                },
+                "available_balance": {
+                    "type": "number"
+                },
+                "credit_balance": {
+                    "type": "number"
+                },
+                "pending_credits": {
+                    "type": "number"
+                },
+                "impacted_amount": {
+                    "type": "number"
+                },
+                "balances": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/msa_aggregated_balances"
+                    }
+                }
+            },
+            "xml": {
+                "name": "msa_aggregated_balances"
             }
         },
         "CreditLine": {
@@ -30262,6 +30337,51 @@
                 }
             }
         },
+        "fraud": {
+            "type": "object",
+            "properties": {
+                "merchant_risk_score": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "merchant_risk_score_reason_code": {
+                    "type": "string"
+                },
+                "transaction_risk_score": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "transaction_risk_score_reason_code": {
+                    "type": "string"
+                },
+                "transaction_risk_score_reason_description": {
+                    "type": "string"
+                },
+                "account_risk_score": {
+                    "type": "string"
+                },
+                "account_risk_score_reason_code": {
+                    "type": "string"
+                },
+                "issuerFraudModel": {
+                    "$ref": "#/definitions/issuer"
+                }
+            }
+        },
+        "order_scope": {
+            "type": "object",
+            "properties": {
+                "gpa": {
+                    "$ref": "#/definitions/gpa"
+                },
+                "msa": {
+                    "$ref": "#/definitions/msa"
+                }
+            },
+            "xml": {
+                "name": "order_scope"
+            }
+        },
         "merchant_update_model": {
             "type": "object",
             "properties": {
@@ -30340,31 +30460,6 @@
             },
             "xml": {
                 "name": "merchant_update_model"
-            }
-        },
-        "fraud": {
-            "type": "object",
-            "properties": {
-                "network": {
-                    "$ref": "#/definitions/network"
-                },
-                "issuer": {
-                    "$ref": "#/definitions/issuer"
-                }
-            }
-        },
-        "order_scope": {
-            "type": "object",
-            "properties": {
-                "gpa": {
-                    "$ref": "#/definitions/gpa"
-                },
-                "msa": {
-                    "$ref": "#/definitions/msa"
-                }
-            },
-            "xml": {
-                "name": "order_scope"
             }
         },
         "program_reserve_deposit_request": {
@@ -30509,28 +30604,6 @@
                 "name": "pan_request"
             }
         },
-        "link": {
-            "type": "object",
-            "required": [
-                "href",
-                "method",
-                "rel"
-            ],
-            "properties": {
-                "rel": {
-                    "type": "string"
-                },
-                "method": {
-                    "type": "string"
-                },
-                "href": {
-                    "type": "string"
-                }
-            },
-            "xml": {
-                "name": "link"
-            }
-        },
         "bulk_request_model": {
             "type": "object",
             "properties": {
@@ -30582,6 +30655,28 @@
             },
             "xml": {
                 "name": "bulk_request_model"
+            }
+        },
+        "link": {
+            "type": "object",
+            "required": [
+                "href",
+                "method",
+                "rel"
+            ],
+            "properties": {
+                "rel": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string"
+                },
+                "href": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "link"
             }
         },
         "bank_account_funding_source_model": {
@@ -30644,23 +30739,6 @@
                 "name": "manual_entry"
             }
         },
-        "jit_address_verification": {
-            "type": "object",
-            "properties": {
-                "request": {
-                    "$ref": "#/definitions/avs_information"
-                },
-                "issuer": {
-                    "$ref": "#/definitions/address_verification_source"
-                },
-                "gateway": {
-                    "$ref": "#/definitions/address_verification_source"
-                }
-            },
-            "xml": {
-                "name": "jit_address_verification"
-            }
-        },
         "IdentificationRequestModel": {
             "type": "object",
             "required": [
@@ -30691,25 +30769,38 @@
                 }
             }
         },
+        "jit_address_verification": {
+            "type": "object",
+            "properties": {
+                "request": {
+                    "$ref": "#/definitions/avs_information"
+                },
+                "issuer": {
+                    "$ref": "#/definitions/address_verification_source"
+                },
+                "gateway": {
+                    "$ref": "#/definitions/address_verification_source"
+                }
+            },
+            "xml": {
+                "name": "jit_address_verification"
+            }
+        },
         "network": {
             "type": "object",
             "properties": {
-                "transaction_risk_score": {
-                    "type": "integer",
-                    "format": "int32"
+                "original_amount": {
+                    "type": "number"
                 },
-                "transaction_risk_score_reason_code": {
-                    "type": "string"
+                "conversion_rate": {
+                    "type": "number"
                 },
-                "transaction_risk_score_reason_description": {
-                    "type": "string"
-                },
-                "account_risk_score": {
-                    "type": "string"
-                },
-                "account_risk_score_reason_code": {
+                "original_currency_code": {
                     "type": "string"
                 }
+            },
+            "xml": {
+                "name": "network"
             }
         },
         "UserCardHolder": {
