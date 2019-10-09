@@ -676,10 +676,13 @@ else {
     Write-Verbose "Fixing incorrectly named definition properties."
 
     # transaction_model
-    #    issuer_received_time
+    #   issuer_interchange_amount
+    $jsonObject.definitions['transaction_model'].properties.Remove('issuerInterchangeAmount') | Out-Null
+    $jsonObject.definitions['transaction_model'].properties.Add('issuer_interchange_amount', @{ 'type' = 'number' })
+    #   issuer_received_time
     $jsonObject.definitions['transaction_model'].properties.Remove('issuerReceivedTime') | Out-Null
     $jsonObject.definitions['transaction_model'].properties.Add('issuer_received_time', @{ 'type' = 'string' })
-    #    issuer_payment_node
+    #   issuer_payment_node
     $jsonObject.definitions['transaction_model'].properties.Remove('issuerPaymentNode') | Out-Null
     $jsonObject.definitions['transaction_model'].properties.Add('issuer_payment_node', @{ 'type' = 'string' })
 
