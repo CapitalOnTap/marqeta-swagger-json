@@ -678,10 +678,10 @@ $fraudSchema = @{
     'type'       = 'object';
     'properties' = @{
         'issuer_processor' = @{
-            'ref' = '#/definitions/issuer_processor';
+            '$ref' = '#/definitions/issuer_processor';
         };
         'network'          = @{
-            'ref' = '#/definitions/fraud_network';
+            '$ref' = '#/definitions/fraud_network';
         };
     }
 }
