@@ -249,6 +249,8 @@ $requiredTransactionEventTypes = @(
     'authorization.reversal',
     'authorization.reversal.issuerexpiration',
     'authorization.standin',
+    # Added to fix api desrelization
+    'balanceinquiry',
     'billpayment',
     'billpayment.clearing',
     'billpayment.reversal',
