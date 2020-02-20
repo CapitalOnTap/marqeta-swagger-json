@@ -347,6 +347,10 @@ else {
 $jsonObject.definitions['card_response'].properties.last_four.Remove('enum') | Out-Null
 $jsonObject.definitions['card_transition_response'].properties.last_four.Remove('enum') | Out-Null
 
+$cardTransitionResponseStates = $jsonObject.definitions['card_transition_response'].properties.state.enum
+$ctR = ($cardTransitionResponseStates + $('UNACTIVATED') | Select-Object -Unique) | Sort-Object
+$jsonObject.definitions['card_transition_response'].properties.state.enum = $ctR
+
 #
 # /Enum
 #
@@ -740,7 +744,6 @@ $issuerProcessorSchema = @{
     }
 }
 $jsonObject.definitions['issuer_processor'] = $issuerProcessorSchema
-
 
 #
 # /Definitions: missing definitions
