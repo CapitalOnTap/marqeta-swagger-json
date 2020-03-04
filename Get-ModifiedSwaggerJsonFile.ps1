@@ -195,6 +195,8 @@ if ($enum -notcontains $unknownValue) {
 
 # definitions/pos/card_data_input_capability
 $enum = $jsonObject.definitions['pos'].properties.card_data_input_capability.enum
+$poscdic = ($enum + $('BAR_CODE') | Select-Object -Unique) # Add missing BAR_CODE
+$jsonObject.definitions['pos'].properties.card_data_input_capability.enum= $poscdic
 if ($enum -notcontains $unknownValue) {
     $jsonObject.definitions['pos'].properties.card_data_input_capability.enum += $unknownValue
     $enum += $unknownValue
