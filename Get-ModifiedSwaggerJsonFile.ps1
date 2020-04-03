@@ -622,9 +622,10 @@ Write-Verbose "Adding missing properties to definitions."
 
 $missingProperties = @(
     # Please keep these values in a alphabetical order based on the following fields in order of precedence: Definition, PropertyName
-    @{ Definition = 'transaction_model'; PropertyName = 'card_acceptor'; PropertyValue = @{ '$ref' = '#/definitions/transaction_card_acceptor' }; }
+    @{ Definition = 'response'; PropertyName = 'additional_information'; PropertyValue = @{'type' = 'string'}; }
+    , @{ Definition = 'transaction_model'; PropertyName = 'card_acceptor'; PropertyValue = @{ '$ref' = '#/definitions/transaction_card_acceptor' }; }
     , @{ Definition = 'transaction_model'; PropertyName = 'pos'; PropertyValue = @{ '$ref' = '#/definitions/pos' }; }
-    , @{ Definition = 'transaction_model'; PropertyName = 'transaction_metadata'; PropertyValue = @{ '$ref' = '#/definitions/transaction_metadata' }; }
+    , @{ Definition = 'transaction_model'; PropertyName = 'transaction_metadata'; PropertyValue = @{ '$ref' = '#/definitions/transaction_metadata' }; }    
 )
 foreach ($missingProperty in $missingProperties) {
     if ($null -eq $jsonObject.definitions[$missingProperty.Definition].properties."$($missingProperty.PropertyName)") {
