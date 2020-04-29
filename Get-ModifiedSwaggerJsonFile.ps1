@@ -30,10 +30,6 @@ else {
 
     Write-Verbose 'Massaging JSON.'
 
-    # Remove diacritics
-    Write-Verbose 'Removing diacritics.'
-    (Get-Content -Path $File).Replace("é", "e") | Out-File -Encoding utf8 $File
-
     # NB: We need to use the .NET JavaScriptSerializer because the build in powershell one cannot handle IDs with the same name but different casing
     [void][System.Reflection.Assembly]::LoadWithPartialName("System.Web.Extensions")
     $jsonObject = [System.Web.Script.Serialization.JavaScriptSerializer]::new().DeserializeObject((Get-Content -Path $File))
