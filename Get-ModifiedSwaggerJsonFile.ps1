@@ -60,7 +60,7 @@ else {
     # Debug output
     $debugTmpFileCount = 0
     if ($DebugOutput) {
-        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount $debugTmpFileCount
+        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount ([ref]$debugTmpFileCount)
     }
 
     # Title
@@ -77,7 +77,7 @@ else {
 
     # Debug output
     if ($DebugOutput) {
-        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount $debugTmpFileCount
+        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount ([ref]$debugTmpFileCount)
     }
 
     #
@@ -190,7 +190,7 @@ else {
 
     # Debug output
     if ($DebugOutput) {
-        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount $debugTmpFileCount
+        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount ([ref]$debugTmpFileCount)
     }
 
     # Add missing enum values
@@ -242,7 +242,7 @@ else {
 
     # Debug output
     if ($DebugOutput) {
-        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount $debugTmpFileCount
+        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount ([ref]$debugTmpFileCount)
     }
 
 
@@ -382,7 +382,7 @@ else {
 
     # Debug output
     if ($DebugOutput) {
-        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount $debugTmpFileCount
+        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount ([ref]$debugTmpFileCount)
     }
 
     #
@@ -420,7 +420,7 @@ else {
 
     # Debug output
     if ($DebugOutput) {
-        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount $debugTmpFileCount
+        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount ([ref]$debugTmpFileCount)
     }
 
     #
@@ -495,7 +495,7 @@ else {
 
     # Debug output
     if ($DebugOutput) {
-        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount $debugTmpFileCount
+        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount ([ref]$debugTmpFileCount)
     }
 
     #
@@ -619,7 +619,7 @@ else {
 
     # Debug output
     if ($DebugOutput) {
-        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount $debugTmpFileCount
+        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount ([ref]$debugTmpFileCount)
     }
 
     #
@@ -648,7 +648,7 @@ else {
 
     # Debug output
     if ($DebugOutput) {
-        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount $debugTmpFileCount
+        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount ([ref]$debugTmpFileCount)
     }
 
     #
@@ -670,7 +670,7 @@ else {
 
     # Debug output
     if ($DebugOutput) {
-        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount $debugTmpFileCount
+        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount ([ref]$debugTmpFileCount)
     }
 
     #
@@ -766,7 +766,7 @@ else {
 
     # Debug output
     if ($DebugOutput) {
-        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount $debugTmpFileCount
+        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount ([ref]$debugTmpFileCount)
     }
 
     #
@@ -797,7 +797,7 @@ else {
     
     # Debug output
     if ($DebugOutput) {
-        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount $debugTmpFileCount
+        Out-DebugJsonFile -JsonObject $jsonObject -OutputCount ([ref]$debugTmpFileCount)
     }
 
     #
