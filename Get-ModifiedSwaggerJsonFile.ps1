@@ -681,6 +681,8 @@ else {
     # Definitions: missing definitions
     #
 
+    Write-Verbose "Adding missing definitions."
+
     # currency_conversion_network
     $currencyConversionNetworkSchema = @{
         'type'       = 'object';
