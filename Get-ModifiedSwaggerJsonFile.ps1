@@ -17,7 +17,7 @@ Write-Verbose "Using `$outDir: $($outDir)"
 # NB: Currently the marqeta-core-api/v3/swagger.json does not play well with code generation tools
 #       like swagger-codegen or nswag. This is a temporary measure until this is resolved.
 #
-$defaultJsonUri = 'https://shared-sandbox-api.marqeta.com/v3/swagger.json'
+$defaultJsonUri = 'https://sandbox-api.marqeta.com/v3/swagger.json'
 
 Write-Verbose "Capping 'maxItems' values to 500."
 
@@ -395,6 +395,7 @@ Invoke-DelegateOnJsonNodeWithProperty -PropertyName "operationId" -Delegate $del
 Write-Verbose "Pre-paginated responses massaging."
     
 # /users/{parent_token}/children
+Write-Verbose "Adding schema ref to '/users/{parent_token}/children'."
 $jsonObject.paths['/users/{parent_token}/children'].get.responses['200'].schema.items.'$ref' = '#/definitions/user_card_holder_response'
 
 Write-Verbose "Adding paginated responses."
