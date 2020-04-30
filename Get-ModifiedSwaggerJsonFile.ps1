@@ -9,10 +9,24 @@ Function Out-JsonFile {
     param(
         [CmdletBinding()]
         [Parameter(Mandatory = $true)]$JsonObject,
-        [Parameter(Mandatory = $true)]$FileName
+        [Parameter(Mandatory = $true)]$FileName,
+        [switch]$Unescape
     )
-    Write-Verbose "Writing file '$($FileName)'."
-    $JsonObject | ConvertTo-Json -depth 100 | ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) } | Out-File -Encoding utf8 $FileName
+
+    # JSON string
+    $content = ($JsonObject | ConvertTo-Json -depth 100)
+
+    # Unescape if required
+    if ($Unescape) {
+        Write-Verbose "Writing file '$($FileName)' (unescaped)."
+        $content = $content | ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) }
+    } else {
+        Write-Verbose "Writing file '$($FileName)'."
+    }
+
+    # Output to file
+    $content | Out-File -Encoding utf8 $FileName
+
     return;
 }
 Function Out-DebugJsonFile {
@@ -21,7 +35,7 @@ Function Out-DebugJsonFile {
         [Parameter(Mandatory = $true)]$JsonObject,
         [Parameter(Mandatory = $true)][ref]$OutputCount
     )
-    Out-JsonFile -JsonObject $JsonObject -FileName "./swagger.tmp.$($OutputCount.Value).json"
+    Out-JsonFile -JsonObject $JsonObject -FileName "./swagger.tmp.$($OutputCount.Value).json" -Unescape
     $OutputCount.Value += 1
     return;
 }
@@ -741,9 +755,7 @@ else {
     # /Definitions: incorrectly named properties
     #
 
-    Write-Verbose "Writing file."
-    # $jsonObject | ConvertTo-Json -depth 100 | Out-File -Encoding utf8 $File
-    $jsonObject | ConvertTo-Json -depth 100 | ForEach-Object { [System.Text.RegularExpressions.Regex]::Unescape($_) } | Out-File -Encoding utf8 $File
+    Out-JsonFile -JsonObject $jsonObject -FileName $File
 }
 
 #

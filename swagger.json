@@ -564,14 +564,14 @@
                     {
                         "name": "card_product",
                         "in": "query",
-                        "description": "Card product token. Use "null" to get auth controls that are not associated with any card product.",
+                        "description": "Card product token. Use \"null\" to get auth controls that are not associated with any card product.",
                         "required": false,
                         "type": "string"
                     },
                     {
                         "name": "user",
                         "in": "query",
-                        "description": "User token. Use "null" to get auth controls that are not associated with any user.",
+                        "description": "User token. Use \"null\" to get auth controls that are not associated with any user.",
                         "required": false,
                         "type": "string"
                     },
@@ -683,14 +683,14 @@
                     {
                         "name": "card_product",
                         "in": "query",
-                        "description": "Card product token. Use "null" to get auth controls that are not associated with any card product.",
+                        "description": "Card product token. Use \"null\" to get auth controls that are not associated with any card product.",
                         "required": false,
                         "type": "string"
                     },
                     {
                         "name": "user",
                         "in": "query",
-                        "description": "User token. Use "null" to get auth controls that are not associated with any user.",
+                        "description": "User token. Use \"null\" to get auth controls that are not associated with any user.",
                         "required": false,
                         "type": "string"
                     },
@@ -1967,7 +1967,7 @@
                 "tags": [
                     "businesses"
                 ],
-                "summary": "Returns a specific business proprietor's SSN",
+                "summary": "Returns a specific business proprietor\u0027s SSN",
                 "description": "",
                 "consumes": [
                     "application/json"
@@ -2748,7 +2748,7 @@
                 "tags": [
                     "cards"
                 ],
-                "summary": "Returns a card's metadata",
+                "summary": "Returns a card\u0027s metadata",
                 "description": "",
                 "consumes": [
                     "application/json"
@@ -6676,7 +6676,7 @@
                 "tags": [
                     "gpa orders"
                 ],
-                "summary": "Funds a user's GPA account",
+                "summary": "Funds a user\u0027s GPA account",
                 "description": "",
                 "consumes": [
                     "application/json"
@@ -11735,7 +11735,7 @@
                 "tags": [
                     "users"
                 ],
-                "summary": "Returns a specific user's SSN",
+                "summary": "Returns a specific user\u0027s SSN",
                 "description": "",
                 "consumes": [
                     "application/json"
@@ -11955,14 +11955,14 @@
                     {
                         "name": "card_product",
                         "in": "query",
-                        "description": "Card product token. Use "null" to get velocity controls that are not associated with any card product.",
+                        "description": "Card product token. Use \"null\" to get velocity controls that are not associated with any card product.",
                         "required": false,
                         "type": "string"
                     },
                     {
                         "name": "user",
                         "in": "query",
-                        "description": "User token. Use "null" to get velocity controls that are not associated with any user.",
+                        "description": "User token. Use \"null\" to get velocity controls that are not associated with any user.",
                         "required": false,
                         "type": "string"
                     },
@@ -12062,7 +12062,7 @@
                 "tags": [
                     "velocity controls"
                 ],
-                "summary": "Queries a user's velocity control balances",
+                "summary": "Queries a user\u0027s velocity control balances",
                 "description": "",
                 "consumes": [
                     "application/json"
@@ -12610,13 +12610,13 @@
                 },
                 "user_token": {
                     "type": "string",
-                    "description": "Required if 'business_token' is null",
+                    "description": "Required if \u0027business_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "business_token": {
                     "type": "string",
-                    "description": "Required if 'user_token' is null",
+                    "description": "Required if \u0027user_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
@@ -14258,7 +14258,7 @@
                     "description": "May only contain alphanumeric, hyphens, and underscore characters",
                     "minLength": 1,
                     "maxLength": 50,
-                    "pattern":  "^[\w-]*$"
+                    "pattern": "^[\\w-]*$"
                 }
             }
         },
@@ -14422,7 +14422,7 @@
             "properties": {
                 "reason_description": {
                     "type": "string",
-                    "description": "Either 'reason_description' or 'reason_code' is required",
+                    "description": "Either \u0027reason_description\u0027 or \u0027reason_code\u0027 is required",
                     "enum": [
                         "SERVICE_NOT_PROVIDED_MERCHANDISE_NOT_RECEIVED",
                         "CANCELLED_RECURRING_TRANSACTION",
@@ -14446,7 +14446,7 @@
                 },
                 "reason_code": {
                     "type": "string",
-                    "description": "Either 'reason_code' or 'reason_description' is required"
+                    "description": "Either \u0027reason_code\u0027 or \u0027reason_description\u0027 is required"
                 }
             }
         },
@@ -14900,7 +14900,7 @@
             "properties": {
                 "transaction_tokens": {
                     "type": "array",
-                    "description": "A list of 'clearing_transaction_request' items",
+                    "description": "A list of \u0027clearing_transaction_request\u0027 items",
                     "items": {
                         "$ref": "#/definitions/clearing_record_request_model"
                     }
@@ -14962,13 +14962,13 @@
                 },
                 "user_token": {
                     "type": "string",
-                    "description": "Required if 'business_token' is null",
+                    "description": "Required if \u0027business_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "business_token": {
                     "type": "string",
-                    "description": "Required if 'user_token' is null",
+                    "description": "Required if \u0027user_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
@@ -16887,25 +16887,25 @@
                 },
                 "sender_user_token": {
                     "type": "string",
-                    "description": "Required if 'send_business_token' is null",
+                    "description": "Required if \u0027send_business_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "recipient_user_token": {
                     "type": "string",
-                    "description": "Required if 'recipient_business_token' is null",
+                    "description": "Required if \u0027recipient_business_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "sender_business_token": {
                     "type": "string",
-                    "description": "Required if 'send_user_token' is null",
+                    "description": "Required if \u0027send_user_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "recipient_business_token": {
                     "type": "string",
-                    "description": "Required if 'recipient_business_token' is null",
+                    "description": "Required if \u0027recipient_business_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
@@ -16958,13 +16958,13 @@
                 },
                 "user_token": {
                     "type": "string",
-                    "description": "Required if 'business_token' is null",
+                    "description": "Required if \u0027business_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "business_token": {
                     "type": "string",
-                    "description": "Required if 'user_token' is null",
+                    "description": "Required if \u0027user_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
@@ -17073,7 +17073,7 @@
             "properties": {
                 "reason_description": {
                     "type": "string",
-                    "description": "Either 'reason_description' or 'reason_code' is required",
+                    "description": "Either \u0027reason_description\u0027 or \u0027reason_code\u0027 is required",
                     "enum": [
                         "SERVICE_NOT_PROVIDED_MERCHANDISE_NOT_RECEIVED",
                         "CANCELLED_RECURRING_TRANSACTION",
@@ -17097,7 +17097,7 @@
                 },
                 "reason_code": {
                     "type": "string",
-                    "description": "Either 'reason_code' or 'reason_description' is required"
+                    "description": "Either \u0027reason_code\u0027 or \u0027reason_description\u0027 is required"
                 },
                 "token": {
                     "type": "string",
@@ -17940,13 +17940,13 @@
                 },
                 "user_token": {
                     "type": "string",
-                    "description": "Required if 'business_token' is null",
+                    "description": "Required if \u0027business_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "business_token": {
                     "type": "string",
-                    "description": "Required if 'user_token' is null",
+                    "description": "Required if \u0027user_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
@@ -20217,11 +20217,11 @@
                 },
                 "user_token": {
                     "type": "string",
-                    "description": "Required if 'business_token' is not present"
+                    "description": "Required if \u0027business_token\u0027 is not present"
                 },
                 "business_token": {
                     "type": "string",
-                    "description": "Required if 'user_token' is not present"
+                    "description": "Required if \u0027user_token\u0027 is not present"
                 }
             },
             "xml": {
@@ -20993,13 +20993,13 @@
                 },
                 "user_token": {
                     "type": "string",
-                    "description": "Required if 'business_token' is null",
+                    "description": "Required if \u0027business_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "business_token": {
                     "type": "string",
-                    "description": "Required if 'user_token' is null",
+                    "description": "Required if \u0027user_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
@@ -21192,11 +21192,11 @@
                     "properties": {
                         "user_token": {
                             "type": "string",
-                            "description": "Required if 'business_token' is null"
+                            "description": "Required if \u0027business_token\u0027 is null"
                         },
                         "business_token": {
                             "type": "string",
-                            "description": "Required if 'user_token' is null"
+                            "description": "Required if \u0027user_token\u0027 is null"
                         },
                         "account_suffix": {
                             "type": "string"
@@ -21910,13 +21910,13 @@
                 },
                 "user_token": {
                     "type": "string",
-                    "description": "Required if 'business_token' is null",
+                    "description": "Required if \u0027business_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "business_token": {
                     "type": "string",
-                    "description": "Required if 'user_token' is null",
+                    "description": "Required if \u0027user_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
@@ -24420,13 +24420,13 @@
                 },
                 "user_token": {
                     "type": "string",
-                    "description": "Required if 'business_token' is null",
+                    "description": "Required if \u0027business_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "business_token": {
                     "type": "string",
-                    "description": "Required if 'user_token' is null",
+                    "description": "Required if \u0027user_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 }
@@ -26125,7 +26125,7 @@
             "properties": {
                 "token": {
                     "type": "string",
-                    "pattern":  "\d+"
+                    "pattern": "\\d+"
                 },
                 "code": {
                     "type": "string"
@@ -26796,13 +26796,13 @@
             "properties": {
                 "user_token": {
                     "type": "string",
-                    "description": "Required if 'business_token' is not specified",
+                    "description": "Required if \u0027business_token\u0027 is not specified",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "business_token": {
                     "type": "string",
-                    "description": "Required if 'user_token' is not specified",
+                    "description": "Required if \u0027user_token\u0027 is not specified",
                     "minLength": 1,
                     "maxLength": 36
                 },
@@ -28688,13 +28688,13 @@
                 },
                 "user_token": {
                     "type": "string",
-                    "description": "required if 'business_token' is null",
+                    "description": "required if \u0027business_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "business_token": {
                     "type": "string",
-                    "description": "required if 'user_token' is null",
+                    "description": "required if \u0027user_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
@@ -29261,13 +29261,13 @@
             "properties": {
                 "user_token": {
                     "type": "string",
-                    "description": "Required if 'business_token' is null",
+                    "description": "Required if \u0027business_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "business_token": {
                     "type": "string",
-                    "description": "Required if 'user_token' is null",
+                    "description": "Required if \u0027user_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
@@ -29766,13 +29766,13 @@
                 },
                 "user_token": {
                     "type": "string",
-                    "description": "Required if 'business_token' is null",
+                    "description": "Required if \u0027business_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "business_token": {
                     "type": "string",
-                    "description": "Required if 'user_token' is null",
+                    "description": "Required if \u0027user_token\u0027 is null",
                     "minLength": 1,
                     "maxLength": 36
                 },
@@ -30276,11 +30276,11 @@
                     "properties": {
                         "user_token": {
                             "type": "string",
-                            "description": "Required if 'business_token' is null"
+                            "description": "Required if \u0027business_token\u0027 is null"
                         },
                         "business_token": {
                             "type": "string",
-                            "description": "Required if 'user_token' is null"
+                            "description": "Required if \u0027user_token\u0027 is null"
                         },
                         "account_suffix": {
                             "type": "string"
@@ -30758,13 +30758,13 @@
             "properties": {
                 "user_token": {
                     "type": "string",
-                    "description": "Required if 'business_token' is not specified",
+                    "description": "Required if \u0027business_token\u0027 is not specified",
                     "minLength": 1,
                     "maxLength": 36
                 },
                 "business_token": {
                     "type": "string",
-                    "description": "Required if 'user_token' is not specified",
+                    "description": "Required if \u0027user_token\u0027 is not specified",
                     "minLength": 1,
                     "maxLength": 36
                 },
@@ -30805,7 +30805,7 @@
                 },
                 "zip": {
                     "type": "string",
-                    "description": "Required if 'postal_code' is not specified",
+                    "description": "Required if \u0027postal_code\u0027 is not specified",
                     "minLength": 0,
                     "maxLength": 10
                 },
@@ -30829,7 +30829,7 @@
                 },
                 "postal_code": {
                     "type": "string",
-                    "description": "Required if 'zip' is not specified",
+                    "description": "Required if \u0027zip\u0027 is not specified",
                     "minLength": 0,
                     "maxLength": 10
                 }
