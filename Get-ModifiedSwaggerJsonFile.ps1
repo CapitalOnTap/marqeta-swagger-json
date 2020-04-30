@@ -546,72 +546,11 @@ else {
 
     ## Existing definitions
 
-    # Brand
-    #   campaigns
-    $jsonObject.definitions['Brand'].properties.campaigns.items.'$ref' = '#/definitions/campaign_model'
-    $jsonObject.definitions['Brand'].properties.campaigns.items.Remove('type') | Out-Null
-
-    # Campaign
-    #   dealDescriptors
-    $jsonObject.definitions['Campaign'].properties.dealDescriptors.items.'$ref' = '#/definitions/DealDescriptor'
-    $jsonObject.definitions['Campaign'].properties.dealDescriptors.items.Remove('type') | Out-Null
-
-    # CardHolder
-    #   accounts
-    $jsonObject.definitions['CardHolder'].properties.accounts.type = 'array'
-    $jsonObject.definitions['CardHolder'].properties.accounts.uniqueItems = $true
-    $jsonObject.definitions['CardHolder'].properties.accounts.items = @{ '$ref' = '#/definitions/account_model' }
-    $jsonObject.definitions['CardHolder'].properties.accounts.Remove('additionalProperties') | Out-Null
-
-    # CompositeAccount
-    #   children0
-    $jsonObject.definitions['CompositeAccount'].properties.children0.items.'$ref' = '#/definitions/CompositeAccount'
-    $jsonObject.definitions['CompositeAccount'].properties.children0.items.Remove('type') | Out-Null
-
-    # CryptoKey
-    #   zoneKeys
-    $jsonObject.definitions['CryptoKey'].properties.zoneKeys.items.'$ref' = '#/definitions/CryptoKey'
-    $jsonObject.definitions['CryptoKey'].properties.zoneKeys.items.Remove('type') | Out-Null
-    #   cryptoKeys
-    $jsonObject.definitions['CryptoKey'].properties.cryptoKeys.items.'$ref' = '#/definitions/CryptoKey'
-    $jsonObject.definitions['CryptoKey'].properties.cryptoKeys.items.Remove('type') | Out-Null
-
-    # currency_conversion
-    #   network
-    $jsonObject.definitions['currency_conversion'].properties.network.'$ref' = '#/definitions/currency_conversion_network'
-
-    # FinalAccount
-    #   children0
-    $jsonObject.definitions['FinalAccount'].properties.children0.items.'$ref' = '#/definitions/CompositeAccount'
-    $jsonObject.definitions['FinalAccount'].properties.children0.items.Remove('type') | Out-Null
-
     # Gatewaylog
     #   gatewayResponse
+    Write-Verbose "Adding '#/definitions/gateway_response' ref to '#/definitions/Gatewaylog'."
     $jsonObject.definitions['Gatewaylog'].properties.gatewayResponse.'$ref' = '#/definitions/gateway_response'
     $jsonObject.definitions['Gatewaylog'].properties.gatewayResponse.Remove('type') | Out-Null
-
-    # GLTransaction
-    #   entries
-    $jsonObject.definitions['GLTransaction'].properties.entries.items.'$ref' = '#/definitions/GLEntry'
-    $jsonObject.definitions['GLTransaction'].properties.entries.items.Remove('type') | Out-Null
-    #   adjustmentEntries
-    $jsonObject.definitions['GLTransaction'].properties.adjustmentEntries.items.'$ref' = '#/definitions/GLEntry'
-    $jsonObject.definitions['GLTransaction'].properties.adjustmentEntries.items.Remove('type') | Out-Null
-
-    # Merchant
-    #   stores
-    $jsonObject.definitions['Merchant'].properties.stores.items.'$ref' = '#/definitions/store_model'
-    $jsonObject.definitions['Merchant'].properties.stores.items.Remove('type') | Out-Null
-    #   terminals
-    $jsonObject.definitions['Merchant'].properties.terminals.items.'$ref' = '#/definitions/terminal_model'
-    $jsonObject.definitions['Merchant'].properties.terminals.items.Remove('type') | Out-Null
-
-    # UserCardHolder
-    #   accounts
-    $jsonObject.definitions['UserCardHolder'].properties.accounts.type = 'array'
-    $jsonObject.definitions['UserCardHolder'].properties.accounts.uniqueItems = $true
-    $jsonObject.definitions['UserCardHolder'].properties.accounts.items = @{ '$ref' = '#/definitions/account_model' }
-    $jsonObject.definitions['UserCardHolder'].properties.accounts.Remove('additionalProperties') | Out-Null
 
     # Debug output
     if ($DebugOutput) {
