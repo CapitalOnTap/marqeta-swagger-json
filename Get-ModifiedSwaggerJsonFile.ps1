@@ -431,10 +431,6 @@ else {
     # Paginated responses
     #
     Write-Verbose "Pre-paginated responses massaging."
-    
-    # /users/{parent_token}/children
-    Write-Verbose "Adding schema ref to '/users/{parent_token}/children'."
-    $jsonObject.paths['/users/{parent_token}/children'].get.responses['200'].schema.items.'$ref' = '#/definitions/user_card_holder_response'
 
     Write-Verbose "Adding paginated responses."
     $paths = @(
