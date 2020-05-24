@@ -587,6 +587,9 @@ else {
         , @{ Definition = 'transaction_model'; PropertyName = 'card_acceptor'; PropertyValue = @{ '$ref' = '#/definitions/transaction_card_acceptor' }; }
         , @{ Definition = 'transaction_model'; PropertyName = 'pos'; PropertyValue = @{ '$ref' = '#/definitions/pos' }; }
         , @{ Definition = 'transaction_model'; PropertyName = 'transaction_metadata'; PropertyValue = @{ '$ref' = '#/definitions/transaction_metadata' }; }
+        , @{ Definition = 'card_holder_model'; PropertyName = 'status'; PropertyValue = @{ 'type' = 'string'; 'enum' = @('UNVERIFIED', 'LIMITED', 'ACTIVE', 'SUSPENDED', 'CLOSED')  }; }
+        , @{ Definition = 'network'; PropertyName = 'original_amount'; PropertyValue = @{ 'type' = 'number' }; }
+        , @{ Definition = 'network'; PropertyName = 'original_currency_code'; PropertyValue = @{ 'type' = 'string' }; }
     )
     foreach ($missingProperty in $missingProperties) {
         if ($null -eq $jsonObject.definitions[$missingProperty.Definition].properties."$($missingProperty.PropertyName)") {
