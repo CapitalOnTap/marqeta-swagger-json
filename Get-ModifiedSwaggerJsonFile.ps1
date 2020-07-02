@@ -239,6 +239,11 @@ else {
         Write-Verbose "Added '$($unknownValue)' to 'definitions/pos/card_data_input_capability'."
     }
 
+    # definitions/digital_wallet_token_transition_response/channel
+    $enum = $jsonObject.definitions['digital_wallet_token_transition_response'].properties.channel.enum
+    $dwttrc = ($enum + $('TOKEN_SERVICE_PROVIDER_API') | Select-Object -Unique) # Add missing TOKEN_SERVICE_PROVIDER_API
+    $jsonObject.definitions['digital_wallet_token_transition_response'].properties.channel.enum = $dwttrc    
+
     # Update values
     $currentTransactionTypes = $jsonObject.definitions['transaction_model'].properties.type.enum
     $ttUnion = ($currentTransactionTypes + $requiredTransactionEventTypes | Select-Object -Unique) | Sort-Object
