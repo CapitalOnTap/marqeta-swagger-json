@@ -399,6 +399,14 @@ else {
     $ctR = ($cardTransitionResponseStates + $('UNACTIVATED') | Select-Object -Unique) | Sort-Object
     $jsonObject.definitions['card_transition_response'].properties.state.enum = $ctR
 
+    $currentPaymentChannels = $jsonObject.definitions['transaction_metadata'].properties.payment_channel.enum
+    $unionPaymentChannels = ($currentPaymentChannels + $('MOTO') | Select-Object -Unique) | Sort-object
+    $jsonObject.definitions['transaction_metadata'].properties.payment_channel.enum = $unionPaymentChannels
+
+    $currentPanEntryMode = $jsonObject.definitions['pos'].properties.pan_entry_mode.enum
+    $unionPanEntryMode = $($currentPanEntryMode + $('CARD_ON_FILE') | Select-Object -Unique) | Sort-Object
+    $jsonObject.definitions['pos'].properties.pan_entry_mode.enum = $unionPanEntryMode
+
     # Debug output
     if ($DebugOutput) {
         Out-DebugJsonFile -JsonObject $jsonObject -OutputCount ([ref]$debugTmpFileCount)
