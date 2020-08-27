@@ -417,6 +417,16 @@ else {
     #
 
     #
+    # Incorrect Types
+    #
+    $jsonObject.definitions['pos'].properties.pin_present = @{
+                'type' = 'boolean';
+            };
+    #
+    # /Incorrect Types
+    #
+
+    #
     # Remove operation ids
     #
     Write-Verbose "Removing problematic operation ids."
