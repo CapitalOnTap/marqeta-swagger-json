@@ -468,64 +468,57 @@ else {
     #
     # Paginated responses
     #
-    Write-Verbose "Pre-paginated responses massaging."
+    # Write-Verbose "Pre-paginated responses massaging."
 
-    Write-Verbose "Adding paginated responses."
-    $paths = @(
-        '/cards/user/{token}'
-        '/fees'
-        '/fundingsources/program/ach'
-        '/programreserve/transactions'
-        '/realtimefeegroups'
-        '/transactions'
-        '/transactions/fundingsource/{funding_source_token}'
-        '/transactions/{token}/related'
-        '/velocitycontrols/user/{user_token}/available'
-        '/webhooks'
-    )
-    foreach ($path in $paths) {
-        Write-Verbose "Adding paginated response for '$($path)'."
+    # Write-Verbose "Adding paginated responses."
+    # $paths = @(
+    #     '/fundingsources/program/ach'
+    #     '/realtimefeegroups'
+    #     '/velocitycontrols/user/{user_token}/available'
+    # )
+    # foreach ($path in $paths) {
+    #     Write-Verbose "Adding paginated response for '$($path)'."
 
-        $jsonResponse = $jsonObject.paths[$path].get.responses["200"]
+    #     $jsonResponse = $jsonObject.paths[$path].get.responses["200"]
 
-        $responseSchema = $jsonResponse.schema
-        if ($responseSchema.items) { $responseRefValue = $responseSchema.items['$ref'] }
-        elseif ($responseSchema.'$ref') { $responseRefValue = $responseSchema.'$ref' }
+    #     $responseSchema = $jsonResponse.schema
+    #     if ($responseSchema.items) { $responseRefValue = $responseSchema.items['$ref'] }
+    #     elseif ($responseSchema.'$ref') { $responseRefValue = $responseSchema.'$ref' }
 
-        $modelName = $responseRefValue.Split('/') | Select-Object -Last 1
-        $paginatedResponseName = $modelName + '_paginated_response'
+    #     $modelName = $responseRefValue.Split('/') | Select-Object -Last 1
+    #     $paginatedResponseName = $modelName + '_paginated_response'
 
-        $jsonResponse.schema = @{
-            '$ref' = '#/definitions/' + $paginatedResponseName;
-        }
-        $paginatedResponseSchema = @{
-            'type'       = 'object';
-            'properties' = @{
-                'count'       = @{
-                    'type'   = 'integer';
-                    'format' = 'int32';
-                };
-                'start_index' = @{
-                    'type'   = 'integer';
-                    'format' = 'int32';
-                };
-                'end_index'   = @{
-                    'type'   = 'integer';
-                    'format' = 'int32';
-                };
-                'is_more'     = @{
-                    'type' = 'boolean';
-                };
-                'data'        = @{
-                    'type'  = 'array';
-                    'items' = @{
-                        '$ref' = '#/definitions/' + $modelName;
-                    };
-                }
-            }
-        }
-        $jsonObject.definitions[$paginatedResponseName] = $paginatedResponseSchema
-    }
+    #     $jsonResponse.schema = @{
+    #         '$ref' = '#/definitions/' + $paginatedResponseName;
+    #     }
+    #     $paginatedResponseSchema = @{
+    #         'type'       = 'object';
+    #         'properties' = @{
+    #             'count'       = @{
+    #                 'type'   = 'integer';
+    #                 'format' = 'int32';
+    #             };
+    #             'start_index' = @{
+    #                 'type'   = 'integer';
+    #                 'format' = 'int32';
+    #             };
+    #             'end_index'   = @{
+    #                 'type'   = 'integer';
+    #                 'format' = 'int32';
+    #             };
+    #             'is_more'     = @{
+    #                 'type' = 'boolean';
+    #             };
+    #             'data'        = @{
+    #                 'type'  = 'array';
+    #                 'items' = @{
+    #                     '$ref' = '#/definitions/' + $modelName;
+    #                 };
+    #             }
+    #         }
+    #     }
+    #     $jsonObject.definitions[$paginatedResponseName] = $paginatedResponseSchema
+    # }
 
     # Debug output
     if ($DebugOutput) {

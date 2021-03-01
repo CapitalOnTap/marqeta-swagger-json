@@ -3010,7 +3010,7 @@
                                                                             "200":  {
                                                                                         "description":  "Success",
                                                                                         "schema":  {
-                                                                                                       "$ref":  "#/definitions/CardListResponse_paginated_response"
+                                                                                                       "$ref":  "#/definitions/CardListResponse"
                                                                                                    }
                                                                                     },
                                                                             "400":  {
@@ -5554,7 +5554,7 @@
                                                               "200":  {
                                                                           "description":  "Success",
                                                                           "schema":  {
-                                                                                         "$ref":  "#/definitions/FeeListResponse_paginated_response"
+                                                                                         "$ref":  "#/definitions/FeeListResponse"
                                                                                      }
                                                                       },
                                                               "400":  {
@@ -6428,7 +6428,7 @@
                                                                                     "200":  {
                                                                                                 "description":  "Success",
                                                                                                 "schema":  {
-                                                                                                               "$ref":  "#/definitions/ACHListResponse_paginated_response"
+                                                                                                               "$ref":  "#/definitions/ACHListResponse"
                                                                                                            }
                                                                                             },
                                                                                     "400":  {
@@ -8917,7 +8917,7 @@
                                                                                      "200":  {
                                                                                                  "description":  "Success",
                                                                                                  "schema":  {
-                                                                                                                "$ref":  "#/definitions/ProgramReserveTransactionListResponse_paginated_response"
+                                                                                                                "$ref":  "#/definitions/ProgramReserveTransactionListResponse"
                                                                                                             }
                                                                                              },
                                                                                      "400":  {
@@ -9684,7 +9684,7 @@
                                                                            "200":  {
                                                                                        "description":  "Success",
                                                                                        "schema":  {
-                                                                                                      "$ref":  "#/definitions/RealTimeFeeGroupListResponse_paginated_response"
+                                                                                                      "$ref":  "#/definitions/RealTimeFeeGroupListResponse"
                                                                                                   }
                                                                                    },
                                                                            "400":  {
@@ -10713,7 +10713,7 @@
                                                                       "200":  {
                                                                                   "description":  "Success",
                                                                                   "schema":  {
-                                                                                                 "$ref":  "#/definitions/TransactionModelListResponse_paginated_response"
+                                                                                                 "$ref":  "#/definitions/TransactionModelListResponse"
                                                                                              }
                                                                               },
                                                                       "400":  {
@@ -10827,7 +10827,7 @@
                                                                                                            "200":  {
                                                                                                                        "description":  "Success",
                                                                                                                        "schema":  {
-                                                                                                                                      "$ref":  "#/definitions/TransactionModelListResponse_paginated_response"
+                                                                                                                                      "$ref":  "#/definitions/TransactionModelListResponse"
                                                                                                                                   }
                                                                                                                    },
                                                                                                            "400":  {
@@ -10993,7 +10993,7 @@
                                                                                       "200":  {
                                                                                                   "description":  "Success",
                                                                                                   "schema":  {
-                                                                                                                 "$ref":  "#/definitions/TransactionModelListResponse_paginated_response"
+                                                                                                                 "$ref":  "#/definitions/TransactionModelListResponse"
                                                                                                              }
                                                                                               },
                                                                                       "400":  {
@@ -12447,7 +12447,7 @@
                                                                                                       "200":  {
                                                                                                                   "description":  "Success",
                                                                                                                   "schema":  {
-                                                                                                                                 "$ref":  "#/definitions/VelocityControlBalanceListResponse_paginated_response"
+                                                                                                                                 "$ref":  "#/definitions/VelocityControlBalanceListResponse"
                                                                                                                              }
                                                                                                               },
                                                                                                       "400":  {
@@ -12609,7 +12609,7 @@
                                                                   "200":  {
                                                                               "description":  "Success",
                                                                               "schema":  {
-                                                                                             "$ref":  "#/definitions/WebhookResponseModelListResponse_paginated_response"
+                                                                                             "$ref":  "#/definitions/WebhookResponseModelListResponse"
                                                                                          }
                                                                           },
                                                                   "400":  {
@@ -32625,214 +32625,6 @@
                                                                      }
                                                        }
                                     },
-                        "CardListResponse_paginated_response":  {
-                                                                    "properties":  {
-                                                                                       "is_more":  {
-                                                                                                       "type":  "boolean"
-                                                                                                   },
-                                                                                       "end_index":  {
-                                                                                                         "type":  "integer",
-                                                                                                         "format":  "int32"
-                                                                                                     },
-                                                                                       "data":  {
-                                                                                                    "items":  {
-                                                                                                                  "$ref":  "#/definitions/CardListResponse"
-                                                                                                              },
-                                                                                                    "type":  "array"
-                                                                                                },
-                                                                                       "count":  {
-                                                                                                     "type":  "integer",
-                                                                                                     "format":  "int32"
-                                                                                                 },
-                                                                                       "start_index":  {
-                                                                                                           "type":  "integer",
-                                                                                                           "format":  "int32"
-                                                                                                       }
-                                                                                   },
-                                                                    "type":  "object"
-                                                                },
-                        "FeeListResponse_paginated_response":  {
-                                                                   "properties":  {
-                                                                                      "is_more":  {
-                                                                                                      "type":  "boolean"
-                                                                                                  },
-                                                                                      "end_index":  {
-                                                                                                        "type":  "integer",
-                                                                                                        "format":  "int32"
-                                                                                                    },
-                                                                                      "data":  {
-                                                                                                   "items":  {
-                                                                                                                 "$ref":  "#/definitions/FeeListResponse"
-                                                                                                             },
-                                                                                                   "type":  "array"
-                                                                                               },
-                                                                                      "count":  {
-                                                                                                    "type":  "integer",
-                                                                                                    "format":  "int32"
-                                                                                                },
-                                                                                      "start_index":  {
-                                                                                                          "type":  "integer",
-                                                                                                          "format":  "int32"
-                                                                                                      }
-                                                                                  },
-                                                                   "type":  "object"
-                                                               },
-                        "ACHListResponse_paginated_response":  {
-                                                                   "properties":  {
-                                                                                      "is_more":  {
-                                                                                                      "type":  "boolean"
-                                                                                                  },
-                                                                                      "end_index":  {
-                                                                                                        "type":  "integer",
-                                                                                                        "format":  "int32"
-                                                                                                    },
-                                                                                      "data":  {
-                                                                                                   "items":  {
-                                                                                                                 "$ref":  "#/definitions/ACHListResponse"
-                                                                                                             },
-                                                                                                   "type":  "array"
-                                                                                               },
-                                                                                      "count":  {
-                                                                                                    "type":  "integer",
-                                                                                                    "format":  "int32"
-                                                                                                },
-                                                                                      "start_index":  {
-                                                                                                          "type":  "integer",
-                                                                                                          "format":  "int32"
-                                                                                                      }
-                                                                                  },
-                                                                   "type":  "object"
-                                                               },
-                        "ProgramReserveTransactionListResponse_paginated_response":  {
-                                                                                         "properties":  {
-                                                                                                            "is_more":  {
-                                                                                                                            "type":  "boolean"
-                                                                                                                        },
-                                                                                                            "end_index":  {
-                                                                                                                              "type":  "integer",
-                                                                                                                              "format":  "int32"
-                                                                                                                          },
-                                                                                                            "data":  {
-                                                                                                                         "items":  {
-                                                                                                                                       "$ref":  "#/definitions/ProgramReserveTransactionListResponse"
-                                                                                                                                   },
-                                                                                                                         "type":  "array"
-                                                                                                                     },
-                                                                                                            "count":  {
-                                                                                                                          "type":  "integer",
-                                                                                                                          "format":  "int32"
-                                                                                                                      },
-                                                                                                            "start_index":  {
-                                                                                                                                "type":  "integer",
-                                                                                                                                "format":  "int32"
-                                                                                                                            }
-                                                                                                        },
-                                                                                         "type":  "object"
-                                                                                     },
-                        "RealTimeFeeGroupListResponse_paginated_response":  {
-                                                                                "properties":  {
-                                                                                                   "is_more":  {
-                                                                                                                   "type":  "boolean"
-                                                                                                               },
-                                                                                                   "end_index":  {
-                                                                                                                     "type":  "integer",
-                                                                                                                     "format":  "int32"
-                                                                                                                 },
-                                                                                                   "data":  {
-                                                                                                                "items":  {
-                                                                                                                              "$ref":  "#/definitions/RealTimeFeeGroupListResponse"
-                                                                                                                          },
-                                                                                                                "type":  "array"
-                                                                                                            },
-                                                                                                   "count":  {
-                                                                                                                 "type":  "integer",
-                                                                                                                 "format":  "int32"
-                                                                                                             },
-                                                                                                   "start_index":  {
-                                                                                                                       "type":  "integer",
-                                                                                                                       "format":  "int32"
-                                                                                                                   }
-                                                                                               },
-                                                                                "type":  "object"
-                                                                            },
-                        "TransactionModelListResponse_paginated_response":  {
-                                                                                "properties":  {
-                                                                                                   "is_more":  {
-                                                                                                                   "type":  "boolean"
-                                                                                                               },
-                                                                                                   "end_index":  {
-                                                                                                                     "type":  "integer",
-                                                                                                                     "format":  "int32"
-                                                                                                                 },
-                                                                                                   "data":  {
-                                                                                                                "items":  {
-                                                                                                                              "$ref":  "#/definitions/TransactionModelListResponse"
-                                                                                                                          },
-                                                                                                                "type":  "array"
-                                                                                                            },
-                                                                                                   "count":  {
-                                                                                                                 "type":  "integer",
-                                                                                                                 "format":  "int32"
-                                                                                                             },
-                                                                                                   "start_index":  {
-                                                                                                                       "type":  "integer",
-                                                                                                                       "format":  "int32"
-                                                                                                                   }
-                                                                                               },
-                                                                                "type":  "object"
-                                                                            },
-                        "VelocityControlBalanceListResponse_paginated_response":  {
-                                                                                      "properties":  {
-                                                                                                         "is_more":  {
-                                                                                                                         "type":  "boolean"
-                                                                                                                     },
-                                                                                                         "end_index":  {
-                                                                                                                           "type":  "integer",
-                                                                                                                           "format":  "int32"
-                                                                                                                       },
-                                                                                                         "data":  {
-                                                                                                                      "items":  {
-                                                                                                                                    "$ref":  "#/definitions/VelocityControlBalanceListResponse"
-                                                                                                                                },
-                                                                                                                      "type":  "array"
-                                                                                                                  },
-                                                                                                         "count":  {
-                                                                                                                       "type":  "integer",
-                                                                                                                       "format":  "int32"
-                                                                                                                   },
-                                                                                                         "start_index":  {
-                                                                                                                             "type":  "integer",
-                                                                                                                             "format":  "int32"
-                                                                                                                         }
-                                                                                                     },
-                                                                                      "type":  "object"
-                                                                                  },
-                        "WebhookResponseModelListResponse_paginated_response":  {
-                                                                                    "properties":  {
-                                                                                                       "is_more":  {
-                                                                                                                       "type":  "boolean"
-                                                                                                                   },
-                                                                                                       "end_index":  {
-                                                                                                                         "type":  "integer",
-                                                                                                                         "format":  "int32"
-                                                                                                                     },
-                                                                                                       "data":  {
-                                                                                                                    "items":  {
-                                                                                                                                  "$ref":  "#/definitions/WebhookResponseModelListResponse"
-                                                                                                                              },
-                                                                                                                    "type":  "array"
-                                                                                                                },
-                                                                                                       "count":  {
-                                                                                                                     "type":  "integer",
-                                                                                                                     "format":  "int32"
-                                                                                                                 },
-                                                                                                       "start_index":  {
-                                                                                                                           "type":  "integer",
-                                                                                                                           "format":  "int32"
-                                                                                                                       }
-                                                                                                   },
-                                                                                    "type":  "object"
-                                                                                },
                         "fraud":  {
                                       "properties":  {
                                                          "issuer_processor":  {
