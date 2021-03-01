@@ -18,8 +18,9 @@ For complete reference documentation, see the [Marqeta Core API Reference](https
 
 ## Updating
 
+(Not that this process should be run with ps version 5 (.NET 4 libraries are needed))
 In order to update the swagger.json file we need to first make a backup of our existing modified swagger file, then get the latest swagger from Marqeta, and then process it with adding custom modification in order for it to be in a state to work with the our code generator. If we ever need to add some custom modifications this is done in `./GetModifiedSwaggerJsonFile.ps1`. The process for updating is as follows:
 
 - Back up current swagger json file: run `./Get-SwaggerJsonFileForArchive.ps1`
-- Generate new swagger.json file: run `./GetModifiedSwaggerJsonFile.ps1`
+- Generate new swagger.json file: run `./Get-ModifiedSwaggerJsonFile.ps1`
 - commit the updated swagger.json file and the added archive version. 
