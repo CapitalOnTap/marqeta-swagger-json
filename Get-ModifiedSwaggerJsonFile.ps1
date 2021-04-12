@@ -249,6 +249,11 @@ else {
     $ttUnion = ($currentTransactionTypes + $requiredTransactionEventTypes | Select-Object -Unique) | Sort-Object
     $jsonObject.definitions['transaction_model'].properties.type.enum = $ttUnion
     
+     # card_security_code_verification
+    $enum = $jsonObject.definitions['card_security_code_verification'].properties.type.enum
+    $veriftypes = ($enum + $('DCVV') | Select-Object -Unique) # Add missing DCVV
+    $jsonObject.definitions['card_security_code_verification'].properties.type.enum = $veriftypes
+
     # Output difference for reporting purposes
     $ttDelta = ($requiredTransactionEventTypes | Where-Object { $currentTransactionTypes -notcontains $_ })
     if ($ttDelta -and ($ttDelta.Count -ge 1)) {
