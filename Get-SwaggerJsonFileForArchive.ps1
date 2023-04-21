@@ -14,7 +14,7 @@ if (!$File) {
 Write-Verbose "Using file '$($File)'."
 
 # Download file
-$defaultJsonUri = 'https://shared-sandbox-api.marqeta.com/v3/swagger.json'
+$defaultJsonUri = 'https://sandbox-api.marqeta.com/v3/swagger.json'
 if ((Test-Path $File) -and !($Clobber)) {
     Write-Verbose "File '$($File)' already exists. Skipping."
 }
