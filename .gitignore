@@ -1,3 +1,12 @@
 # Ignore custom swagger JSON files
 # This is useful for local comparisons when editing
 swagger.*.json
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+
+# VS Code
+.vscode/
+
+# JetBrains Rider
+.idea/

@@ -119,6 +119,17 @@ else {
             }
         }
 
+        # If object is a boolean, remove the "enum" property.
+        # Marqeta adds an "enum" property with [true, false] values, and it 
+        # completely breaks the NSwag library. It is safe to remove this property,
+        # as the "boolean" type already defines the allowed values.
+        if ($JsonObject.ContainsKey("type")) { 
+            if ($JsonObject["type"] -eq "boolean") {
+                $JsonObject.Remove("enum") | Out-Null
+                return
+            }
+        }
+
         #
         # Object is not an array so process object
         #
