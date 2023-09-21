@@ -417,7 +417,7 @@ else {
     $jsonObject.definitions['card_transition_response'].properties.state.enum = $ctR
 
     $currentPaymentChannels = $jsonObject.definitions['transaction_metadata'].properties.payment_channel.enum
-    $unionPaymentChannels = ($currentPaymentChannels + $('MOTO') | Select-Object -Unique) | Sort-object
+    $unionPaymentChannels = ($currentPaymentChannels + $('MOTO') + $('EU_MOTO_NON_SECURE') | Select-Object -Unique) | Sort-object
     $jsonObject.definitions['transaction_metadata'].properties.payment_channel.enum = $unionPaymentChannels
 
     $currentPanEntryMode = $jsonObject.definitions['pos'].properties.pan_entry_mode.enum
