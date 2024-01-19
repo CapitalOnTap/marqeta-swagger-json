@@ -1201,6 +1201,163 @@
         }
       }
     },
+    "/banktransfers/ach/transitions": {
+      "get": {
+        "tags": [
+          "bank transfers"
+        ],
+        "summary": "Lists all bank transfer transitions",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "count",
+            "in": "query",
+            "description": "Number of bank transfer transitions to retrieve",
+            "required": false,
+            "type": "integer",
+            "default": 5,
+            "maximum": 50,
+            "format": "int32"
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "description": "Bank transfer transition token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "bank_transfer_token",
+            "in": "query",
+            "description": "Bank transfer token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "start_index",
+            "in": "query",
+            "description": "Start index",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "description": "Sort order",
+            "required": false,
+            "type": "string",
+            "default": "-createdTime"
+          },
+          {
+            "name": "statuses",
+            "in": "query",
+            "description": "Comma-delimited list of bank transfer states to display e.g. PENDING | PROCESSING | SUBMITTED | RETURNED |  COMPLETED | CANCELLED",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BankTransferTransitionListResponse"
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "bank transfers"
+        ],
+        "summary": "Creates an ACH bank transfer transition",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Create bank transfer transition request model",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bank_transfer_transition_request_model"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/bank_transfer_transition_response_model"
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/banktransfers/ach/earlyfunds": {
+      "post": {
+        "tags": [
+          "bank transfers"
+        ],
+        "summary": "Applies a provisional credit to a bank transfer",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Early funds request model",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/early_funds_request_model"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/bank_transfer_response_model"
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
     "/banktransfers/ach": {
       "get": {
         "tags": [
@@ -1369,163 +1526,6 @@
           },
           "404": {
             "description": "Bank transfer entry not found"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
-    "/banktransfers/ach/transitions": {
-      "get": {
-        "tags": [
-          "bank transfers"
-        ],
-        "summary": "Lists all bank transfer transitions",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "count",
-            "in": "query",
-            "description": "Number of bank transfer transitions to retrieve",
-            "required": false,
-            "type": "integer",
-            "default": 5,
-            "maximum": 50,
-            "format": "int32"
-          },
-          {
-            "name": "token",
-            "in": "query",
-            "description": "Bank transfer transition token",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "bank_transfer_token",
-            "in": "query",
-            "description": "Bank transfer token",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "start_index",
-            "in": "query",
-            "description": "Start index",
-            "required": false,
-            "type": "integer",
-            "default": 0,
-            "format": "int32"
-          },
-          {
-            "name": "sort_by",
-            "in": "query",
-            "description": "Sort order",
-            "required": false,
-            "type": "string",
-            "default": "-createdTime"
-          },
-          {
-            "name": "statuses",
-            "in": "query",
-            "description": "Comma-delimited list of bank transfer states to display e.g. PENDING | PROCESSING | SUBMITTED | RETURNED |  COMPLETED | CANCELLED",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/BankTransferTransitionListResponse"
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "bank transfers"
-        ],
-        "summary": "Creates an ACH bank transfer transition",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Create bank transfer transition request model",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/bank_transfer_transition_request_model"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/bank_transfer_transition_response_model"
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
-    "/banktransfers/ach/earlyfunds": {
-      "post": {
-        "tags": [
-          "bank transfers"
-        ],
-        "summary": "Applies a provisional credit to a bank transfer",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Early funds request model",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/early_funds_request_model"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/bank_transfer_response_model"
-            }
-          },
-          "400": {
-            "description": "Bad request"
           },
           "500": {
             "description": "Server error"
@@ -1840,7 +1840,7 @@
         "tags": [
           "businesses"
         ],
-        "summary": "Returns a specific business proprietor\u0027s SSN",
+        "summary": "Returns a specific business proprietor's SSN",
         "description": "",
         "consumes": [
           "application/json"
@@ -1872,6 +1872,65 @@
           },
           "400": {
             "description": "Bad request"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/businesses/{token}/notes/{notes_token}": {
+      "put": {
+        "tags": [
+          "businesses"
+        ],
+        "summary": "Updates a specific note for a business",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/cardholder_note_update_request_model"
+            }
+          },
+          {
+            "name": "token",
+            "in": "path",
+            "description": "Business token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "notes_token",
+            "in": "path",
+            "description": "Notes token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/cardholder_note_response_model"
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "500": {
             "description": "Server error"
@@ -2082,65 +2141,6 @@
             "name": "token",
             "in": "path",
             "description": "Business token",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/cardholder_note_response_model"
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
-    "/businesses/{token}/notes/{notes_token}": {
-      "put": {
-        "tags": [
-          "businesses"
-        ],
-        "summary": "Updates a specific note for a business",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/cardholder_note_update_request_model"
-            }
-          },
-          {
-            "name": "token",
-            "in": "path",
-            "description": "Business token",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "notes_token",
-            "in": "path",
-            "description": "Notes token",
             "required": true,
             "type": "string"
           }
@@ -2885,7 +2885,7 @@
         "tags": [
           "cards"
         ],
-        "summary": "Returns a card\u0027s metadata",
+        "summary": "Returns a card's metadata",
         "description": "",
         "consumes": [
           "application/json"
@@ -3116,105 +3116,6 @@
         }
       }
     },
-    "/cards/{token}": {
-      "get": {
-        "tags": [
-          "cards"
-        ],
-        "summary": "Returns a specific card",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "token",
-            "in": "path",
-            "description": "Card token",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "fields",
-            "in": "query",
-            "description": "Comma-delimited list of fields to return (e.g. field_1,field_2,..). Leave blank to return all fields.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "expand",
-            "in": "query",
-            "description": "Object to expand",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/card_response"
-            }
-          },
-          "400": {
-            "description": "User input error/Bad request"
-          },
-          "404": {
-            "description": "Card not found"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "cards"
-        ],
-        "summary": "Updates a specific card",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "token",
-            "in": "path",
-            "description": "Card token",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/card_update_request"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/card_response"
-            }
-          },
-          "400": {
-            "description": "User input error/Bad request"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
     "/cards": {
       "get": {
         "tags": [
@@ -3342,6 +3243,105 @@
         }
       }
     },
+    "/cards/{token}": {
+      "get": {
+        "tags": [
+          "cards"
+        ],
+        "summary": "Returns a specific card",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "Card token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Comma-delimited list of fields to return (e.g. field_1,field_2,..). Leave blank to return all fields.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "Object to expand",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/card_response"
+            }
+          },
+          "400": {
+            "description": "User input error/Bad request"
+          },
+          "404": {
+            "description": "Card not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "cards"
+        ],
+        "summary": "Updates a specific card",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "Card token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/card_update_request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/card_response"
+            }
+          },
+          "400": {
+            "description": "User input error/Bad request"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
     "/cards/user/{token}": {
       "get": {
         "tags": [
@@ -3406,6 +3406,47 @@
           },
           "400": {
             "description": "User input error/Bad request"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/chargebacks/transitions/{token}": {
+      "get": {
+        "tags": [
+          "chargebacks"
+        ],
+        "summary": "Returns a specific chargeback transition",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "Chargeback transition token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/chargeback_transition_response"
+            }
+          },
+          "400": {
+            "description": "User input error/Bad request"
+          },
+          "404": {
+            "description": "Transition not found"
           },
           "500": {
             "description": "Server error"
@@ -3489,47 +3530,6 @@
           },
           "422": {
             "description": "Unable to update chargeback"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
-    "/chargebacks/transitions/{token}": {
-      "get": {
-        "tags": [
-          "chargebacks"
-        ],
-        "summary": "Returns a specific chargeback transition",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "token",
-            "in": "path",
-            "description": "Chargeback transition token",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/chargeback_transition_response"
-            }
-          },
-          "400": {
-            "description": "User input error/Bad request"
-          },
-          "404": {
-            "description": "Transition not found"
           },
           "500": {
             "description": "Server error"
@@ -4146,48 +4146,6 @@
         }
       }
     },
-    "/digitalwalletprovisionrequests/androidpay": {
-      "post": {
-        "tags": [
-          "digital wallet provision requests"
-        ],
-        "summary": "Validates and creates Android-specific provisioning request data",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/digital_wallet_android_pay_provision_request"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/digital_wallet_android_pay_provision_response"
-            }
-          },
-          "400": {
-            "description": "User input error/Bad request"
-          },
-          "404": {
-            "description": "Card not found"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
     "/digitalwalletprovisionrequests/samsungpay": {
       "post": {
         "tags": [
@@ -4258,6 +4216,48 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/digital_wallet_x_pay_provision_response"
+            }
+          },
+          "400": {
+            "description": "User input error/Bad request"
+          },
+          "404": {
+            "description": "Card not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/digitalwalletprovisionrequests/androidpay": {
+      "post": {
+        "tags": [
+          "digital wallet provision requests"
+        ],
+        "summary": "Validates and creates Android-specific provisioning request data",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/digital_wallet_android_pay_provision_request"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/digital_wallet_android_pay_provision_response"
             }
           },
           "400": {
@@ -5181,43 +5181,6 @@
         }
       }
     },
-    "/directdeposits/{token}": {
-      "get": {
-        "tags": [
-          "direct deposits"
-        ],
-        "summary": "Returns a direct deposit entry",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/DepositDepositResponse"
-            }
-          },
-          "404": {
-            "description": "Direct deposit entry not found"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
     "/directdeposits/accounts/{user_or_business_token}": {
       "get": {
         "tags": [
@@ -5305,12 +5268,12 @@
         }
       }
     },
-    "/directdeposits": {
+    "/directdeposits/{token}": {
       "get": {
         "tags": [
           "direct deposits"
         ],
-        "summary": "Lists all direct deposits",
+        "summary": "Returns a direct deposit entry",
         "description": "",
         "consumes": [
           "application/json"
@@ -5320,90 +5283,21 @@
         ],
         "parameters": [
           {
-            "name": "count",
-            "in": "query",
-            "description": "Number of direct deposits to retrieve",
-            "required": false,
-            "type": "integer",
-            "default": 5,
-            "maximum": 100,
-            "format": "int32"
-          },
-          {
-            "name": "start_index",
-            "in": "query",
-            "description": "Start index",
-            "required": false,
-            "type": "integer",
-            "default": 0,
-            "format": "int32"
-          },
-          {
-            "name": "reversed_after_grace_period",
-            "in": "query",
-            "description": "Reversed after grace period",
-            "required": false,
-            "type": "boolean"
-          },
-          {
-            "name": "user_token",
-            "in": "query",
-            "description": "User token",
-            "required": false,
+            "name": "token",
+            "in": "path",
+            "required": true,
             "type": "string"
-          },
-          {
-            "name": "business_token",
-            "in": "query",
-            "description": "Business token",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "direct_deposit_state",
-            "in": "query",
-            "description": "Direct deposit state",
-            "required": false,
-            "type": "string",
-            "enum": [
-              "PENDING",
-              "APPLIED",
-              "REVERSED",
-              "REJECTED"
-            ]
-          },
-          {
-            "name": "start_settlement_date",
-            "in": "query",
-            "description": "Start settlement date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "end_settlement_date",
-            "in": "query",
-            "description": "End settlement date",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "sort_by",
-            "in": "query",
-            "description": "Sort order",
-            "required": false,
-            "type": "string",
-            "default": "-lastModifiedTime"
           }
         ],
         "responses": {
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/DirectDepositListResponse"
+              "$ref": "#/definitions/DepositDepositResponse"
             }
           },
-          "400": {
-            "description": "Bad request"
+          "404": {
+            "description": "Direct deposit entry not found"
           },
           "500": {
             "description": "Server error"
@@ -5527,6 +5421,112 @@
           },
           "400": {
             "description": "User input error/Bad request"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/directdeposits": {
+      "get": {
+        "tags": [
+          "direct deposits"
+        ],
+        "summary": "Lists all direct deposits",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "count",
+            "in": "query",
+            "description": "Number of direct deposits to retrieve",
+            "required": false,
+            "type": "integer",
+            "default": 5,
+            "maximum": 100,
+            "format": "int32"
+          },
+          {
+            "name": "start_index",
+            "in": "query",
+            "description": "Start index",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "reversed_after_grace_period",
+            "in": "query",
+            "description": "Reversed after grace period",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "user_token",
+            "in": "query",
+            "description": "User token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "business_token",
+            "in": "query",
+            "description": "Business token",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "direct_deposit_state",
+            "in": "query",
+            "description": "Direct deposit state",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "APPLIED",
+              "REVERSED",
+              "REJECTED"
+            ]
+          },
+          {
+            "name": "start_settlement_date",
+            "in": "query",
+            "description": "Start settlement date",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end_settlement_date",
+            "in": "query",
+            "description": "End settlement date",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "description": "Sort order",
+            "required": false,
+            "type": "string",
+            "default": "-lastModifiedTime"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DirectDepositListResponse"
+            }
+          },
+          "400": {
+            "description": "Bad request"
           },
           "500": {
             "description": "Server error"
@@ -6236,12 +6236,94 @@
         }
       }
     },
-    "/fundingsources/ach/partner": {
+    "/fundingsources/program/{token}": {
+      "get": {
+        "tags": [
+          "funding sources"
+        ],
+        "summary": "Returns a specific program funding source",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "Program funding source token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/program_funding_source_response"
+            }
+          },
+          "404": {
+            "description": "Program funding source not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "funding sources"
+        ],
+        "summary": "Updates a specific program funding source",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "Program funding source token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/program_funding_source_update_request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/program_funding_source_response"
+            }
+          },
+          "400": {
+            "description": "Invalid fields detected"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/fundingsources/programgateway": {
       "post": {
         "tags": [
           "funding sources"
         ],
-        "summary": "Registers an ACH funding source through a partner",
+        "summary": "Creates a gateway program funding source",
         "description": "",
         "consumes": [
           "application/json"
@@ -6255,22 +6337,22 @@
             "name": "body",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/ach_partner_request_model"
+              "$ref": "#/definitions/gateway_program_funding_source_request"
             }
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/ach_response_model"
+              "$ref": "#/definitions/gateway_program_funding_source_response"
             }
           },
           "400": {
-            "description": "Bad request"
+            "description": "Invalid fields detected"
           },
           "409": {
-            "description": "Token already associated with a different payload"
+            "description": "Request already processed with a different payload"
           },
           "500": {
             "description": "Server error"
@@ -6406,12 +6488,12 @@
         }
       }
     },
-    "/fundingsources/programgateway": {
+    "/fundingsources/ach/partner": {
       "post": {
         "tags": [
           "funding sources"
         ],
-        "summary": "Creates a gateway program funding source",
+        "summary": "Registers an ACH funding source through a partner",
         "description": "",
         "consumes": [
           "application/json"
@@ -6425,22 +6507,22 @@
             "name": "body",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/gateway_program_funding_source_request"
+              "$ref": "#/definitions/ach_partner_request_model"
             }
           }
         ],
         "responses": {
-          "201": {
+          "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/gateway_program_funding_source_response"
+              "$ref": "#/definitions/ach_response_model"
             }
           },
           "400": {
-            "description": "Invalid fields detected"
+            "description": "Bad request"
           },
           "409": {
-            "description": "Request already processed with a different payload"
+            "description": "Token already associated with a different payload"
           },
           "500": {
             "description": "Server error"
@@ -6792,88 +6874,6 @@
         }
       }
     },
-    "/fundingsources/program/{token}": {
-      "get": {
-        "tags": [
-          "funding sources"
-        ],
-        "summary": "Returns a specific program funding source",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "token",
-            "in": "path",
-            "description": "Program funding source token",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/program_funding_source_response"
-            }
-          },
-          "404": {
-            "description": "Program funding source not found"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "funding sources"
-        ],
-        "summary": "Updates a specific program funding source",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "token",
-            "in": "path",
-            "description": "Program funding source token",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/program_funding_source_update_request"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/program_funding_source_response"
-            }
-          },
-          "400": {
-            "description": "Invalid fields detected"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
     "/fundingsources/addresses": {
       "post": {
         "tags": [
@@ -7118,7 +7118,7 @@
         "tags": [
           "gpa orders"
         ],
-        "summary": "Funds a user\u0027s GPA account",
+        "summary": "Funds a user's GPA account",
         "description": "",
         "consumes": [
           "application/json"
@@ -7803,6 +7803,85 @@
         }
       }
     },
+    "/peertransfers": {
+      "post": {
+        "tags": [
+          "peer transfers"
+        ],
+        "summary": "Performs a peer transfer from one user to another",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/peer_transfer_request"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/peer_transfer_response"
+            }
+          },
+          "400": {
+            "description": "Invalid fields detected: either sender or recipient is not found"
+          },
+          "409": {
+            "description": "Request already processed with a different payload"
+          },
+          "422": {
+            "description": "Rule violations"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/peertransfers/{token}": {
+      "get": {
+        "tags": [
+          "peer transfers"
+        ],
+        "summary": "Returns details of a previous transfer",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/peer_transfer_response"
+            }
+          },
+          "404": {
+            "description": "Transfer token not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
     "/peertransfers/user/{user_or_business_token}": {
       "get": {
         "tags": [
@@ -7983,85 +8062,6 @@
         }
       }
     },
-    "/peertransfers": {
-      "post": {
-        "tags": [
-          "peer transfers"
-        ],
-        "summary": "Performs a peer transfer from one user to another",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/peer_transfer_request"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/peer_transfer_response"
-            }
-          },
-          "400": {
-            "description": "Invalid fields detected: either sender or recipient is not found"
-          },
-          "409": {
-            "description": "Request already processed with a different payload"
-          },
-          "422": {
-            "description": "Rule violations"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
-    "/peertransfers/{token}": {
-      "get": {
-        "tags": [
-          "peer transfers"
-        ],
-        "summary": "Returns details of a previous transfer",
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/peer_transfer_response"
-            }
-          },
-          "404": {
-            "description": "Transfer token not found"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
     "/ping": {
       "get": {
         "tags": [
@@ -8072,8 +8072,7 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Success",
@@ -8545,8 +8544,7 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Success",
@@ -8556,6 +8554,44 @@
           },
           "400": {
             "description": "User input error/Bad request"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/programtransfers/{token}": {
+      "get": {
+        "tags": [
+          "program transfers"
+        ],
+        "summary": "Returns a specific program transfer",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "description": "Program transfer token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/program_transfer_response"
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Return not found"
           },
           "500": {
             "description": "Server error"
@@ -8873,44 +8909,6 @@
           },
           "412": {
             "description": "Pre-condition failed. Unload amount is greater than load amount"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
-    "/programtransfers/{token}": {
-      "get": {
-        "tags": [
-          "program transfers"
-        ],
-        "summary": "Returns a specific program transfer",
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "token",
-            "in": "path",
-            "description": "Program transfer token",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/program_transfer_response"
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "404": {
-            "description": "Return not found"
           },
           "500": {
             "description": "Server error"
@@ -9412,48 +9410,6 @@
         }
       }
     },
-    "/simulate/reversal": {
-      "post": {
-        "tags": [
-          "simulate"
-        ],
-        "summary": "Simulates a reversal transaction",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/ReversalModel"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/simulation_response_model"
-            }
-          },
-          "400": {
-            "description": "User input error/Bad request"
-          },
-          "404": {
-            "description": "Original transaction not found"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
     "/simulate/financial/balanceinquiry": {
       "post": {
         "tags": [
@@ -9494,12 +9450,12 @@
         }
       }
     },
-    "/simulate/directdeposits": {
+    "/simulate/reversal": {
       "post": {
         "tags": [
           "simulate"
         ],
-        "summary": "Simulates the creation of direct deposit",
+        "summary": "Simulates a reversal transaction",
         "description": "",
         "consumes": [
           "application/json"
@@ -9511,22 +9467,24 @@
           {
             "in": "body",
             "name": "body",
-            "description": "Direct deposit simulate request model",
-            "required": true,
+            "required": false,
             "schema": {
-              "$ref": "#/definitions/DirectDepositRequest"
+              "$ref": "#/definitions/ReversalModel"
             }
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/DepositDepositResponse"
+              "$ref": "#/definitions/simulation_response_model"
             }
           },
           "400": {
-            "description": "Bad request"
+            "description": "User input error/Bad request"
+          },
+          "404": {
+            "description": "Original transaction not found"
           },
           "500": {
             "description": "Server error"
@@ -9774,6 +9732,46 @@
           },
           "400": {
             "description": "User input error/Bad request"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/simulate/directdeposits": {
+      "post": {
+        "tags": [
+          "simulate"
+        ],
+        "summary": "Simulates the creation of direct deposit",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Direct deposit simulate request model",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DirectDepositRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DepositDepositResponse"
+            }
+          },
+          "400": {
+            "description": "Bad request"
           },
           "500": {
             "description": "Server error"
@@ -10421,7 +10419,7 @@
         "tags": [
           "users"
         ],
-        "summary": "Returns a specific user\u0027s SSN",
+        "summary": "Returns a specific user's SSN",
         "description": "",
         "consumes": [
           "application/json"
@@ -10535,6 +10533,65 @@
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/client_access_token_response"
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/users/{token}/notes/{notes_token}": {
+      "put": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Updates a specific note for a cardholder",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/cardholder_note_update_request_model"
+            }
+          },
+          {
+            "name": "token",
+            "in": "path",
+            "description": "User token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "notes_token",
+            "in": "path",
+            "description": "Notes token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/cardholder_note_response_model"
             }
           },
           "400": {
@@ -10869,8 +10926,7 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [
-        ],
+        "parameters": [],
         "responses": {
           "204": {
             "description": "Success"
@@ -10900,8 +10956,7 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [
-        ],
+        "parameters": [],
         "responses": {
           "204": {
             "description": "Success"
@@ -11216,65 +11271,6 @@
             "name": "token",
             "in": "path",
             "description": "User token",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/cardholder_note_response_model"
-            }
-          },
-          "400": {
-            "description": "Bad request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "500": {
-            "description": "Server error"
-          }
-        }
-      }
-    },
-    "/users/{token}/notes/{notes_token}": {
-      "put": {
-        "tags": [
-          "users"
-        ],
-        "summary": "Updates a specific note for a cardholder",
-        "description": "",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/cardholder_note_update_request_model"
-            }
-          },
-          {
-            "name": "token",
-            "in": "path",
-            "description": "User token",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "notes_token",
-            "in": "path",
-            "description": "Notes token",
             "required": true,
             "type": "string"
           }
@@ -11632,7 +11628,7 @@
         "tags": [
           "velocity controls"
         ],
-        "summary": "Queries a user\u0027s velocity control balances",
+        "summary": "Queries a user's velocity control balances",
         "description": "",
         "consumes": [
           "application/json"
@@ -13488,6 +13484,129 @@
         }
       }
     },
+    "bank_transfer_clearing_request_model": {
+      "type": "object",
+      "required": [
+        "max_clears"
+      ],
+      "properties": {
+        "max_clears": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "BankTransferTransitionListResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "start_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "end_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "is_more": {
+          "type": "boolean",
+          "default": false
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bank_transfer_transition_response_model"
+          }
+        }
+      }
+    },
+    "bank_transfer_transition_response_model": {
+      "type": "object",
+      "required": [
+        "bank_transfer_token",
+        "channel",
+        "status"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMinimum": false
+        },
+        "token": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 36
+        },
+        "bank_transfer_token": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "PENDING",
+            "PROCESSING",
+            "SUBMITTED",
+            "RETURNED",
+            "COMPLETED",
+            "CANCELLED",
+            "REVERSAL_PEND",
+            "REVERSAL_COMP"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string",
+          "enum": [
+            "API",
+            "SYSTEM",
+            "ADMIN"
+          ]
+        },
+        "batch_number": {
+          "type": "string"
+        },
+        "program_reserve_token": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 36
+        },
+        "return_code": {
+          "type": "string"
+        },
+        "effective_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reversal_after_45_days": {
+          "type": "boolean"
+        },
+        "transaction_token": {
+          "type": "string"
+        },
+        "transaction_jit_token": {
+          "type": "string"
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_modified_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "return_reason": {
+          "type": "string"
+        }
+      }
+    },
     "bank_transfer_response_model": {
       "type": "object",
       "required": [
@@ -13601,87 +13720,13 @@
         }
       }
     },
-    "bank_transfer_transition_response_model": {
+    "early_funds_request_model": {
       "type": "object",
-      "required": [
-        "bank_transfer_token",
-        "channel",
-        "status"
-      ],
       "properties": {
-        "amount": {
-          "type": "number",
-          "minimum": 0.00,
-          "exclusiveMinimum": false
-        },
-        "token": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 36
-        },
         "bank_transfer_token": {
           "type": "string",
           "minLength": 0,
           "maxLength": 36
-        },
-        "status": {
-          "type": "string",
-          "enum": [
-            "PENDING",
-            "PROCESSING",
-            "SUBMITTED",
-            "RETURNED",
-            "COMPLETED",
-            "CANCELLED",
-            "REVERSAL_PEND",
-            "REVERSAL_COMP"
-          ]
-        },
-        "reason": {
-          "type": "string"
-        },
-        "channel": {
-          "type": "string",
-          "enum": [
-            "API",
-            "SYSTEM",
-            "ADMIN"
-          ]
-        },
-        "batch_number": {
-          "type": "string"
-        },
-        "program_reserve_token": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 36
-        },
-        "return_code": {
-          "type": "string"
-        },
-        "effective_date": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "reversal_after_45_days": {
-          "type": "boolean"
-        },
-        "transaction_token": {
-          "type": "string"
-        },
-        "transaction_jit_token": {
-          "type": "string"
-        },
-        "created_time": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "last_modified_time": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "return_reason": {
-          "type": "string"
         }
       }
     },
@@ -13796,7 +13841,7 @@
       "properties": {
         "amount": {
           "type": "number",
-          "minimum": 0.00,
+          "minimum": 0,
           "exclusiveMinimum": false
         },
         "token": {
@@ -13850,55 +13895,6 @@
         },
         "reversal_after_45_days": {
           "type": "boolean"
-        }
-      }
-    },
-    "bank_transfer_clearing_request_model": {
-      "type": "object",
-      "required": [
-        "max_clears"
-      ],
-      "properties": {
-        "max_clears": {
-          "type": "integer",
-          "format": "int32"
-        }
-      }
-    },
-    "BankTransferTransitionListResponse": {
-      "type": "object",
-      "properties": {
-        "count": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "start_index": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "end_index": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "is_more": {
-          "type": "boolean",
-          "default": false
-        },
-        "data": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/bank_transfer_transition_response_model"
-          }
-        }
-      }
-    },
-    "early_funds_request_model": {
-      "type": "object",
-      "properties": {
-        "bank_transfer_token": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 36
         }
       }
     },
@@ -14763,7 +14759,9 @@
           ]
         },
         "reason": {
-          "type": "string"
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
         },
         "channel": {
           "type": "string",
@@ -14793,6 +14791,62 @@
           "type": "string"
         },
         "nin": {
+          "type": "string"
+        }
+      }
+    },
+    "cardholder_note_response_model": {
+      "type": "object",
+      "required": [
+        "created_by",
+        "description"
+      ],
+      "properties": {
+        "token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "description": {
+          "type": "string"
+        },
+        "created_by": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        },
+        "created_by_user_role": {
+          "type": "string",
+          "enum": [
+            "USER",
+            "ADMIN",
+            "BANK_USER",
+            "BANK_ADMIN",
+            "MARQETA_PD",
+            "MARQETA_ADMIN"
+          ]
+        },
+        "private": {
+          "type": "boolean",
+          "default": false
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_modified_time": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "cardholder_note_update_request_model": {
+      "type": "object",
+      "required": [
+        "description"
+      ],
+      "properties": {
+        "description": {
           "type": "string"
         }
       }
@@ -15077,51 +15131,6 @@
         }
       }
     },
-    "cardholder_note_response_model": {
-      "type": "object",
-      "required": [
-        "created_by",
-        "description"
-      ],
-      "properties": {
-        "token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "description": {
-          "type": "string"
-        },
-        "created_by": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 255
-        },
-        "created_by_user_role": {
-          "type": "string",
-          "enum": [
-            "USER",
-            "ADMIN",
-            "BANK_USER",
-            "BANK_ADMIN",
-            "MARQETA_PD",
-            "MARQETA_ADMIN"
-          ]
-        },
-        "private": {
-          "type": "boolean",
-          "default": false
-        },
-        "created_time": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "last_modified_time": {
-          "type": "string",
-          "format": "date-time"
-        }
-      }
-    },
     "cardholder_note_request_model": {
       "type": "object",
       "required": [
@@ -15156,17 +15165,6 @@
         "private": {
           "type": "boolean",
           "default": false
-        }
-      }
-    },
-    "cardholder_note_update_request_model": {
-      "type": "object",
-      "required": [
-        "description"
-      ],
-      "properties": {
-        "description": {
-          "type": "string"
         }
       }
     },
@@ -16696,6 +16694,9 @@
         },
         "dwt_use_card_status_during_auth": {
           "type": "boolean"
+        },
+        "enable_discretionary_data_during_tar": {
+          "type": "boolean"
         }
       }
     },
@@ -16769,6 +16770,14 @@
         },
         "sca_tra_exemption_amount_limit": {
           "type": "number",
+          "readOnly": true
+        },
+        "enable_cavv_authentication_amount_validation": {
+          "type": "boolean",
+          "readOnly": true
+        },
+        "cavv_authentication_amount_incremental_percentage": {
+          "type": "string",
           "readOnly": true
         }
       }
@@ -17647,18 +17656,6 @@
         }
       }
     },
-    "card_reorder_request": {
-      "type": "object",
-      "properties": {
-        "card_batch_label": {
-          "type": "string",
-          "description": "May only contain alphanumeric, hyphens, and underscore characters",
-          "minLength": 1,
-          "maxLength": 50,
-          "pattern": "^[\\w-]*$"
-        }
-      }
-    },
     "pan_response": {
       "type": "object",
       "required": [
@@ -17728,6 +17725,18 @@
         },
         "expiration_offset": {
           "$ref": "#/definitions/expiration_offset"
+        }
+      }
+    },
+    "card_reorder_request": {
+      "type": "object",
+      "properties": {
+        "card_batch_label": {
+          "type": "string",
+          "description": "May only contain alphanumeric, hyphens, and underscore characters",
+          "minLength": 1,
+          "maxLength": 50,
+          "pattern": "^[\\w-]*$"
         }
       }
     },
@@ -17850,6 +17859,105 @@
         }
       }
     },
+    "chargeback_transition_response": {
+      "type": "object",
+      "required": [
+        "channel",
+        "chargeback_token",
+        "created_time",
+        "last_modified_time",
+        "previous_state",
+        "state",
+        "token",
+        "type"
+      ],
+      "properties": {
+        "token": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 36
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "INITIATED",
+            "REPRESENTMENT",
+            "PREARBITRATION",
+            "ARBITRATION",
+            "CASE_WON",
+            "CASE_LOST",
+            "NETWORK_REJECTED",
+            "WITHDRAWN",
+            "WRITTEN_OFF_ISSUER",
+            "WRITTEN_OFF_PROGRAM"
+          ]
+        },
+        "previous_state": {
+          "type": "string",
+          "enum": [
+            "INITIATED",
+            "REPRESENTMENT",
+            "PREARBITRATION",
+            "ARBITRATION",
+            "CASE_WON",
+            "CASE_LOST",
+            "NETWORK_REJECTED",
+            "WITHDRAWN"
+          ]
+        },
+        "channel": {
+          "type": "string",
+          "enum": [
+            "GATEWAY",
+            "GATEWAY_AUTOMATED",
+            "ISSUER",
+            "ISSUER_AUTOMATED"
+          ]
+        },
+        "chargeback_token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 1024
+        },
+        "transaction_token": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 36
+        },
+        "created_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "yyyy-MM-ddTHH:mm:ssZ"
+        },
+        "last_modified_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "yyyy-MM-ddTHH:mm:ssZ"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "initiated",
+            "representment",
+            "prearbitration",
+            "arbitration",
+            "case.won",
+            "case.lost",
+            "network.rejected",
+            "written.off.issuer",
+            "written.off.program"
+          ]
+        },
+        "amount": {
+          "type": "number"
+        }
+      }
+    },
     "chargeback_response": {
       "type": "object",
       "required": [
@@ -17959,105 +18067,6 @@
         }
       }
     },
-    "chargeback_transition_response": {
-      "type": "object",
-      "required": [
-        "channel",
-        "chargeback_token",
-        "created_time",
-        "last_modified_time",
-        "previous_state",
-        "state",
-        "token",
-        "type"
-      ],
-      "properties": {
-        "token": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 36
-        },
-        "state": {
-          "type": "string",
-          "enum": [
-            "INITIATED",
-            "REPRESENTMENT",
-            "PREARBITRATION",
-            "ARBITRATION",
-            "CASE_WON",
-            "CASE_LOST",
-            "NETWORK_REJECTED",
-            "WITHDRAWN",
-            "WRITTEN_OFF_ISSUER",
-            "WRITTEN_OFF_PROGRAM"
-          ]
-        },
-        "previous_state": {
-          "type": "string",
-          "enum": [
-            "INITIATED",
-            "REPRESENTMENT",
-            "PREARBITRATION",
-            "ARBITRATION",
-            "CASE_WON",
-            "CASE_LOST",
-            "NETWORK_REJECTED",
-            "WITHDRAWN"
-          ]
-        },
-        "channel": {
-          "type": "string",
-          "enum": [
-            "GATEWAY",
-            "GATEWAY_AUTOMATED",
-            "ISSUER",
-            "ISSUER_AUTOMATED"
-          ]
-        },
-        "chargeback_token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "reason": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 1024
-        },
-        "transaction_token": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 36
-        },
-        "created_time": {
-          "type": "string",
-          "format": "date-time",
-          "description": "yyyy-MM-ddTHH:mm:ssZ"
-        },
-        "last_modified_time": {
-          "type": "string",
-          "format": "date-time",
-          "description": "yyyy-MM-ddTHH:mm:ssZ"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "initiated",
-            "representment",
-            "prearbitration",
-            "arbitration",
-            "case.won",
-            "case.lost",
-            "network.rejected",
-            "written.off.issuer",
-            "written.off.program"
-          ]
-        },
-        "amount": {
-          "type": "number"
-        }
-      }
-    },
     "ChargebackListResponse": {
       "type": "object",
       "properties": {
@@ -18090,7 +18099,7 @@
       "properties": {
         "reason_description": {
           "type": "string",
-          "description": "Either \u0027reason_description\u0027 or \u0027reason_code\u0027 is required",
+          "description": "Either 'reason_description' or 'reason_code' is required",
           "enum": [
             "SERVICE_NOT_PROVIDED_MERCHANDISE_NOT_RECEIVED",
             "CANCELLED_RECURRING_TRANSACTION",
@@ -18115,7 +18124,7 @@
         },
         "reason_code": {
           "type": "string",
-          "description": "Either \u0027reason_code\u0027 or \u0027reason_description\u0027 is required"
+          "description": "Either 'reason_code' or 'reason_description' is required"
         },
         "status": {
           "type": "string",
@@ -18186,7 +18195,7 @@
       "properties": {
         "reason_description": {
           "type": "string",
-          "description": "Either \u0027reason_description\u0027 or \u0027reason_code\u0027 is required",
+          "description": "Either 'reason_description' or 'reason_code' is required",
           "enum": [
             "SERVICE_NOT_PROVIDED_MERCHANDISE_NOT_RECEIVED",
             "CANCELLED_RECURRING_TRANSACTION",
@@ -18211,7 +18220,7 @@
         },
         "reason_code": {
           "type": "string",
-          "description": "Either \u0027reason_code\u0027 or \u0027reason_description\u0027 is required"
+          "description": "Either 'reason_code' or 'reason_description' is required"
         },
         "status": {
           "type": "string",
@@ -18694,131 +18703,6 @@
         }
       }
     },
-    "AndroidPushTokenRequestAddress": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "address1": {
-          "type": "string"
-        },
-        "address2": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "state": {
-          "type": "string"
-        },
-        "zip": {
-          "type": "string"
-        },
-        "postal_code": {
-          "type": "string"
-        },
-        "country": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        }
-      }
-    },
-    "android_push_tokenize_request_data": {
-      "type": "object",
-      "properties": {
-        "display_name": {
-          "type": "string"
-        },
-        "last_digits": {
-          "type": "string"
-        },
-        "network": {
-          "type": "string"
-        },
-        "token_service_provider": {
-          "type": "string"
-        },
-        "opaque_payment_card": {
-          "type": "string"
-        },
-        "user_address": {
-          "$ref": "#/definitions/AndroidPushTokenRequestAddress"
-        }
-      }
-    },
-    "digital_wallet_android_pay_provision_response": {
-      "type": "object",
-      "required": [
-        "card_token",
-        "created_time",
-        "last_modified_time",
-        "push_tokenize_request_data"
-      ],
-      "properties": {
-        "created_time": {
-          "type": "string",
-          "format": "date-time",
-          "description": "yyyy-MM-ddTHH:mm:ssZ"
-        },
-        "last_modified_time": {
-          "type": "string",
-          "format": "date-time",
-          "description": "yyyy-MM-ddTHH:mm:ssZ"
-        },
-        "card_token": {
-          "type": "string"
-        },
-        "push_tokenize_request_data": {
-          "$ref": "#/definitions/android_push_tokenize_request_data"
-        }
-      }
-    },
-    "digital_wallet_android_pay_provision_request": {
-      "type": "object",
-      "required": [
-        "card_token",
-        "device_id",
-        "device_type",
-        "provisioning_app_version",
-        "wallet_account_id"
-      ],
-      "properties": {
-        "card_token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "device_type": {
-          "type": "string",
-          "enum": [
-            "MOBILE_PHONE",
-            "WATCH",
-            "TABLET",
-            "WEARABLE_DEVICE",
-            "HOUSEHOLD_DEVICE",
-            "AUTOMOBILE_DEVICE"
-          ]
-        },
-        "provisioning_app_version": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 50
-        },
-        "wallet_account_id": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 50
-        },
-        "device_id": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 24
-        }
-      }
-    },
     "digital_wallet_samsung_pay_provision_response": {
       "type": "object",
       "required": [
@@ -19008,6 +18892,131 @@
           "type": "string",
           "minLength": 0,
           "maxLength": 11
+        }
+      }
+    },
+    "AndroidPushTokenRequestAddress": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address1": {
+          "type": "string"
+        },
+        "address2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "postal_code": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    },
+    "android_push_tokenize_request_data": {
+      "type": "object",
+      "properties": {
+        "display_name": {
+          "type": "string"
+        },
+        "last_digits": {
+          "type": "string"
+        },
+        "network": {
+          "type": "string"
+        },
+        "token_service_provider": {
+          "type": "string"
+        },
+        "opaque_payment_card": {
+          "type": "string"
+        },
+        "user_address": {
+          "$ref": "#/definitions/AndroidPushTokenRequestAddress"
+        }
+      }
+    },
+    "digital_wallet_android_pay_provision_response": {
+      "type": "object",
+      "required": [
+        "card_token",
+        "created_time",
+        "last_modified_time",
+        "push_tokenize_request_data"
+      ],
+      "properties": {
+        "created_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "yyyy-MM-ddTHH:mm:ssZ"
+        },
+        "last_modified_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "yyyy-MM-ddTHH:mm:ssZ"
+        },
+        "card_token": {
+          "type": "string"
+        },
+        "push_tokenize_request_data": {
+          "$ref": "#/definitions/android_push_tokenize_request_data"
+        }
+      }
+    },
+    "digital_wallet_android_pay_provision_request": {
+      "type": "object",
+      "required": [
+        "card_token",
+        "device_id",
+        "device_type",
+        "provisioning_app_version",
+        "wallet_account_id"
+      ],
+      "properties": {
+        "card_token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "device_type": {
+          "type": "string",
+          "enum": [
+            "MOBILE_PHONE",
+            "WATCH",
+            "TABLET",
+            "WEARABLE_DEVICE",
+            "HOUSEHOLD_DEVICE",
+            "AUTOMOBILE_DEVICE"
+          ]
+        },
+        "provisioning_app_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "wallet_account_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "device_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 24
         }
       }
     },
@@ -19633,13 +19642,13 @@
         },
         "user_token": {
           "type": "string",
-          "description": "Required if \u0027business_token\u0027 is null",
+          "description": "Required if 'business_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
         "business_token": {
           "type": "string",
-          "description": "Required if \u0027user_token\u0027 is null",
+          "description": "Required if 'user_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
@@ -19841,6 +19850,35 @@
         }
       }
     },
+    "DepositAccountResponse": {
+      "type": "object",
+      "required": [
+        "account_number",
+        "routing_number",
+        "token"
+      ],
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "user_token": {
+          "type": "string"
+        },
+        "business_token": {
+          "type": "string"
+        },
+        "account_number": {
+          "type": "string"
+        },
+        "routing_number": {
+          "type": "string"
+        },
+        "allow_immediate_credit": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
     "DepositDepositResponse": {
       "type": "object",
       "properties": {
@@ -19913,134 +19951,6 @@
         },
         "individual_name": {
           "type": "string"
-        }
-      }
-    },
-    "DepositAccountResponse": {
-      "type": "object",
-      "required": [
-        "account_number",
-        "routing_number",
-        "token"
-      ],
-      "properties": {
-        "token": {
-          "type": "string"
-        },
-        "user_token": {
-          "type": "string"
-        },
-        "business_token": {
-          "type": "string"
-        },
-        "account_number": {
-          "type": "string"
-        },
-        "routing_number": {
-          "type": "string"
-        },
-        "allow_immediate_credit": {
-          "type": "boolean",
-          "default": false
-        }
-      }
-    },
-    "DirectDepositRequest": {
-      "type": "object",
-      "required": [
-        "account_number",
-        "amount",
-        "settlement_date",
-        "type"
-      ],
-      "properties": {
-        "token": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 36
-        },
-        "amount": {
-          "type": "number"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "CREDIT",
-            "DEBIT"
-          ]
-        },
-        "account_number": {
-          "type": "string"
-        },
-        "settlement_date": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "standard_entry_class_code": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 3
-        },
-        "company_name": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 16
-        },
-        "company_discretionary_data": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 20
-        },
-        "company_identification": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 10
-        },
-        "company_entry_description": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 10
-        },
-        "individual_identification_number": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 22
-        },
-        "individual_name": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 35
-        },
-        "earlyPayEligible": {
-          "type": "boolean",
-          "default": false
-        }
-      }
-    },
-    "DirectDepositListResponse": {
-      "type": "object",
-      "properties": {
-        "count": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "start_index": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "end_index": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "is_more": {
-          "type": "boolean",
-          "default": false
-        },
-        "data": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/DepositDepositResponse"
-          }
         }
       }
     },
@@ -20188,6 +20098,105 @@
         }
       }
     },
+    "DirectDepositRequest": {
+      "type": "object",
+      "required": [
+        "account_number",
+        "amount",
+        "settlement_date",
+        "type"
+      ],
+      "properties": {
+        "token": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 36
+        },
+        "amount": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "CREDIT",
+            "DEBIT"
+          ]
+        },
+        "account_number": {
+          "type": "string"
+        },
+        "settlement_date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "standard_entry_class_code": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 3
+        },
+        "company_name": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 16
+        },
+        "company_discretionary_data": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 20
+        },
+        "company_identification": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 10
+        },
+        "company_entry_description": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 10
+        },
+        "individual_identification_number": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 22
+        },
+        "individual_name": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 35
+        },
+        "earlyPayEligible": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "DirectDepositListResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "start_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "end_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "is_more": {
+          "type": "boolean",
+          "default": false
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DepositDepositResponse"
+          }
+        }
+      }
+    },
     "ATC Information Model": {
       "type": "object",
       "properties": {
@@ -20255,13 +20264,13 @@
       "properties": {
         "user_token": {
           "type": "string",
-          "description": "Required if \u0027business_token\u0027 is not specified",
+          "description": "Required if 'business_token' is not specified",
           "minLength": 1,
           "maxLength": 36
         },
         "business_token": {
           "type": "string",
-          "description": "Required if \u0027user_token\u0027 is not specified",
+          "description": "Required if 'user_token' is not specified",
           "minLength": 1,
           "maxLength": 36
         },
@@ -20455,6 +20464,27 @@
         }
       }
     },
+    "account_name_verification_model": {
+      "type": "object",
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/ani_information"
+        },
+        "on_file": {
+          "$ref": "#/definitions/ani_information"
+        },
+        "response": {
+          "$ref": "#/definitions/response"
+        },
+        "request_type": {
+          "type": "string",
+          "enum": [
+            "SENDER",
+            "RECEIVER"
+          ]
+        }
+      }
+    },
     "acquirer": {
       "type": "object",
       "properties": {
@@ -20515,6 +20545,20 @@
         }
       }
     },
+    "ani_information": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "middle_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        }
+      }
+    },
     "avs_information": {
       "type": "object",
       "properties": {
@@ -20546,11 +20590,11 @@
           "properties": {
             "user_token": {
               "type": "string",
-              "description": "Required if \u0027business_token\u0027 is null"
+              "description": "Required if 'business_token' is null"
             },
             "business_token": {
               "type": "string",
-              "description": "Required if \u0027user_token\u0027 is null"
+              "description": "Required if 'user_token' is null"
             },
             "account_suffix": {
               "type": "string"
@@ -20631,6 +20675,12 @@
           "type": "string"
         },
         "issuer_exemption": {
+          "type": "string"
+        },
+        "cavv_authentication_amount": {
+          "type": "string"
+        },
+        "raw_cavv_data": {
           "type": "string"
         }
       }
@@ -20785,13 +20835,13 @@
         },
         "user_token": {
           "type": "string",
-          "description": "Required if \u0027business_token\u0027 is null",
+          "description": "Required if 'business_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
         "business_token": {
           "type": "string",
-          "description": "Required if \u0027user_token\u0027 is null",
+          "description": "Required if 'user_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
@@ -21168,7 +21218,7 @@
         },
         "amount": {
           "type": "number",
-          "minimum": 0.00,
+          "minimum": 0,
           "exclusiveMinimum": false
         },
         "memo": {
@@ -21970,11 +22020,11 @@
           "properties": {
             "user_token": {
               "type": "string",
-              "description": "Required if \u0027business_token\u0027 is null"
+              "description": "Required if 'business_token' is null"
             },
             "business_token": {
               "type": "string",
-              "description": "Required if \u0027user_token\u0027 is null"
+              "description": "Required if 'user_token' is null"
             },
             "account_suffix": {
               "type": "string"
@@ -22764,6 +22814,8 @@
             "authorization.clearing.quasi.cash",
             "authorization.clearing.representment",
             "authorization.incremental",
+            "authorization.pin.change",
+            "authorization.pin.unblock",
             "authorization.quasi.cash",
             "authorization.reversal",
             "authorization.reversal.issuerexpiration",
@@ -22827,6 +22879,9 @@
             "original.credit.authorization",
             "original.credit.authorization.clearing",
             "original.credit.authorization.reversal",
+            "pin.change.reversal",
+            "pin.change.reversal.advice",
+            "pin.change.via.api",
             "pindebit",
             "pindebit.atm.withdrawal",
             "pindebit.authorization",
@@ -22842,6 +22897,8 @@
             "pindebit.chargeback.reversal",
             "pindebit.chargeback.writeoff",
             "pindebit.credit.adjustment",
+            "pindebit.pin.change",
+            "pindebit.pin.unblock",
             "pindebit.quasi.cash",
             "pindebit.quasicash",
             "pindebit.refund",
@@ -22921,11 +22978,17 @@
         "preceding_related_transaction_token": {
           "type": "string"
         },
+        "merchant_initiated_original_trace_id": {
+          "type": "string"
+        },
         "preceding_transaction": {
           "$ref": "#/definitions/preceding_transaction"
         },
         "amount_to_be_released": {
           "type": "number"
+        },
+        "is_final_clearing": {
+          "type": "boolean"
         },
         "incremental_authorization_transaction_tokens": {
           "type": "array",
@@ -23049,6 +23112,9 @@
         },
         "address_verification": {
           "$ref": "#/definitions/address_verification_model"
+        },
+        "account_name_verification": {
+          "$ref": "#/definitions/account_name_verification_model"
         },
         "card_security_code_verification": {
           "$ref": "#/definitions/card_security_code_verification"
@@ -23267,13 +23333,13 @@
         },
         "user_token": {
           "type": "string",
-          "description": "Required if \u0027business_token\u0027 is null",
+          "description": "Required if 'business_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
         "business_token": {
           "type": "string",
-          "description": "Required if \u0027user_token\u0027 is null",
+          "description": "Required if 'user_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
@@ -23691,11 +23757,11 @@
         },
         "user_token": {
           "type": "string",
-          "description": "Required if \u0027business_token\u0027 is not present"
+          "description": "Required if 'business_token' is not present"
         },
         "business_token": {
           "type": "string",
-          "description": "Required if \u0027user_token\u0027 is not present"
+          "description": "Required if 'user_token' is not present"
         }
       }
     },
@@ -23714,13 +23780,13 @@
         },
         "user_token": {
           "type": "string",
-          "description": "required if \u0027business_token\u0027 is null",
+          "description": "required if 'business_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
         "business_token": {
           "type": "string",
-          "description": "required if \u0027user_token\u0027 is null",
+          "description": "required if 'user_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
@@ -23992,13 +24058,13 @@
         },
         "user_token": {
           "type": "string",
-          "description": "Required if \u0027business_token\u0027 is null",
+          "description": "Required if 'business_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
         "business_token": {
           "type": "string",
-          "description": "Required if \u0027user_token\u0027 is null",
+          "description": "Required if 'user_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
@@ -24008,40 +24074,16 @@
         }
       }
     },
-    "ach_partner_request_model": {
+    "program_funding_source_update_request": {
       "type": "object",
-      "required": [
-        "partner",
-        "partner_account_link_reference_token"
-      ],
       "properties": {
-        "idempotentHash": {
-          "type": "string"
-        },
-        "token": {
-          "type": "string"
-        },
-        "partner_account_link_reference_token": {
-          "type": "string"
-        },
-        "partner": {
-          "type": "string"
-        },
-        "user_token": {
+        "name": {
           "type": "string",
-          "description": "Required if \u0027business_token\u0027 is null",
           "minLength": 1,
-          "maxLength": 36
+          "maxLength": 50
         },
-        "business_token": {
-          "type": "string",
-          "description": "Required if \u0027user_token\u0027 is null",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "is_default_account": {
-          "type": "boolean",
-          "default": false
+        "active": {
+          "type": "boolean"
         }
       }
     },
@@ -24109,6 +24151,64 @@
         "custom_header": {
           "type": "object",
           "description": "Custom headers to be passed along with request",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "use_mtls": {
+          "type": "boolean",
+          "description": "Use MTLS for funding request",
+          "default": false
+        }
+      }
+    },
+    "gateway_program_funding_source_request": {
+      "type": "object",
+      "required": [
+        "basic_auth_password",
+        "basic_auth_username",
+        "name",
+        "url"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "url": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 250
+        },
+        "token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "basic_auth_username": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "basic_auth_password": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 100
+        },
+        "timeout_millis": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Total timeout in milliseconds for gateway processing",
+          "minimum": 1000,
+          "maximum": 7000
+        },
+        "custom_header": {
+          "type": "object",
+          "description": "Custom headers",
           "additionalProperties": {
             "type": "string"
           }
@@ -24231,16 +24331,6 @@
         }
       }
     },
-    "ACHReversalRequest": {
-      "type": "object",
-      "properties": {
-        "reason_code": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 3
-        }
-      }
-    },
     "ACHReturn": {
       "type": "object",
       "properties": {
@@ -24266,6 +24356,53 @@
         },
         "achType": {
           "type": "string"
+        }
+      }
+    },
+    "ACHReversalRequest": {
+      "type": "object",
+      "properties": {
+        "reason_code": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 3
+        }
+      }
+    },
+    "ach_partner_request_model": {
+      "type": "object",
+      "required": [
+        "partner",
+        "partner_account_link_reference_token"
+      ],
+      "properties": {
+        "idempotentHash": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "partner_account_link_reference_token": {
+          "type": "string"
+        },
+        "partner": {
+          "type": "string"
+        },
+        "user_token": {
+          "type": "string",
+          "description": "Required if 'business_token' is null",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "business_token": {
+          "type": "string",
+          "description": "Required if 'user_token' is null",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "is_default_account": {
+          "type": "boolean",
+          "default": false
         }
       }
     },
@@ -24399,77 +24536,6 @@
         }
       }
     },
-    "program_funding_source_update_request": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 50
-        },
-        "active": {
-          "type": "boolean"
-        }
-      }
-    },
-    "gateway_program_funding_source_request": {
-      "type": "object",
-      "required": [
-        "basic_auth_password",
-        "basic_auth_username",
-        "name",
-        "url"
-      ],
-      "properties": {
-        "name": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 50
-        },
-        "url": {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 250
-        },
-        "token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "active": {
-          "type": "boolean"
-        },
-        "basic_auth_username": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 50
-        },
-        "basic_auth_password": {
-          "type": "string",
-          "minLength": 20,
-          "maxLength": 100
-        },
-        "timeout_millis": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Total timeout in milliseconds for gateway processing",
-          "minimum": 1000,
-          "maximum": 7000
-        },
-        "custom_header": {
-          "type": "object",
-          "description": "Custom headers",
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
-        "use_mtls": {
-          "type": "boolean",
-          "description": "Use MTLS for funding request",
-          "default": false
-        }
-      }
-    },
     "card_holder_address_model": {
       "type": "object",
       "required": [
@@ -24483,13 +24549,13 @@
       "properties": {
         "user_token": {
           "type": "string",
-          "description": "Required if \u0027business_token\u0027 is not specified",
+          "description": "Required if 'business_token' is not specified",
           "minLength": 1,
           "maxLength": 36
         },
         "business_token": {
           "type": "string",
-          "description": "Required if \u0027user_token\u0027 is not specified",
+          "description": "Required if 'user_token' is not specified",
           "minLength": 1,
           "maxLength": 36
         },
@@ -24530,7 +24596,7 @@
         },
         "zip": {
           "type": "string",
-          "description": "Required if \u0027postal_code\u0027 is not specified",
+          "description": "Required if 'postal_code' is not specified",
           "minLength": 0,
           "maxLength": 10
         },
@@ -24554,7 +24620,7 @@
         },
         "postal_code": {
           "type": "string",
-          "description": "Required if \u0027zip\u0027 is not specified",
+          "description": "Required if 'zip' is not specified",
           "minLength": 0,
           "maxLength": 10
         }
@@ -24722,13 +24788,13 @@
         },
         "user_token": {
           "type": "string",
-          "description": "Required if \u0027business_token\u0027 is null",
+          "description": "Required if 'business_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
         "business_token": {
           "type": "string",
-          "description": "Required if \u0027user_token\u0027 is null",
+          "description": "Required if 'user_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
@@ -25090,13 +25156,13 @@
         },
         "user_token": {
           "type": "string",
-          "description": "Required if \u0027business_token\u0027 is null",
+          "description": "Required if 'business_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
         "business_token": {
           "type": "string",
-          "description": "Required if \u0027user_token\u0027 is null",
+          "description": "Required if 'user_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
@@ -25376,25 +25442,25 @@
         },
         "sender_user_token": {
           "type": "string",
-          "description": "Required if \u0027send_business_token\u0027 is null",
+          "description": "Required if 'send_business_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
         "recipient_user_token": {
           "type": "string",
-          "description": "Required if \u0027recipient_business_token\u0027 is null",
+          "description": "Required if 'recipient_business_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
         "sender_business_token": {
           "type": "string",
-          "description": "Required if \u0027send_user_token\u0027 is null",
+          "description": "Required if 'send_user_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
         "recipient_business_token": {
           "type": "string",
-          "description": "Required if \u0027recipient_business_token\u0027 is null",
+          "description": "Required if 'recipient_business_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
@@ -25616,6 +25682,28 @@
         }
       }
     },
+    "ReportRequest": {
+      "type": "object",
+      "properties": {
+        "partner": {
+          "type": "string"
+        },
+        "report": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sendFiles": {
+          "type": "boolean"
+        }
+      }
+    },
     "bulk_request_model": {
       "type": "object",
       "properties": {
@@ -25675,53 +25763,6 @@
         }
       }
     },
-    "card_inventory_response": {
-      "type": "object",
-      "required": [
-        "created_time",
-        "package_id",
-        "starting_inventory"
-      ],
-      "properties": {
-        "created_time": {
-          "type": "string",
-          "format": "date-time",
-          "description": "yyyy-MM-ddTHH:mm:ssZ"
-        },
-        "token": {
-          "type": "string"
-        },
-        "package_id": {
-          "type": "string"
-        },
-        "starting_inventory": {
-          "type": "integer",
-          "format": "int32"
-        }
-      }
-    },
-    "ReportRequest": {
-      "type": "object",
-      "properties": {
-        "partner": {
-          "type": "string"
-        },
-        "report": {
-          "type": "string"
-        },
-        "startDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "endDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "sendFiles": {
-          "type": "boolean"
-        }
-      }
-    },
     "LoadRuleListResponse": {
       "type": "object",
       "properties": {
@@ -25746,29 +25787,6 @@
           "items": {
             "$ref": "#/definitions/load_velocity_model"
           }
-        }
-      }
-    },
-    "card_inventory_request": {
-      "type": "object",
-      "required": [
-        "package_id",
-        "starting_inventory"
-      ],
-      "properties": {
-        "token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "package_id": {
-          "type": "string",
-          "description": "Package ID assigned by card fulfillment"
-        },
-        "starting_inventory": {
-          "type": "integer",
-          "format": "int32",
-          "minimum": 1
         }
       }
     },
@@ -25849,6 +25867,14 @@
         }
       }
     },
+    "program_funding_source_ach_update_request": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "type": "boolean"
+        }
+      }
+    },
     "ACHListResponse": {
       "type": "object",
       "properties": {
@@ -25873,14 +25899,6 @@
           "items": {
             "$ref": "#/definitions/base_ach_response_model"
           }
-        }
-      }
-    },
-    "program_funding_source_ach_update_request": {
-      "type": "object",
-      "properties": {
-        "active": {
-          "type": "boolean"
         }
       }
     },
@@ -25967,47 +25985,6 @@
         }
       }
     },
-    "program_reserve_transaction_request": {
-      "type": "object",
-      "required": [
-        "amount",
-        "currency_code",
-        "token",
-        "type"
-      ],
-      "properties": {
-        "idempotentHash": {
-          "type": "string"
-        },
-        "token": {
-          "type": "string"
-        },
-        "amount": {
-          "type": "number"
-        },
-        "currency_code": {
-          "type": "string"
-        },
-        "memo": {
-          "type": "string"
-        },
-        "tags": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "CREDIT",
-            "DEBIT",
-            "PENDING_CREDIT",
-            "PENDING_DEBIT"
-          ]
-        },
-        "is_collateral": {
-          "type": "boolean"
-        }
-      }
-    },
     "program_reserve_transaction_clearing_request": {
       "type": "object",
       "required": [
@@ -26044,6 +26021,47 @@
         },
         "tags": {
           "type": "string"
+        },
+        "is_collateral": {
+          "type": "boolean"
+        }
+      }
+    },
+    "program_reserve_transaction_request": {
+      "type": "object",
+      "required": [
+        "amount",
+        "currency_code",
+        "token",
+        "type"
+      ],
+      "properties": {
+        "idempotentHash": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "currency_code": {
+          "type": "string"
+        },
+        "memo": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "CREDIT",
+            "DEBIT",
+            "PENDING_CREDIT",
+            "PENDING_DEBIT"
+          ]
         },
         "is_collateral": {
           "type": "boolean"
@@ -26207,13 +26225,13 @@
         },
         "user_token": {
           "type": "string",
-          "description": "Required if \u0027business_token\u0027 is null",
+          "description": "Required if 'business_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
         "business_token": {
           "type": "string",
-          "description": "Required if \u0027user_token\u0027 is null",
+          "description": "Required if 'user_token' is null",
           "minLength": 1,
           "maxLength": 36
         },
@@ -26242,6 +26260,33 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/fee_model"
+          }
+        }
+      }
+    },
+    "PushToCardListResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "start_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "end_index": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "is_more": {
+          "type": "boolean",
+          "default": false
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/push_to_card_response"
           }
         }
       }
@@ -26316,104 +26361,6 @@
         },
         "exp_date": {
           "type": "string"
-        }
-      }
-    },
-    "push_to_card_request": {
-      "type": "object",
-      "required": [
-        "address_1",
-        "city",
-        "country",
-        "cvv",
-        "exp_date",
-        "name_on_card",
-        "pan",
-        "postal_code",
-        "state",
-        "user_token"
-      ],
-      "properties": {
-        "address_1": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 255
-        },
-        "address_2": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 255
-        },
-        "city": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 40
-        },
-        "state": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 2
-        },
-        "postal_code": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 10
-        },
-        "country": {
-          "type": "string"
-        },
-        "token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "user_token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "name_on_card": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 50
-        },
-        "pan": {
-          "type": "string",
-          "minLength": 14,
-          "maxLength": 19
-        },
-        "cvv": {
-          "type": "string"
-        },
-        "exp_date": {
-          "type": "string"
-        }
-      }
-    },
-    "PushToCardListResponse": {
-      "type": "object",
-      "properties": {
-        "count": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "start_index": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "end_index": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "is_more": {
-          "type": "boolean",
-          "default": false
-        },
-        "data": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/push_to_card_response"
-          }
         }
       }
     },
@@ -26614,6 +26561,77 @@
           "items": {
             "$ref": "#/definitions/push_to_card_disbursement_response"
           }
+        }
+      }
+    },
+    "push_to_card_request": {
+      "type": "object",
+      "required": [
+        "address_1",
+        "city",
+        "country",
+        "cvv",
+        "exp_date",
+        "name_on_card",
+        "pan",
+        "postal_code",
+        "state",
+        "user_token"
+      ],
+      "properties": {
+        "address_1": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "address_2": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255
+        },
+        "city": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "state": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2
+        },
+        "postal_code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 10
+        },
+        "country": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "user_token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "name_on_card": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "pan": {
+          "type": "string",
+          "minLength": 14,
+          "maxLength": 19
+        },
+        "cvv": {
+          "type": "string"
+        },
+        "exp_date": {
+          "type": "string"
         }
       }
     },
@@ -26852,40 +26870,6 @@
         }
       }
     },
-    "ReversalModel": {
-      "type": "object",
-      "required": [
-        "amount",
-        "original_transaction_token"
-      ],
-      "properties": {
-        "network_fees": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/network_fee_model"
-          }
-        },
-        "webhook": {
-          "$ref": "#/definitions/Webhook"
-        },
-        "original_transaction_token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "amount": {
-          "type": "number"
-        },
-        "find_original_window_days": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "is_advice": {
-          "type": "boolean",
-          "default": false
-        }
-      }
-    },
     "Webhook": {
       "type": "object",
       "required": [
@@ -27009,6 +26993,40 @@
         },
         "customer_service_phone": {
           "type": "string"
+        }
+      }
+    },
+    "ReversalModel": {
+      "type": "object",
+      "required": [
+        "amount",
+        "original_transaction_token"
+      ],
+      "properties": {
+        "network_fees": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/network_fee_model"
+          }
+        },
+        "webhook": {
+          "$ref": "#/definitions/Webhook"
+        },
+        "original_transaction_token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "amount": {
+          "type": "number"
+        },
+        "find_original_window_days": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "is_advice": {
+          "type": "boolean",
+          "default": false
         }
       }
     },
@@ -27531,6 +27549,9 @@
         "atc_discrepancy_indicator": {
           "type": "string"
         },
+        "account_name_verification": {
+          "$ref": "#/definitions/account_name_verification_model"
+        },
         "poi": {
           "$ref": "#/definitions/AdvancedAuthPOI"
         },
@@ -27923,6 +27944,781 @@
         "is_async": {
           "type": "boolean",
           "default": false
+        }
+      }
+    },
+    "SimulateIncrementalAuthRequest": {
+      "type": "object",
+      "required": [
+        "amount",
+        "card_token",
+        "merchant_id",
+        "network",
+        "network_reference_id"
+      ],
+      "properties": {
+        "card_token": {
+          "type": "string",
+          "description": "The card token of the original transaction"
+        },
+        "amount": {
+          "type": "number",
+          "description": "The amount of the transaction in the clearing currency"
+        },
+        "settlement_currency": {
+          "type": "string",
+          "description": "The ISO-3166-1 Alpha-3 or Numeric code for the clearing currency for the transaction"
+        },
+        "local_amount": {
+          "type": "number",
+          "description": "The amount of the transaction in the local currency"
+        },
+        "local_currency": {
+          "type": "string",
+          "description": "The ISO-3166-1 Alpha-3 or Numeric code for the local currency"
+        },
+        "currency_conversion_rate": {
+          "type": "number",
+          "format": "double",
+          "description": "The conversion rate between the local and settlement currencies"
+        },
+        "network": {
+          "type": "string",
+          "description": "The transaction network for the authorization",
+          "enum": [
+            "MARQETA",
+            "DISCOVER",
+            "MASTERCARD",
+            "PULSE",
+            "VISA"
+          ]
+        },
+        "sub_network": {
+          "type": "string",
+          "description": "The transaction sub-network for the authorization",
+          "enum": [
+            "VISANET",
+            "VISANETDEBIT",
+            "VISAINTERLINK",
+            "VISAPLUS",
+            "MAESTRO",
+            "CIRRUS",
+            "MASTERCARDDEBIT",
+            "GATEWAY_JIT",
+            "MANAGED_JIT"
+          ]
+        },
+        "merchant_id": {
+          "type": "string",
+          "description": "The merchant id for the transaction"
+        },
+        "webhook": {
+          "description": "The webhook the transaction should be passed to",
+          "$ref": "#/definitions/Webhook"
+        },
+        "network_fees": {
+          "type": "array",
+          "description": "The network fees for the transaction",
+          "items": {
+            "$ref": "#/definitions/network_fee_model"
+          }
+        },
+        "network_reference_id": {
+          "type": "string",
+          "description": "The network reference id from the original transaction"
+        }
+      }
+    },
+    "SimulatePinDebitAuthRequest": {
+      "type": "object",
+      "required": [
+        "amount",
+        "card_token",
+        "merchant_id",
+        "network"
+      ],
+      "properties": {
+        "card_token": {
+          "type": "string",
+          "description": "The card token of the original transaction"
+        },
+        "amount": {
+          "type": "number",
+          "description": "The amount of the transaction in the clearing currency"
+        },
+        "settlement_currency": {
+          "type": "string",
+          "description": "The ISO-3166-1 Alpha-3 or Numeric code for the clearing currency for the transaction"
+        },
+        "local_amount": {
+          "type": "number",
+          "description": "The amount of the transaction in the local currency"
+        },
+        "local_currency": {
+          "type": "string",
+          "description": "The ISO-3166-1 Alpha-3 or Numeric code for the local currency"
+        },
+        "currency_conversion_rate": {
+          "type": "number",
+          "format": "double",
+          "description": "The conversion rate between the local and settlement currencies"
+        },
+        "network": {
+          "type": "string",
+          "description": "The transaction network for the authorization",
+          "enum": [
+            "MARQETA",
+            "DISCOVER",
+            "MASTERCARD",
+            "PULSE",
+            "VISA"
+          ]
+        },
+        "sub_network": {
+          "type": "string",
+          "description": "The transaction sub-network for the authorization",
+          "enum": [
+            "VISANET",
+            "VISANETDEBIT",
+            "VISAINTERLINK",
+            "VISAPLUS",
+            "MAESTRO",
+            "CIRRUS",
+            "MASTERCARDDEBIT",
+            "GATEWAY_JIT",
+            "MANAGED_JIT"
+          ]
+        },
+        "merchant_id": {
+          "type": "string",
+          "description": "The merchant id for the transaction"
+        },
+        "webhook": {
+          "description": "The webhook the transaction should be passed to",
+          "$ref": "#/definitions/Webhook"
+        },
+        "network_fees": {
+          "type": "array",
+          "description": "The network fees for the transaction",
+          "items": {
+            "$ref": "#/definitions/network_fee_model"
+          }
+        }
+      }
+    },
+    "authorization_advice_model": {
+      "type": "object",
+      "required": [
+        "amount",
+        "original_transaction_token"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "network_fees": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/network_fee_model"
+          }
+        },
+        "webhook": {
+          "$ref": "#/definitions/Webhook"
+        },
+        "original_transaction_token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "transaction_options": {
+          "$ref": "#/definitions/transaction_options"
+        }
+      }
+    },
+    "ClearingModel": {
+      "type": "object",
+      "required": [
+        "amount",
+        "original_transaction_token"
+      ],
+      "properties": {
+        "network_fees": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/network_fee_model"
+          }
+        },
+        "webhook": {
+          "$ref": "#/definitions/Webhook"
+        },
+        "is_refund": {
+          "type": "boolean",
+          "default": false
+        },
+        "force_post": {
+          "type": "boolean",
+          "default": false
+        },
+        "amount": {
+          "type": "number"
+        },
+        "original_transaction_token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "mid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "card_acceptor": {
+          "$ref": "#/definitions/card_acceptor_model"
+        }
+      }
+    },
+    "MoneyModel": {
+      "type": "object",
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        }
+      }
+    },
+    "advanced_clearing_request_model": {
+      "type": "object",
+      "required": [
+        "amount",
+        "card_hash",
+        "card_token",
+        "currency_code",
+        "reconciliation_amount",
+        "source_amount"
+      ],
+      "properties": {
+        "tcr2": {
+          "type": "boolean"
+        },
+        "network_fees": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/network_fee_model"
+          }
+        },
+        "webhook": {
+          "$ref": "#/definitions/Webhook"
+        },
+        "mid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "amount": {
+          "type": "number"
+        },
+        "source_amount": {
+          "type": "number"
+        },
+        "reconciliation_amount": {
+          "type": "number"
+        },
+        "replacement_amount": {
+          "type": "number"
+        },
+        "cardholder_billing_amount": {
+          "type": "number"
+        },
+        "cashback": {
+          "type": "number"
+        },
+        "local_transaction_amount": {
+          "type": "number"
+        },
+        "local_currency_code": {
+          "type": "string"
+        },
+        "settlement_amount": {
+          "type": "number"
+        },
+        "settlement_currency_code": {
+          "type": "string"
+        },
+        "settlement_conversion_rate": {
+          "type": "number",
+          "format": "double"
+        },
+        "cardholder_billing_conversion_rate": {
+          "type": "number",
+          "format": "double"
+        },
+        "cardholder_billing_currency": {
+          "type": "string"
+        },
+        "card_token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "card_hash": {
+          "type": "string"
+        },
+        "acquirer_reference_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 23
+        },
+        "rrn": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 16
+        },
+        "stan": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 12
+        },
+        "processing_code": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 2
+        },
+        "acquirer_fee": {
+          "$ref": "#/definitions/MoneyModel"
+        },
+        "issuer_fee": {
+          "$ref": "#/definitions/MoneyModel"
+        },
+        "function_code": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 3
+        },
+        "reason_code": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 4
+        },
+        "approval_code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 6
+        },
+        "transaction_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ"
+        },
+        "local_transaction_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ"
+        },
+        "settlement_date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ"
+        },
+        "network_reference_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 16
+        },
+        "find_original_window_days": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "batch_number": {
+          "type": "string"
+        },
+        "batch_file_name": {
+          "type": "string"
+        },
+        "sequence_number": {
+          "type": "string"
+        },
+        "multi_clearing_count": {
+          "type": "string"
+        },
+        "network": {
+          "type": "string",
+          "enum": [
+            "DISCOVER",
+            "MASTERCARD",
+            "PULSE",
+            "VISA"
+          ]
+        },
+        "sub_network": {
+          "type": "string",
+          "description": "Defaults to VISANET if network is VISA",
+          "enum": [
+            "VISANET",
+            "VISANETDEBIT",
+            "VISAINTERLINK",
+            "VISAPLUS"
+          ]
+        },
+        "card_acceptor": {
+          "$ref": "#/definitions/card_acceptor_model"
+        },
+        "currency_code": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 3
+        },
+        "original_data_elements": {
+          "$ref": "#/definitions/original_data_elements"
+        },
+        "preceding_related_transaction_token": {
+          "type": "string"
+        },
+        "send_expiration_date": {
+          "type": "boolean",
+          "default": false
+        },
+        "simulate_batch_for_clearing_record_hash": {
+          "type": "boolean"
+        },
+        "isa_indicator": {
+          "type": "string",
+          "enum": [
+            "SINGLE_CURRENCY",
+            "MULTI_CURRENCY",
+            "REBATE_CANCELLED",
+            "MULTI_CURRENCY_NON_US_COUNTRIES",
+            "SINGLE_CURRENCY_PAID_BY_ISSUER",
+            "NO_CHARGE_ASSESSED"
+          ]
+        },
+        "token_pan": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 16
+        },
+        "payment_channel_indicator": {
+          "type": "string"
+        },
+        "is_installment": {
+          "type": "boolean"
+        },
+        "is_recurring": {
+          "type": "boolean"
+        },
+        "network_metadata": {
+          "$ref": "#/definitions/network_metadata"
+        },
+        "authorization_source_code": {
+          "type": "string"
+        },
+        "interchange_rate_descriptor": {
+          "type": "string"
+        },
+        "acquirer_institution_id_code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 11
+        },
+        "terminal_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 8
+        },
+        "special_condition_indicator": {
+          "type": "string"
+        },
+        "ecommerce_indicator": {
+          "type": "string"
+        },
+        "send_webhooks": {
+          "type": "boolean"
+        },
+        "merchant_tax_id": {
+          "type": "string"
+        },
+        "special_purchase_id": {
+          "type": "string"
+        },
+        "special_merchant_id": {
+          "type": "string"
+        },
+        "deferred_settlement_days": {
+          "type": "string"
+        },
+        "national_net_cpd_of_original": {
+          "type": "string"
+        },
+        "fast_funds_indicator": {
+          "type": "string",
+          "readOnly": true
+        },
+        "business_format_code": {
+          "type": "string"
+        },
+        "mti": {
+          "type": "string",
+          "enum": [
+            "0220",
+            "0420"
+          ]
+        },
+        "clearing_file_name": {
+          "type": "string"
+        }
+      }
+    },
+    "financial_request_model": {
+      "type": "object",
+      "required": [
+        "amount",
+        "card_acceptor",
+        "card_token",
+        "mid"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "card_token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "pin": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 15
+        },
+        "mid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "cash_back_amount": {
+          "type": "number"
+        },
+        "is_pre_auth": {
+          "type": "boolean",
+          "default": false
+        },
+        "card_acceptor": {
+          "$ref": "#/definitions/card_acceptor_model"
+        },
+        "transaction_options": {
+          "$ref": "#/definitions/transaction_options"
+        },
+        "webhook": {
+          "$ref": "#/definitions/Webhook"
+        }
+      }
+    },
+    "withdrawal_request_model": {
+      "type": "object",
+      "required": [
+        "amount",
+        "card_token",
+        "mid"
+      ],
+      "properties": {
+        "account_type": {
+          "type": "string",
+          "enum": [
+            "checking",
+            "savings",
+            "credit"
+          ]
+        },
+        "card_token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "pin": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 15
+        },
+        "mid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "amount": {
+          "type": "number"
+        },
+        "card_acceptor": {
+          "$ref": "#/definitions/card_acceptor_model"
+        },
+        "webhook": {
+          "$ref": "#/definitions/Webhook"
+        }
+      }
+    },
+    "original_credit_sender_data": {
+      "type": "object",
+      "required": [
+        "funding_source"
+      ],
+      "properties": {
+        "funding_source": {
+          "type": "string",
+          "enum": [
+            "credit",
+            "debit",
+            "prepaid",
+            "deposit_account",
+            "cash",
+            "mobile_money_payment",
+            "non_visa_credit",
+            "check",
+            "ach"
+          ]
+        },
+        "sender_account_type": {
+          "type": "string",
+          "enum": [
+            "other",
+            "rtn_bank_account",
+            "iban",
+            "card_account",
+            "email",
+            "phone_number",
+            "bank_account_number_and_identification_code",
+            "wallet_id",
+            "social_network_id"
+          ]
+        },
+        "sender_name": {
+          "type": "string"
+        },
+        "sender_reference_number": {
+          "type": "string"
+        },
+        "sender_account_number": {
+          "type": "string"
+        },
+        "sender_address": {
+          "type": "string"
+        },
+        "sender_city": {
+          "type": "string"
+        },
+        "sender_state": {
+          "type": "string"
+        },
+        "sender_country": {
+          "type": "string"
+        },
+        "unique_transaction_reference_number": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 17
+        },
+        "transaction_purpose": {
+          "type": "string",
+          "enum": [
+            "family_support",
+            "labor_transfers",
+            "travel",
+            "education",
+            "medical_treatment",
+            "emergency_need",
+            "savings",
+            "gifts",
+            "other",
+            "salary",
+            "lending",
+            "crypto_currency"
+          ]
+        },
+        "visa_transaction_purpose": {
+          "type": "string"
+        },
+        "deferred_hold_by": {
+          "type": "string",
+          "enum": [
+            "absent",
+            "visa",
+            "originator"
+          ]
+        },
+        "fast_funds_enabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "orignalcredit_request_model": {
+      "type": "object",
+      "required": [
+        "amount",
+        "card_token",
+        "mid",
+        "type"
+      ],
+      "properties": {
+        "transactionPurpose": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "card_token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 36
+        },
+        "mid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "screening_score": {
+          "type": "string"
+        },
+        "card_acceptor": {
+          "$ref": "#/definitions/card_acceptor_model"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "account_to_account",
+            "person_to_person",
+            "prepaid",
+            "wallet_transfer",
+            "money_transfer_by_bank",
+            "business_to_business",
+            "disbursement",
+            "government_disbursement",
+            "gambling_payout",
+            "loyalty",
+            "merchant_disbursement",
+            "online_gambling_payout",
+            "pension_disbursement",
+            "prepaid_loads",
+            "card_bill_payment",
+            "bill_payment",
+            "cash_claim",
+            "cash_in",
+            "cash_out",
+            "mobile_air_time_payment",
+            "money_transfer_by_merchant",
+            "face_to_face_merchant_payment",
+            "government_payment",
+            "payments_goods_services",
+            "purchase_repayment"
+          ]
+        },
+        "sender_data": {
+          "$ref": "#/definitions/original_credit_sender_data"
+        },
+        "webhook": {
+          "$ref": "#/definitions/Webhook"
         }
       }
     },
@@ -28820,6 +29616,15 @@
         "type": {
           "type": "string"
         },
+        "first_name": {
+          "type": "string"
+        },
+        "middle_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
         "uses_parent_account": {
           "type": "boolean",
           "default": false
@@ -29379,778 +30184,6 @@
         }
       }
     },
-    "SimulateIncrementalAuthRequest": {
-      "type": "object",
-      "required": [
-        "amount",
-        "card_token",
-        "merchant_id",
-        "network",
-        "network_reference_id"
-      ],
-      "properties": {
-        "card_token": {
-          "type": "string",
-          "description": "The card token of the original transaction"
-        },
-        "amount": {
-          "type": "number",
-          "description": "The amount of the transaction in the clearing currency"
-        },
-        "settlement_currency": {
-          "type": "string",
-          "description": "The ISO-3166-1 Alpha-3 or Numeric code for the clearing currency for the transaction"
-        },
-        "local_amount": {
-          "type": "number",
-          "description": "The amount of the transaction in the local currency"
-        },
-        "local_currency": {
-          "type": "string",
-          "description": "The ISO-3166-1 Alpha-3 or Numeric code for the local currency"
-        },
-        "currency_conversion_rate": {
-          "type": "number",
-          "format": "double",
-          "description": "The conversion rate between the local and settlement currencies"
-        },
-        "network": {
-          "type": "string",
-          "description": "The transaction network for the authorization",
-          "enum": [
-            "MARQETA",
-            "DISCOVER",
-            "MASTERCARD",
-            "PULSE",
-            "VISA"
-          ]
-        },
-        "sub_network": {
-          "type": "string",
-          "description": "The transaction sub-network for the authorization",
-          "enum": [
-            "VISANET",
-            "VISANETDEBIT",
-            "VISAINTERLINK",
-            "VISAPLUS",
-            "MAESTRO",
-            "CIRRUS",
-            "MASTERCARDDEBIT",
-            "GATEWAY_JIT",
-            "MANAGED_JIT"
-          ]
-        },
-        "merchant_id": {
-          "type": "string",
-          "description": "The merchant id for the transaction"
-        },
-        "webhook": {
-          "description": "The webhook the transaction should be passed to",
-          "$ref": "#/definitions/Webhook"
-        },
-        "network_fees": {
-          "type": "array",
-          "description": "The network fees for the transaction",
-          "items": {
-            "$ref": "#/definitions/network_fee_model"
-          }
-        },
-        "network_reference_id": {
-          "type": "string",
-          "description": "The network reference id from the original transaction"
-        }
-      }
-    },
-    "SimulatePinDebitAuthRequest": {
-      "type": "object",
-      "required": [
-        "amount",
-        "card_token",
-        "merchant_id",
-        "network"
-      ],
-      "properties": {
-        "card_token": {
-          "type": "string",
-          "description": "The card token of the original transaction"
-        },
-        "amount": {
-          "type": "number",
-          "description": "The amount of the transaction in the clearing currency"
-        },
-        "settlement_currency": {
-          "type": "string",
-          "description": "The ISO-3166-1 Alpha-3 or Numeric code for the clearing currency for the transaction"
-        },
-        "local_amount": {
-          "type": "number",
-          "description": "The amount of the transaction in the local currency"
-        },
-        "local_currency": {
-          "type": "string",
-          "description": "The ISO-3166-1 Alpha-3 or Numeric code for the local currency"
-        },
-        "currency_conversion_rate": {
-          "type": "number",
-          "format": "double",
-          "description": "The conversion rate between the local and settlement currencies"
-        },
-        "network": {
-          "type": "string",
-          "description": "The transaction network for the authorization",
-          "enum": [
-            "MARQETA",
-            "DISCOVER",
-            "MASTERCARD",
-            "PULSE",
-            "VISA"
-          ]
-        },
-        "sub_network": {
-          "type": "string",
-          "description": "The transaction sub-network for the authorization",
-          "enum": [
-            "VISANET",
-            "VISANETDEBIT",
-            "VISAINTERLINK",
-            "VISAPLUS",
-            "MAESTRO",
-            "CIRRUS",
-            "MASTERCARDDEBIT",
-            "GATEWAY_JIT",
-            "MANAGED_JIT"
-          ]
-        },
-        "merchant_id": {
-          "type": "string",
-          "description": "The merchant id for the transaction"
-        },
-        "webhook": {
-          "description": "The webhook the transaction should be passed to",
-          "$ref": "#/definitions/Webhook"
-        },
-        "network_fees": {
-          "type": "array",
-          "description": "The network fees for the transaction",
-          "items": {
-            "$ref": "#/definitions/network_fee_model"
-          }
-        }
-      }
-    },
-    "authorization_advice_model": {
-      "type": "object",
-      "required": [
-        "amount",
-        "original_transaction_token"
-      ],
-      "properties": {
-        "amount": {
-          "type": "number"
-        },
-        "network_fees": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/network_fee_model"
-          }
-        },
-        "webhook": {
-          "$ref": "#/definitions/Webhook"
-        },
-        "original_transaction_token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "transaction_options": {
-          "$ref": "#/definitions/transaction_options"
-        }
-      }
-    },
-    "ClearingModel": {
-      "type": "object",
-      "required": [
-        "amount",
-        "original_transaction_token"
-      ],
-      "properties": {
-        "network_fees": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/network_fee_model"
-          }
-        },
-        "webhook": {
-          "$ref": "#/definitions/Webhook"
-        },
-        "is_refund": {
-          "type": "boolean",
-          "default": false
-        },
-        "force_post": {
-          "type": "boolean",
-          "default": false
-        },
-        "amount": {
-          "type": "number"
-        },
-        "original_transaction_token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "mid": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 50
-        },
-        "card_acceptor": {
-          "$ref": "#/definitions/card_acceptor_model"
-        }
-      }
-    },
-    "MoneyModel": {
-      "type": "object",
-      "required": [
-        "amount",
-        "currency"
-      ],
-      "properties": {
-        "amount": {
-          "type": "number"
-        },
-        "currency": {
-          "type": "string"
-        }
-      }
-    },
-    "advanced_clearing_request_model": {
-      "type": "object",
-      "required": [
-        "amount",
-        "card_hash",
-        "card_token",
-        "currency_code",
-        "reconciliation_amount",
-        "source_amount"
-      ],
-      "properties": {
-        "tcr2": {
-          "type": "boolean"
-        },
-        "network_fees": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/network_fee_model"
-          }
-        },
-        "webhook": {
-          "$ref": "#/definitions/Webhook"
-        },
-        "mid": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 50
-        },
-        "amount": {
-          "type": "number"
-        },
-        "source_amount": {
-          "type": "number"
-        },
-        "reconciliation_amount": {
-          "type": "number"
-        },
-        "replacement_amount": {
-          "type": "number"
-        },
-        "cardholder_billing_amount": {
-          "type": "number"
-        },
-        "cashback": {
-          "type": "number"
-        },
-        "local_transaction_amount": {
-          "type": "number"
-        },
-        "local_currency_code": {
-          "type": "string"
-        },
-        "settlement_amount": {
-          "type": "number"
-        },
-        "settlement_currency_code": {
-          "type": "string"
-        },
-        "settlement_conversion_rate": {
-          "type": "number",
-          "format": "double"
-        },
-        "cardholder_billing_conversion_rate": {
-          "type": "number",
-          "format": "double"
-        },
-        "cardholder_billing_currency": {
-          "type": "string"
-        },
-        "card_token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "card_hash": {
-          "type": "string"
-        },
-        "acquirer_reference_id": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 23
-        },
-        "rrn": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 16
-        },
-        "stan": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 12
-        },
-        "processing_code": {
-          "type": "string",
-          "minLength": 2,
-          "maxLength": 2
-        },
-        "acquirer_fee": {
-          "$ref": "#/definitions/MoneyModel"
-        },
-        "issuer_fee": {
-          "$ref": "#/definitions/MoneyModel"
-        },
-        "function_code": {
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 3
-        },
-        "reason_code": {
-          "type": "string",
-          "minLength": 4,
-          "maxLength": 4
-        },
-        "approval_code": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 6
-        },
-        "transaction_date": {
-          "type": "string",
-          "format": "date-time",
-          "description": "yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ"
-        },
-        "local_transaction_date": {
-          "type": "string",
-          "format": "date-time",
-          "description": "yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ"
-        },
-        "settlement_date": {
-          "type": "string",
-          "format": "date-time",
-          "description": "yyyy-MM-dd, yyyy-MM-ddThh:mm:ssZ"
-        },
-        "network_reference_id": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 16
-        },
-        "find_original_window_days": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "batch_number": {
-          "type": "string"
-        },
-        "batch_file_name": {
-          "type": "string"
-        },
-        "sequence_number": {
-          "type": "string"
-        },
-        "multi_clearing_count": {
-          "type": "string"
-        },
-        "network": {
-          "type": "string",
-          "enum": [
-            "DISCOVER",
-            "MASTERCARD",
-            "PULSE",
-            "VISA"
-          ]
-        },
-        "sub_network": {
-          "type": "string",
-          "description": "Defaults to VISANET if network is VISA",
-          "enum": [
-            "VISANET",
-            "VISANETDEBIT",
-            "VISAINTERLINK",
-            "VISAPLUS"
-          ]
-        },
-        "card_acceptor": {
-          "$ref": "#/definitions/card_acceptor_model"
-        },
-        "currency_code": {
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 3
-        },
-        "original_data_elements": {
-          "$ref": "#/definitions/original_data_elements"
-        },
-        "preceding_related_transaction_token": {
-          "type": "string"
-        },
-        "send_expiration_date": {
-          "type": "boolean",
-          "default": false
-        },
-        "simulate_batch_for_clearing_record_hash": {
-          "type": "boolean"
-        },
-        "isa_indicator": {
-          "type": "string",
-          "enum": [
-            "SINGLE_CURRENCY",
-            "MULTI_CURRENCY",
-            "REBATE_CANCELLED",
-            "MULTI_CURRENCY_NON_US_COUNTRIES",
-            "SINGLE_CURRENCY_PAID_BY_ISSUER",
-            "NO_CHARGE_ASSESSED"
-          ]
-        },
-        "token_pan": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 16
-        },
-        "payment_channel_indicator": {
-          "type": "string"
-        },
-        "is_installment": {
-          "type": "boolean"
-        },
-        "is_recurring": {
-          "type": "boolean"
-        },
-        "network_metadata": {
-          "$ref": "#/definitions/network_metadata"
-        },
-        "authorization_source_code": {
-          "type": "string"
-        },
-        "interchange_rate_descriptor": {
-          "type": "string"
-        },
-        "acquirer_institution_id_code": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 11
-        },
-        "terminal_id": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 8
-        },
-        "special_condition_indicator": {
-          "type": "string"
-        },
-        "send_webhooks": {
-          "type": "boolean"
-        },
-        "merchant_tax_id": {
-          "type": "string"
-        },
-        "special_purchase_id": {
-          "type": "string"
-        },
-        "special_merchant_id": {
-          "type": "string"
-        },
-        "deferred_settlement_days": {
-          "type": "string"
-        },
-        "national_net_cpd_of_original": {
-          "type": "string"
-        },
-        "fast_funds_indicator": {
-          "type": "string",
-          "readOnly": true
-        },
-        "business_format_code": {
-          "type": "string"
-        },
-        "mti": {
-          "type": "string",
-          "enum": [
-            "0220",
-            "0420"
-          ]
-        },
-        "clearing_file_name": {
-          "type": "string"
-        }
-      }
-    },
-    "financial_request_model": {
-      "type": "object",
-      "required": [
-        "amount",
-        "card_acceptor",
-        "card_token",
-        "mid"
-      ],
-      "properties": {
-        "amount": {
-          "type": "number"
-        },
-        "card_token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "pin": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 15
-        },
-        "mid": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 50
-        },
-        "cash_back_amount": {
-          "type": "number"
-        },
-        "is_pre_auth": {
-          "type": "boolean",
-          "default": false
-        },
-        "card_acceptor": {
-          "$ref": "#/definitions/card_acceptor_model"
-        },
-        "transaction_options": {
-          "$ref": "#/definitions/transaction_options"
-        },
-        "webhook": {
-          "$ref": "#/definitions/Webhook"
-        }
-      }
-    },
-    "withdrawal_request_model": {
-      "type": "object",
-      "required": [
-        "amount",
-        "card_token",
-        "mid"
-      ],
-      "properties": {
-        "account_type": {
-          "type": "string",
-          "enum": [
-            "checking",
-            "savings",
-            "credit"
-          ]
-        },
-        "card_token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "pin": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 15
-        },
-        "mid": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 50
-        },
-        "amount": {
-          "type": "number"
-        },
-        "card_acceptor": {
-          "$ref": "#/definitions/card_acceptor_model"
-        },
-        "webhook": {
-          "$ref": "#/definitions/Webhook"
-        }
-      }
-    },
-    "original_credit_sender_data": {
-      "type": "object",
-      "required": [
-        "funding_source"
-      ],
-      "properties": {
-        "funding_source": {
-          "type": "string",
-          "enum": [
-            "credit",
-            "debit",
-            "prepaid",
-            "deposit_account",
-            "cash",
-            "mobile_money_payment",
-            "non_visa_credit",
-            "check",
-            "ach"
-          ]
-        },
-        "sender_account_type": {
-          "type": "string",
-          "enum": [
-            "other",
-            "rtn_bank_account",
-            "iban",
-            "card_account",
-            "email",
-            "phone_number",
-            "bank_account_number_and_identification_code",
-            "wallet_id",
-            "social_network_id"
-          ]
-        },
-        "sender_name": {
-          "type": "string"
-        },
-        "sender_reference_number": {
-          "type": "string"
-        },
-        "sender_account_number": {
-          "type": "string"
-        },
-        "sender_address": {
-          "type": "string"
-        },
-        "sender_city": {
-          "type": "string"
-        },
-        "sender_state": {
-          "type": "string"
-        },
-        "sender_country": {
-          "type": "string"
-        },
-        "unique_transaction_reference_number": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 17
-        },
-        "transaction_purpose": {
-          "type": "string",
-          "enum": [
-            "family_support",
-            "labor_transfers",
-            "travel",
-            "education",
-            "medical_treatment",
-            "emergency_need",
-            "savings",
-            "gifts",
-            "other",
-            "salary",
-            "lending",
-            "crypto_currency"
-          ]
-        },
-        "visa_transaction_purpose": {
-          "type": "string"
-        },
-        "deferred_hold_by": {
-          "type": "string",
-          "enum": [
-            "absent",
-            "visa",
-            "originator"
-          ]
-        },
-        "fast_funds_enabled": {
-          "type": "boolean"
-        }
-      }
-    },
-    "orignalcredit_request_model": {
-      "type": "object",
-      "required": [
-        "amount",
-        "card_token",
-        "mid",
-        "type"
-      ],
-      "properties": {
-        "transactionPurpose": {
-          "type": "string"
-        },
-        "amount": {
-          "type": "number"
-        },
-        "card_token": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 36
-        },
-        "mid": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 50
-        },
-        "screening_score": {
-          "type": "string"
-        },
-        "card_acceptor": {
-          "$ref": "#/definitions/card_acceptor_model"
-        },
-        "type": {
-          "type": "string",
-          "enum": [
-            "account_to_account",
-            "person_to_person",
-            "prepaid",
-            "wallet_transfer",
-            "money_transfer_by_bank",
-            "business_to_business",
-            "disbursement",
-            "government_disbursement",
-            "gambling_payout",
-            "loyalty",
-            "merchant_disbursement",
-            "online_gambling_payout",
-            "pension_disbursement",
-            "prepaid_loads",
-            "card_bill_payment",
-            "bill_payment",
-            "cash_claim",
-            "cash_in",
-            "cash_out",
-            "mobile_air_time_payment",
-            "money_transfer_by_merchant",
-            "face_to_face_merchant_payment",
-            "government_payment",
-            "payments_goods_services",
-            "purchase_repayment"
-          ]
-        },
-        "sender_data": {
-          "$ref": "#/definitions/original_credit_sender_data"
-        },
-        "webhook": {
-          "$ref": "#/definitions/Webhook"
-        }
-      }
-    },
     "auth_request_model": {
       "type": "object",
       "required": [
@@ -30229,30 +30262,71 @@
         }
       }
     },
-    "TransactionModelListResponse": {
+    "clearing_file": {
       "type": "object",
       "properties": {
-        "count": {
-          "type": "integer",
-          "format": "int32"
+        "network": {
+          "type": "string",
+          "enum": [
+            "MARQETA",
+            "DISCOVER",
+            "MASTERCARD",
+            "PULSE",
+            "VISA"
+          ]
         },
-        "start_index": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "end_index": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "is_more": {
-          "type": "boolean",
-          "default": false
-        },
-        "data": {
+        "file": {
+          "type": "string"
+        }
+      }
+    },
+    "clearing_file_response": {
+      "type": "object",
+      "properties": {
+        "clearing_files": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/transaction_model"
+            "$ref": "#/definitions/clearing_file"
           }
+        }
+      }
+    },
+    "clearing_file_request": {
+      "type": "object",
+      "required": [
+        "transaction_tokens"
+      ],
+      "properties": {
+        "transaction_tokens": {
+          "type": "array",
+          "description": "A list of 'clearing_transaction_request' items",
+          "items": {
+            "$ref": "#/definitions/advanced_clearing_request_model"
+          }
+        },
+        "wait_timeout": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Timeout in seconds"
+        },
+        "batch_id": {
+          "type": "string",
+          "description": "A string representing batch ID"
+        },
+        "clearing_folder": {
+          "type": "string"
+        },
+        "encrypt_file": {
+          "type": "boolean"
+        },
+        "create_completion_file": {
+          "type": "boolean"
+        },
+        "settlement_date": {
+          "type": "string"
+        },
+        "token_pan": {
+          "type": "string"
         }
       }
     },
@@ -30296,71 +30370,30 @@
         }
       }
     },
-    "clearing_file": {
+    "TransactionModelListResponse": {
       "type": "object",
       "properties": {
-        "network": {
-          "type": "string",
-          "enum": [
-            "MARQETA",
-            "DISCOVER",
-            "MASTERCARD",
-            "PULSE",
-            "VISA"
-          ]
-        },
-        "file": {
-          "type": "string"
-        }
-      }
-    },
-    "clearing_file_response": {
-      "type": "object",
-      "properties": {
-        "clearing_files": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/clearing_file"
-          }
-        }
-      }
-    },
-    "clearing_file_request": {
-      "type": "object",
-      "required": [
-        "transaction_tokens"
-      ],
-      "properties": {
-        "transaction_tokens": {
-          "type": "array",
-          "description": "A list of \u0027clearing_transaction_request\u0027 items",
-          "items": {
-            "$ref": "#/definitions/advanced_clearing_request_model"
-          }
-        },
-        "wait_timeout": {
+        "count": {
           "type": "integer",
-          "format": "int64",
-          "description": "Timeout in seconds"
+          "format": "int32"
         },
-        "batch_id": {
-          "type": "string",
-          "description": "A string representing batch ID"
+        "start_index": {
+          "type": "integer",
+          "format": "int32"
         },
-        "clearing_folder": {
-          "type": "string"
+        "end_index": {
+          "type": "integer",
+          "format": "int32"
         },
-        "encrypt_file": {
-          "type": "boolean"
+        "is_more": {
+          "type": "boolean",
+          "default": false
         },
-        "create_completion_file": {
-          "type": "boolean"
-        },
-        "settlement_date": {
-          "type": "string"
-        },
-        "token_pan": {
-          "type": "string"
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/transaction_model"
+          }
         }
       }
     },
@@ -30628,7 +30661,9 @@
           ]
         },
         "reason": {
-          "type": "string"
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
         },
         "channel": {
           "type": "string",
@@ -31508,7 +31543,7 @@
         },
         "amount_limit": {
           "type": "number",
-          "minimum": 0.00,
+          "minimum": 0,
           "exclusiveMinimum": false
         },
         "velocity_window": {
@@ -31568,7 +31603,7 @@
         },
         "amount": {
           "type": "number",
-          "minimum": 0.00,
+          "minimum": 0,
           "exclusiveMinimum": false
         },
         "days_remaining": {
@@ -31634,7 +31669,7 @@
         },
         "amount_limit": {
           "type": "number",
-          "minimum": 0.00,
+          "minimum": 0,
           "exclusiveMinimum": false
         },
         "velocity_window": {
@@ -31709,7 +31744,7 @@
         },
         "amount_limit": {
           "type": "number",
-          "minimum": 0.00,
+          "minimum": 0,
           "exclusiveMinimum": false
         },
         "velocity_window": {
@@ -31784,7 +31819,7 @@
         },
         "amount_limit": {
           "type": "number",
-          "minimum": 0.00,
+          "minimum": 0,
           "exclusiveMinimum": false
         },
         "velocity_window": {
@@ -31931,7 +31966,7 @@
           "type": "integer",
           "format": "int32",
           "example": 0,
-          "description": "1 =\u003e Tokenization will be attempted.; 0 =\u003eTokenization will not be attempted.",
+          "description": "1 => Tokenization will be attempted.; 0 =>Tokenization will not be attempted.",
           "enum": [
             "0",
             "1"
@@ -31941,7 +31976,7 @@
           "type": "integer",
           "format": "int32",
           "example": 0,
-          "description": "1 =\u003e FPAN save will be attempted.; 0 =\u003e FPAN save will not be attempted.",
+          "description": "1 => FPAN save will be attempted.; 0 => FPAN save will not be attempted.",
           "enum": [
             "0",
             "1"
@@ -32724,7 +32759,7 @@
       "properties": {
         "crypto_keys": {
           "type": "array",
-          "description": "A list of \u0027internal crypto key\u0027 items",
+          "description": "A list of 'internal crypto key' items",
           "items": {
             "$ref": "#/definitions/internal_crypto_key_request"
           },
